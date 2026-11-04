@@ -11,8 +11,11 @@ và KHÔNG dùng vào mục đích thương mại (bán, thu phí, quảng cáo 
 -----------------------------------------------------------------------
 Ghi công / phần của tác giả khác
 -----------------------------------------------------------------------
-- Cuộn mượt: dựa trên Mos của Caldis (github.com/Caldis/Mos, giấy phép
-  CC BY-NC 4.0), làm lại bởi Duck bằng Swift, tiếng Việt, thêm tính năng mới.
+- Ý tưởng và tính năng (gán chức năng giữ nút + kéo 4 hướng, test chuột
+  có kết luận bằng lời, ô thử nút khoá chức năng, nhận diện chuột + thông
+  số 100 mẫu, giao diện tiếng Việt): Duck tự nghĩ ra và làm.
+- Riêng thuật toán cuộn mượt: dựa trên Mos của Caldis (github.com/Caldis/Mos,
+  giấy phép CC BY-NC 4.0), làm lại bởi Duck bằng Swift.
 - Màu sắc, bo góc, thông số hiệu ứng giao diện theo Lucian UX/UI Prompt
   (lucianlabs.dev/uxui-prompt, github.com/Seokwoooo/lucian-uxui-prompt),
   MIT License, Copyright (c) 2026 Seokwoooo:

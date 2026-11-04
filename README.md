@@ -33,6 +33,8 @@ Ra `DuckMouse.app` trong `$TMPDIR/DuckMouse-build`. Cần Xcode Command Line Too
 Mã nguồn: `Ma nguon/Sources/` (chú thích tiếng Việt) – `ScrollEngine` cuộn mượt · `ButtonEngine` nút + cử chỉ · `Actions` 34 chức năng · `MiceDB` nhận chuột + dữ liệu `Resources/mice.json` · `MouseHID` đọc chuột · các file `*View` giao diện.
 
 ## Ghi công
+- Ý tưởng và tính năng: **Duck** tự nghĩ ra và làm (gán chức năng giữ nút + kéo 4 hướng, test chuột có kết luận bằng lời, nhận diện chuột + thông số 100 mẫu, giao diện tiếng Việt).
+- Riêng thuật toán cuộn mượt dựa trên Mos của Caldis (CC BY-NC 4.0), làm lại bởi Duck – xem [LICENSE](LICENSE).
 - Màu sắc, bo góc, hiệu ứng giao diện theo **Lucian UX/UI Prompt** – [Seokwoooo/lucian-uxui-prompt](https://github.com/Seokwoooo/lucian-uxui-prompt) (MIT).
 - Mã nhận diện chuột đối chiếu với Solaar, OpenRazer, libratbag, rivalcfg, usb.ids, Linux hid-ids.h; thông số lấy từ trang các hãng (nguồn ghi trong từng mẫu). Tên hãng, tên sản phẩm thuộc về chủ sở hữu.
 
