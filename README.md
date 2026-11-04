@@ -2,12 +2,18 @@
 
 App chuột tiếng Việt cho macOS (chip Apple): **cuộn mượt** như trackpad, **gán chức năng** cho nút chuột bằng cách giữ nút rồi kéo 4 hướng, **test chuột** có kết luận bằng lời, và **nhận diện chuột** kèm thông số hãng (100 mẫu phổ biến). Viết bằng Swift, nhẹ khoảng 1 MB.
 
+<img src="anh/1-chuot-cua-toi.png" width="760" alt="Chuột của tôi">
+
 ## Tính năng
 - **Chuột của tôi** – tự nhận chuột vừa nối (cáp, dongle 2.4G, Bluetooth), hiện cả chuột từng ghép Bluetooth. Có sẵn thông số của 100 mẫu chuột văn phòng, silent, gaming (Logitech, Razer, HyperWork, Microsoft, Apple, Dell, SteelSeries, DareU, E-Dra…). Chuột lạ: chọn trong danh sách hoặc nhập tay, lần sau tự nhận.
 - **Test chuột 3 bước (khoảng 1 phút)** – rê 10 giây đo độ mượt, độ đều, số lần khựng · ô thử nút: đưa con trỏ vào ô là mọi nút chỉ được *ghi nhận*, không chạy chức năng · kết quả bằng lời (xanh / vàng / đỏ), so với chuẩn từng kiểu kết nối và với lần test trước, chép kết quả để gửi bảo hành.
 - **Cuộn mượt** – trôi chậm dần sau mỗi nấc lăn; ⌥ cuộn nhanh, ⇧ cuộn ngang, ⌘ tạm tắt. Trackpad và Magic Mouse giữ nguyên.
 - **Gán chức năng** – mỗi nút (bánh xe, hông sau, hông trước, nút thêm) có 5 ô: click + giữ rồi kéo ← → ↑ ↓. Chọn trong 34 chức năng: Copy / Dán / Cắt / Hoàn tác, sang màn trái / phải (như vuốt 3 ngón), Mission Control, chụp vùng màn hình, tab trình duyệt, âm lượng, mở thư mục / app / trang web, phím tắt tự chọn… Hiện chữ nhỏ giữa màn hình mỗi khi chức năng chạy.
+- **Mời cà phê** – app miễn phí; thấy hữu ích thì quét mã VietQR trong app để ủng hộ.
 - Tự bật lại khi macOS tắt bộ bắt sự kiện (sau khi máy ngủ dậy). Tự nghỉ khi Mos đang chạy để không cuộn 2 lần.
+
+<img src="anh/2-gan-chuc-nang.png" width="760" alt="Gán chức năng">
+<img src="anh/3-test-chuot.png" width="760" alt="Test chuột">
 
 ## Cài đặt
 Yêu cầu: macOS 14 trở lên, chip Apple (M1/M2/M3…).
