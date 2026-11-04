@@ -11,9 +11,8 @@ và KHÔNG dùng vào mục đích thương mại (bán, thu phí, quảng cáo 
 -----------------------------------------------------------------------
 Ghi công / phần của tác giả khác
 -----------------------------------------------------------------------
-- Thuật toán cuộn mượt viết lại theo Mos của Caldis
-  (github.com/Caldis/Mos), giấy phép CC BY-NC 4.0. Đã viết lại bằng
-  Swift, chuyển sang tiếng Việt và thêm tính năng mới.
+- Cuộn mượt: dựa trên Mos của Caldis (github.com/Caldis/Mos, giấy phép
+  CC BY-NC 4.0), làm lại bởi Duck bằng Swift, tiếng Việt, thêm tính năng mới.
 - Màu sắc, bo góc, thông số hiệu ứng giao diện theo Lucian UX/UI Prompt
   (lucianlabs.dev/uxui-prompt, github.com/Seokwoooo/lucian-uxui-prompt),
   MIT License, Copyright (c) 2026 Seokwoooo:
