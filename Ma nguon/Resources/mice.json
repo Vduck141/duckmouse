@@ -1,0 +1,6636 @@
+[
+ {
+  "brand": "Logitech",
+  "model": "M170",
+  "group": "văn phòng",
+  "dpi": "1000 (cố định)",
+  "weight_g": 69.3,
+  "connection": [
+   "2.4 GHz nano receiver"
+  ],
+  "battery": "1 pin AA, ~12 tháng (không sạc)",
+  "buttons": 3,
+  "sensor": "Logitech Advanced Optical Tracking (trang sản phẩm: Smooth optical tracking)",
+  "silent": false,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_names_verified": false,
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "046D:C52F",
+     "what": "Logitech Nano receiver (C-U0010)",
+     "shared": true
+    },
+    {
+     "id": "046D:C542",
+     "what": "Logitech Wireless Receiver (nano, non-Unifying)",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitech.com/en-us/shop/p/m170-wireless-mouse",
+   "ids": "https://support.logi.com/hc/en-us/articles/360023301394"
+  },
+  "layout": {
+   "physical": 3,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://www.logitech.com/en-us/shop/p/m170-wireless-mouse"
+  },
+  "note": "Bản M-R0060 dùng receiver C52F, bản MR0099 dùng C542 (theo support.logi.com). Trang hãng ghi 69,3 g, trang hỗ trợ ghi 70,5 g; không ghi rõ có pin."
+ },
+ {
+  "brand": "Logitech",
+  "model": "M185",
+  "group": "văn phòng",
+  "dpi": "1000 (cố định)",
+  "weight_g": 75.2,
+  "connection": [
+   "2.4 GHz nano receiver"
+  ],
+  "battery": "1 pin AA, ~12 tháng (không sạc)",
+  "buttons": 3,
+  "sensor": "Logitech Advanced Optical Tracking",
+  "silent": false,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_names_verified": false,
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "046D:C52B",
+     "what": "Logitech Unifying receiver",
+     "shared": true
+    },
+    {
+     "id": "046D:C52F",
+     "what": "Logitech Nano receiver (C-U0010)",
+     "shared": true
+    },
+    {
+     "id": "046D:C542",
+     "what": "Logitech Wireless Receiver (nano, non-Unifying)",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitech.com/en-us/shop/p/m185-wireless-mouse",
+   "ids": "https://support.logi.com/hc/en-us/articles/360023302074"
+  },
+  "layout": {
+   "physical": 3,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://www.logitech.com/en-us/shop/p/m185-wireless-mouse"
+  },
+  "note": "6 bản phần cứng: M-R0038 dùng Unifying C52B; M-R0061/M-R0085 dùng C52F; M-R0084/M-R0078/MR0102 dùng C542. Solaar có WPID 4038/4054/4055 cho M185 (chỉ thấy khi đi qua receiver HID++)."
+ },
+ {
+  "brand": "Logitech",
+  "model": "M190",
+  "group": "văn phòng",
+  "dpi": "1000 (cố định)",
+  "weight_g": 89.9,
+  "connection": [
+   "2.4 GHz nano receiver (không Unifying)"
+  ],
+  "battery": "1 pin AA, ~18 tháng (không sạc)",
+  "buttons": 3,
+  "sensor": "Smooth Optical Tracking",
+  "silent": false,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_names_verified": false,
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitech.com/en-us/shop/p/m190-wireless-mouse",
+   "ids": "https://support.logi.com/hc/en-us/articles/360051108454"
+  },
+  "layout": {
+   "physical": 3,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://www.logitech.com/en-us/shop/p/m190-wireless-mouse"
+  },
+  "note": "Hãng không công bố USB PID của receiver M190 → app nên hỏi người dùng. Không ghi rõ cân nặng có pin."
+ },
+ {
+  "brand": "Logitech",
+  "model": "M196",
+  "group": "văn phòng",
+  "dpi": "1000 (danh định)",
+  "weight_g": 76,
+  "connection": [
+   "Bluetooth LE"
+  ],
+  "battery": "1 pin AA (lắp sẵn), ~12 tháng (không sạc)",
+  "buttons": 3,
+  "sensor": "Smooth optical tracking",
+  "silent": false,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [
+    "M196"
+   ],
+   "bt_names_verified": false,
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitech.com/en-us/shop/p/m196-bluetooth-mouse",
+   "ids": ""
+  },
+  "layout": {
+   "physical": 3,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://www.logitech.com/en-us/shop/p/m196-bluetooth-mouse"
+  },
+  "note": "Chỉ Bluetooth. Không tìm được BT PID/tên quảng bá từ nguồn thật; bt_names là tên sản phẩm, chưa xác minh. Trang hãng ghi 3 nút ở mục khác (spec chỉ ghi bánh xe 2D)."
+ },
+ {
+  "brand": "Logitech",
+  "model": "M221 Silent",
+  "group": "silent",
+  "dpi": "1000 (cố định)",
+  "weight_g": 75.2,
+  "connection": [
+   "2.4 GHz USB nano receiver"
+  ],
+  "battery": "1 pin AA, ~18 tháng (không sạc)",
+  "buttons": 3,
+  "sensor": "Smooth optical tracking",
+  "silent": true,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_names_verified": false,
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "046D:C52F",
+     "what": "Logitech Nano receiver (C-U0010)",
+     "shared": true
+    },
+    {
+     "id": "046D:C542",
+     "what": "Logitech Wireless Receiver (nano, non-Unifying)",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitech.com/en-sg/shop/p/m221-wireless-mouse",
+   "ids": "https://support.logi.com/hc/en-in/articles/360023302714-Wireless-Mouse-M221-Technical-Specifications"
+  },
+  "layout": {
+   "physical": 3,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://www.logitech.com/en-sg/shop/p/m221-wireless-mouse"
+  },
+  "note": "SilentTouch giảm 90% tiếng click. Bản hỗ trợ ghi M/N M-R0061 và M-R0084 – cùng mã với M185, nên receiver suy theo bảng M185 (M-R0061→C52F, M-R0084→C542); hãng không ghi PID trực tiếp trên trang M221. 75,2 g có pin (trang en-in)."
+ },
+ {
+  "brand": "Logitech",
+  "model": "M240 Silent Bluetooth",
+  "group": "silent",
+  "dpi": "400–4000, bước 100 (mặc định 1000)",
+  "weight_g": 73.8,
+  "connection": [
+   "Bluetooth LE"
+  ],
+  "battery": "1 pin AA, ~18 tháng (không sạc)",
+  "buttons": 3,
+  "sensor": "Smooth optical tracking",
+  "silent": true,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [
+    "M240"
+   ],
+   "bt_names_verified": false,
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitech.com/en-us/shop/p/m240-silent-bluetooth-mouse",
+   "ids": ""
+  },
+  "layout": {
+   "physical": 3,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://www.logitech.com/en-us/shop/p/m240-silent-bluetooth-mouse"
+  },
+  "note": "SilentTouch giảm 90% tiếng click (so với M185). Trang hãng chỉ ghi Bluetooth LE; không có BT PID trong Solaar/Linux. bt_names chưa xác minh."
+ },
+ {
+  "brand": "Logitech",
+  "model": "M331 Silent Plus",
+  "group": "silent",
+  "dpi": "1000 (cố định)",
+  "weight_g": 78,
+  "connection": [
+   "2.4 GHz USB nano receiver"
+  ],
+  "battery": "1 pin AA, ~18 tháng (không sạc)",
+  "buttons": 3,
+  "sensor": "Smooth optical tracking",
+  "silent": true,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_names_verified": false,
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitech.com/en-sg/shop/p/m331-silent-plus-mouse",
+   "ids": "https://support.logi.com/hc/en-us/articles/360023302834"
+  },
+  "layout": {
+   "physical": 3,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://www.logitech.com/en-sg/shop/p/m331-silent-plus-mouse"
+  },
+  "note": "Giảm >90% tiếng click so với M170. Hãng không công bố USB PID receiver; trang hỗ trợ M330 (cùng dòng Silent Plus) cũng không ghi PID. 78 g có pin (theo trang M330)."
+ },
+ {
+  "brand": "Logitech",
+  "model": "M590 Silent",
+  "group": "silent",
+  "dpi": "1000 (cố định)",
+  "weight_g": 107,
+  "connection": [
+   "Bluetooth LE",
+   "2.4 GHz Unifying receiver"
+  ],
+  "battery": "1 pin AA, ~18 tháng (không sạc)",
+  "buttons": 7,
+  "sensor": "High Precision Optical Tracking",
+  "silent": true,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [
+    "M590"
+   ],
+   "bt_names_verified": false,
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "046D:C52B",
+     "what": "Logitech Unifying receiver",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitech.com/en-us/shop/p/m590-silent-wireless-mouse",
+   "ids": "https://raw.githubusercontent.com/pwr-Solaar/Solaar/master/lib/logitech_receiver/descriptors.py"
+  },
+  "layout": {
+   "physical": 7,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nghiêng bánh xe trái",
+     "kind": "tilt_left",
+     "signal": "hid"
+    },
+    {
+     "name": "Nghiêng bánh xe phải",
+     "kind": "tilt_right",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút Easy-Switch / kênh kết nối",
+     "kind": "easyswitch",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.logitech.com/en-us/shop/p/m590-silent-wireless-mouse",
+   "note": "Nút Easy-Switch không tính trong 7 nút của hãng. Nghiêng bánh xe gửi cuộn ngang chuẩn (giả định theo HID, chưa thử trên macOS)."
+  },
+  "note": "Solaar: 'Multi Device Silent Mouse M585/M590', WPID 406B (qua Unifying). Không có BT PID trong nguồn. SilentTouch."
+ },
+ {
+  "brand": "Logitech",
+  "model": "M650 Signature",
+  "group": "silent",
+  "dpi": "400 danh định, tối đa 4000",
+  "weight_g": 101.4,
+  "connection": [
+   "Bluetooth LE",
+   "Logi Bolt 2.4 GHz"
+  ],
+  "battery": "1 pin AA; ~24 tháng (Bolt), ~20 tháng (Bluetooth)",
+  "buttons": 5,
+  "sensor": "Logitech Advanced Optical Tracking",
+  "silent": true,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [
+    "Signature M650"
+   ],
+   "bt_names_verified": false,
+   "bt_ids": [
+    "046D:B02A"
+   ],
+   "usb_ids": [
+    {
+     "id": "046D:C548",
+     "what": "Logi Bolt receiver",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitech.com/en-us/shop/p/m650-signature-wireless-mouse",
+   "ids": "https://raw.githubusercontent.com/torvalds/linux/master/drivers/hid/hid-logitech-hidpp.c"
+  },
+  "layout": {
+   "physical": 5,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://www.logitech.com/en-us/shop/p/m650-signature-wireless-mouse"
+  },
+  "note": "Cỡ thường 101,4 g; M650 L (cỡ lớn) 115,4 g. BT PID 0xB02A theo Linux hid-logitech-hidpp (HIDPP_PRODUCT_SIGNATURE_M650). SilentTouch."
+ },
+ {
+  "brand": "Logitech",
+  "model": "M720 Triathlon",
+  "group": "văn phòng",
+  "dpi": "1000 (cố định)",
+  "weight_g": 135,
+  "connection": [
+   "Bluetooth LE",
+   "2.4 GHz Unifying receiver"
+  ],
+  "battery": "1 pin AA, ~24 tháng (không sạc)",
+  "buttons": 8,
+  "sensor": "High Precision Optical Tracking",
+  "silent": false,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [
+    "M720 Triathlon"
+   ],
+   "bt_names_verified": false,
+   "bt_ids": [
+    "046D:B015"
+   ],
+   "usb_ids": [
+    {
+     "id": "046D:C52B",
+     "what": "Logitech Unifying receiver",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitech.com/en-sg/shop/p/m720-triathlon",
+   "ids": "https://raw.githubusercontent.com/torvalds/linux/master/drivers/hid/hid-logitech-hidpp.c"
+  },
+  "layout": {
+   "physical": 8,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nghiêng bánh xe trái",
+     "kind": "tilt_left",
+     "signal": "hid"
+    },
+    {
+     "name": "Nghiêng bánh xe phải",
+     "kind": "tilt_right",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút ngón cái",
+     "kind": "extra",
+     "signal": "unknown"
+    },
+    {
+     "name": "Nút Easy-Switch / kênh kết nối",
+     "kind": "easyswitch",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.logitech.com/en-sg/shop/p/m720-triathlon",
+   "note": "Hãng chỉ ghi 8 nút, không liệt kê; danh sách theo hình dáng chuột – nút ngón cái và nút Easy-Switch cần kiểm thực tế."
+  },
+  "note": "BT PID 0xB015 theo Linux hid-logitech-hidpp. Có cuộn siêu nhanh."
+ },
+ {
+  "brand": "Logitech",
+  "model": "Pebble M350",
+  "group": "silent",
+  "dpi": "1000 ±150 (cố định)",
+  "weight_g": 66,
+  "connection": [
+   "Bluetooth LE",
+   "2.4 GHz nano receiver (Unifying ready)"
+  ],
+  "battery": "1 pin AA, ~18 tháng (không sạc)",
+  "buttons": 3,
+  "sensor": "Optical",
+  "silent": true,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [
+    "Pebble M350"
+   ],
+   "bt_names_verified": false,
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "046D:C52F",
+     "what": "Logitech Nano receiver (C-U0010)",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://support.logi.com/hc/en-us/articles/360024700233",
+   "ids": "https://support.logi.com/hc/en-us/articles/360024700233"
+  },
+  "layout": {
+   "physical": 3,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút chuyển kết nối (đáy)",
+     "kind": "easyswitch",
+     "signal": "none"
+    }
+   ],
+   "source": "https://support.logi.com/hc/en-us/articles/360024700233"
+  },
+  "note": "66 g gồm receiver, KHÔNG gồm pin. support.logi.com ghi USB PID 0x0C52F. Solaar: 'Wireless Mouse Pebble M350' WPID 4080. Silent: hãng quảng cáo click êm (nguồn bán lẻ; trang hãng của M350 gốc đã chuyển sang M350s). bt_names chưa xác minh."
+ },
+ {
+  "brand": "Logitech",
+  "model": "Pebble Mouse 2 M350s",
+  "group": "silent",
+  "dpi": "400–4000, bước 100 (mặc định 1000)",
+  "weight_g": 76,
+  "connection": [
+   "Bluetooth LE",
+   "Logi Bolt (không kèm)"
+  ],
+  "battery": "1 pin AA, ~24 tháng (không sạc)",
+  "buttons": 3,
+  "sensor": "High-precision optical tracking",
+  "silent": true,
+  "polling_hz": "Bolt 125 Hz; Bluetooth 88–133 Hz",
+  "match": {
+   "bt_names": [
+    "Pebble Mouse 2 M350s"
+   ],
+   "bt_names_verified": false,
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "046D:C548",
+     "what": "Logi Bolt receiver",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitech.com/en-ca/shop/p/pebble-2-m350s-wireless-mouse",
+   "ids": "https://support.logi.com/hc/en-us/articles/16171133096087"
+  },
+  "layout": {
+   "physical": 3,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút Easy-Switch / kênh kết nối",
+     "kind": "easyswitch",
+     "signal": "none"
+    }
+   ],
+   "source": "https://support.logi.com/hc/en-us/articles/16171133096087"
+  },
+  "note": "76 g gồm pin + receiver (53 g không pin). Không tìm được BT PID trong nguồn. Click êm (quiet clicks)."
+ },
+ {
+  "brand": "Logitech",
+  "model": "POP Mouse",
+  "group": "silent",
+  "dpi": "1000–4000 (mặc định 1000)",
+  "weight_g": 82,
+  "connection": [
+   "Bluetooth LE 5.1",
+   "Logi Bolt (bán riêng)"
+  ],
+  "battery": "1 pin AA, ~24 tháng (không sạc)",
+  "buttons": 4,
+  "sensor": "Logitech High Precision Optical Tracking",
+  "silent": true,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [
+    "POP Mouse"
+   ],
+   "bt_names_verified": false,
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "046D:C548",
+     "what": "Logi Bolt receiver",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitech.com/en-gb/shop/p/pop-wireless-mouse",
+   "ids": ""
+  },
+  "layout": {
+   "physical": 4,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút trên (emoji)",
+     "kind": "extra",
+     "signal": "software"
+    },
+    {
+     "name": "Nút Easy-Switch / kênh kết nối",
+     "kind": "easyswitch",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.logitech.com/en-gb/shop/p/pop-wireless-mouse",
+   "note": "Easy-Switch có theo FAQ trang hãng, không tính trong 4 nút."
+  },
+  "note": "SilentTouch giảm >90% tiếng click. Không có BT PID trong nguồn; bt_names chưa xác minh."
+ },
+ {
+  "brand": "Logitech",
+  "model": "MX Anywhere 3",
+  "group": "văn phòng",
+  "dpi": "200–4000 (hãng không ghi mặc định)",
+  "weight_g": 99,
+  "connection": [
+   "Bluetooth LE",
+   "2.4 GHz Unifying receiver"
+  ],
+  "battery": "Pin sạc Li-Po 500 mAh, ~70 ngày, sạc USB-C (đầy 2 giờ)",
+  "buttons": 6,
+  "sensor": "Darkfield high precision",
+  "silent": false,
+  "polling_hz": "Bluetooth 88–133 Hz",
+  "match": {
+   "bt_names": [
+    "MX Anywhere 3"
+   ],
+   "bt_names_verified": false,
+   "bt_ids": [
+    "046D:B025"
+   ],
+   "usb_ids": [
+    {
+     "id": "046D:C52B",
+     "what": "Logitech Unifying receiver",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://support.logi.com/hc/en-us/articles/360053565493",
+   "ids": "https://raw.githubusercontent.com/torvalds/linux/master/drivers/hid/hid-logitech-hidpp.c"
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút đổi chế độ bánh xe (SmartShift)",
+     "kind": "smartshift",
+     "signal": "none"
+    }
+   ],
+   "source": "https://support.logi.com/hc/en-us/articles/360053565493"
+  },
+  "note": "99 g có pin (88,3 g không pin). Bản 'for Business' dùng Bolt. BT PID 0xB025 theo Linux hid-logitech-hidpp."
+ },
+ {
+  "brand": "Logitech",
+  "model": "MX Anywhere 3S",
+  "group": "silent",
+  "dpi": "200–8000, bước 50 (mặc định 1000)",
+  "weight_g": 99,
+  "connection": [
+   "Bluetooth LE",
+   "Logi Bolt (không kèm)"
+  ],
+  "battery": "Pin sạc Li-Po 500 mAh, ~70 ngày, sạc USB-C",
+  "buttons": 6,
+  "sensor": "Darkfield high precision",
+  "silent": true,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [
+    "MX Anywhere 3S"
+   ],
+   "bt_names_verified": false,
+   "bt_ids": [
+    "046D:B037",
+    "046D:B038"
+   ],
+   "usb_ids": [
+    {
+     "id": "046D:C548",
+     "what": "Logi Bolt receiver",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitech.com/en-us/shop/p/mx-anywhere-3s",
+   "ids": "https://raw.githubusercontent.com/torvalds/linux/master/drivers/hid/hid-logitech-hidpp.c"
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút đổi chế độ bánh xe (SmartShift)",
+     "kind": "smartshift",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.logitech.com/en-us/shop/p/mx-anywhere-3s"
+  },
+  "note": "Quiet clicks. B038 = bản MX Anywhere 3SB (Business) theo Linux hid-logitech-hidpp. Chỉ tương thích Bolt, không dùng receiver khác."
+ },
+ {
+  "brand": "Logitech",
+  "model": "MX Master 3",
+  "group": "văn phòng",
+  "dpi": "200–4000 (hãng không ghi mặc định)",
+  "weight_g": 141,
+  "connection": [
+   "Bluetooth LE",
+   "2.4 GHz Unifying receiver"
+  ],
+  "battery": "Pin sạc Li-Po 500 mAh, ~70 ngày, sạc USB-C (đầy 2 giờ)",
+  "buttons": 7,
+  "sensor": "Darkfield high precision",
+  "silent": false,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [
+    "MX Master 3"
+   ],
+   "bt_names_verified": false,
+   "bt_ids": [
+    "046D:B023"
+   ],
+   "usb_ids": [
+    {
+     "id": "046D:C52B",
+     "what": "Logitech Unifying receiver",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://support.logi.com/hc/en-us/articles/360035271293",
+   "ids": "https://raw.githubusercontent.com/pwr-Solaar/Solaar/master/lib/logitech_receiver/descriptors.py"
+  },
+  "layout": {
+   "physical": 7,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút cử chỉ (ngón cái)",
+     "kind": "extra",
+     "signal": "software"
+    },
+    {
+     "name": "Nút đổi chế độ bánh xe (SmartShift)",
+     "kind": "smartshift",
+     "signal": "none"
+    },
+    {
+     "name": "Lăn ngang (bánh xe ngón cái)",
+     "kind": "hscroll",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút Easy-Switch / kênh kết nối",
+     "kind": "easyswitch",
+     "signal": "none"
+    }
+   ],
+   "source": "https://support.logi.com/hc/en-us/articles/360035271293",
+   "note": "7 nút của hãng = Trái/Phải/Giữa/Sau/Trước/App-Switch (nút cử chỉ)/Đổi chế độ bánh xe; bánh ngón cái và Easy-Switch không tính. Nút cử chỉ cần Options+ (chưa thử trên macOS)."
+  },
+  "note": "Solaar: 'MX Master 3 Wireless Mouse' WPID 4082, btid 0xB023. Bản 'for Business'/'for Mac' khác receiver (for Mac chỉ Bluetooth)."
+ },
+ {
+  "brand": "Logitech",
+  "model": "MX Master 3S",
+  "group": "silent",
+  "dpi": "200–8000, bước 50 (mặc định 1000)",
+  "weight_g": 141,
+  "connection": [
+   "Bluetooth LE",
+   "Logi Bolt 2.4 GHz"
+  ],
+  "battery": "Pin sạc Li-Po 500 mAh, ~70 ngày, sạc USB-C",
+  "buttons": 7,
+  "sensor": "Darkfield high precision",
+  "silent": true,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [
+    "MX Master 3S"
+   ],
+   "bt_names_verified": false,
+   "bt_ids": [
+    "046D:B034"
+   ],
+   "usb_ids": [
+    {
+     "id": "046D:C548",
+     "what": "Logi Bolt receiver",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitech.com/en-us/shop/p/mx-master-3s",
+   "ids": "https://raw.githubusercontent.com/torvalds/linux/master/drivers/hid/hid-logitech-hidpp.c"
+  },
+  "layout": {
+   "physical": 7,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút cử chỉ (ngón cái)",
+     "kind": "extra",
+     "signal": "software"
+    },
+    {
+     "name": "Nút đổi chế độ bánh xe (SmartShift)",
+     "kind": "smartshift",
+     "signal": "none"
+    },
+    {
+     "name": "Lăn ngang (bánh xe ngón cái)",
+     "kind": "hscroll",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút Easy-Switch / kênh kết nối",
+     "kind": "easyswitch",
+     "signal": "none"
+    }
+   ],
+   "source": "https://support.logi.com/hc/en-gb/articles/5218070669847",
+   "note": "Như MX Master 3."
+  },
+  "note": "Quiet Clicks giảm 90% tiếng click so với MX Master 3. Bản Bluetooth Edition không kèm receiver. BT PID 0xB034 theo Linux hid-logitech-hidpp."
+ },
+ {
+  "brand": "Logitech",
+  "model": "MX Master 4",
+  "group": "silent",
+  "dpi": "200–8000, bước 50 (mặc định 1000)",
+  "weight_g": 150,
+  "connection": [
+   "Bluetooth LE 5.1",
+   "Logi Bolt 2.4 GHz (USB-C/USB-A)"
+  ],
+  "battery": "Pin sạc 650 mAh, ~70 ngày, sạc USB-C",
+  "buttons": 8,
+  "sensor": "Darkfield high precision",
+  "silent": true,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [
+    "MX Master 4"
+   ],
+   "bt_names_verified": false,
+   "bt_ids": [
+    "046D:B042"
+   ],
+   "usb_ids": [
+    {
+     "id": "046D:C548",
+     "what": "Logi Bolt receiver",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitech.com/en-us/products/mice/mx-master-4.html",
+   "ids": "https://raw.githubusercontent.com/torvalds/linux/master/drivers/hid/hid-logitech-hidpp.c"
+  },
+  "layout": {
+   "physical": 8,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút cử chỉ (ngón cái)",
+     "kind": "extra",
+     "signal": "software"
+    },
+    {
+     "name": "Nút đổi chế độ bánh xe (SmartShift)",
+     "kind": "smartshift",
+     "signal": "none"
+    },
+    {
+     "name": "Nút thứ 8 (hãng không ghi rõ)",
+     "kind": "other",
+     "signal": "unknown"
+    },
+    {
+     "name": "Lăn ngang (bánh xe ngón cái)",
+     "kind": "hscroll",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://www.logitech.com/en-us/products/mice/mx-master-4.html",
+   "note": "Hãng ghi 8 nút nhưng không liệt kê; có phản hồi rung (haptic)."
+  },
+  "note": "MX Master 4 CÓ THẬT (Linux hid-logitech-hidpp có 0xB042 'MX Master 4'). Trang hãng nói Quiet Click."
+ },
+ {
+  "brand": "Logitech",
+  "model": "Lift Vertical",
+  "group": "silent",
+  "dpi": "400–4000, bước 100 (mặc định 1000)",
+  "weight_g": 125,
+  "connection": [
+   "Bluetooth LE",
+   "Logi Bolt 2.4 GHz"
+  ],
+  "battery": "1 pin AA, ~24 tháng (không sạc)",
+  "buttons": 6,
+  "sensor": "Logitech Advanced Optical Tracking",
+  "silent": true,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [
+    "Lift"
+   ],
+   "bt_names_verified": false,
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "046D:C548",
+     "what": "Logi Bolt receiver",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitech.com/en-us/shop/p/lift-vertical-ergonomic-mouse",
+   "ids": ""
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút giữa (dưới bánh xe)",
+     "kind": "other",
+     "signal": "unknown"
+    },
+    {
+     "name": "Nút Easy-Switch / kênh kết nối",
+     "kind": "easyswitch",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.logitech.com/en-us/shop/p/lift-vertical-ergonomic-mouse",
+   "note": "Easy-Switch không tính trong 6 nút."
+  },
+  "note": "Whisper-quiet clicks. Có bản Lift for Mac / Lift Left. Không có BT PID trong nguồn; bt_names chưa xác minh."
+ },
+ {
+  "brand": "Logitech",
+  "model": "MX Ergo S",
+  "group": "silent",
+  "dpi": "512–2048 (hãng không ghi mặc định)",
+  "weight_g": 164,
+  "connection": [
+   "Bluetooth LE",
+   "Logi Bolt 2.4 GHz"
+  ],
+  "battery": "Pin sạc, ~120 ngày, sạc USB-C (1 phút sạc = 24 giờ)",
+  "buttons": 8,
+  "sensor": "Logitech Advanced Optical Tracking (trackball)",
+  "silent": true,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [
+    "MX Ergo S"
+   ],
+   "bt_names_verified": false,
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "046D:C548",
+     "what": "Logi Bolt receiver",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitech.com/en-us/shop/p/mx-ergo-s-wireless-trackball-mouse",
+   "ids": ""
+  },
+  "layout": {
+   "physical": 8,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nghiêng bánh xe trái",
+     "kind": "tilt_left",
+     "signal": "hid"
+    },
+    {
+     "name": "Nghiêng bánh xe phải",
+     "kind": "tilt_right",
+     "signal": "hid"
+    },
+    {
+     "name": "Precision Mode",
+     "kind": "sniper",
+     "signal": "unknown"
+    },
+    {
+     "name": "Nút Easy-Switch / kênh kết nối",
+     "kind": "easyswitch",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.logitech.com/en-us/shop/p/mx-ergo-s-wireless-trackball-mouse",
+   "note": "Hãng tính Easy-Switch vào 8 nút; danh sách có 9 mục vì nghiêng trái/phải tách riêng."
+  },
+  "note": "Trackball. 164 g không tấm kim loại, 259 g có tấm. Quiet clicks. 0xB01D/B01E trong Linux là MX Ergo bản cũ, không dùng cho Ergo S."
+ },
+ {
+  "brand": "Microsoft",
+  "model": "Bluetooth Mouse",
+  "group": "văn phòng",
+  "dpi": "1000 ppi",
+  "weight_g": 78,
+  "connection": [
+   "Bluetooth 5.0 LE"
+  ],
+  "battery": "1 pin AA (kèm sẵn), tới ~12 tháng",
+  "buttons": 3,
+  "sensor": "Quang học (optical)",
+  "silent": false,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.huntoffice.ie/microsoft-bluetooth-mouse-mouse-optical-3-buttons-wireless-bluetooth-5-0-le-pastel-blue-rjn-00014-5454152.html",
+   "ids": ""
+  },
+  "layout": {
+   "physical": 3,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://www.huntoffice.ie/microsoft-bluetooth-mouse-mouse-optical-3-buttons-wireless-bluetooth-5-0-le-pastel-blue-rjn-00014-5454152.html"
+  },
+  "note": "Mã RJN-000xx. Trang microsoft.com chặn tải tự động → số liệu lấy từ đại lý (nhiều đại lý khớp nhau). Tên BT trên Mac chưa kiểm (có thể là \"Microsoft Bluetooth Mouse\")."
+ },
+ {
+  "brand": "Microsoft",
+  "model": "Arc Mouse",
+  "group": "văn phòng",
+  "dpi": "1000 (đại lý ghi)",
+  "weight_g": 82.5,
+  "connection": [
+   "Bluetooth 4.0 LE"
+  ],
+  "battery": "2 pin AAA (kèm), tới ~6 tháng",
+  "buttons": 2,
+  "sensor": "BlueTrack (đại lý ghi)",
+  "silent": false,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://shop.orases.com/?p=336",
+   "ids": ""
+  },
+  "layout": {
+   "physical": 2,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Dải cảm ứng cuộn",
+     "kind": "touch",
+     "signal": "unknown"
+    }
+   ],
+   "source": "https://www.buildcores.com/products/Mouse/f1qpei76j/Microsoft-Arc-Bluetooth-Wireless-Optical-Mouse-Black"
+  },
+  "note": "Bản ELG-000xx (2017), gập phẳng. Khác Surface Arc Mouse (BT 4.1, 82,49 g theo trang Microsoft). Microsoft.com không tải được → số liệu đại lý. Dải cuộn cảm ứng: chưa rõ trên macOS có gửi cuộn chuẩn không."
+ },
+ {
+  "brand": "Microsoft",
+  "model": "Modern Mobile Mouse",
+  "group": "văn phòng",
+  "dpi": "1000 (đại lý ghi)",
+  "weight_g": 78,
+  "connection": [
+   "Bluetooth 4.2"
+  ],
+  "battery": "2 pin AAA (kèm), tới ~12 tháng",
+  "buttons": 3,
+  "sensor": "BlueTrack (đại lý ghi)",
+  "silent": false,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://boxxe.com/ktf-00002-microsoft-modern-mobile-mouse-ambidextrous-bluetooth-bluetrack-1000-dpi",
+   "ids": ""
+  },
+  "layout": {
+   "physical": 3,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://boxxe.com/ktf-00002-microsoft-modern-mobile-mouse-ambidextrous-bluetooth-bluetrack-1000-dpi"
+  },
+  "note": "Mã KTF-000xx. 78 g gồm pin. Trang Microsoft chặn tải → số liệu đại lý."
+ },
+ {
+  "brand": "Microsoft",
+  "model": "Bluetooth Ergonomic Mouse",
+  "group": "văn phòng",
+  "dpi": "đại lý ghi lệch (1000 / 2400)",
+  "weight_g": 91,
+  "connection": [
+   "Bluetooth 5.0 LE"
+  ],
+  "battery": "2 pin AAA (kèm), tới ~15 tháng",
+  "buttons": 5,
+  "sensor": "BlueTrack (đại lý ghi)",
+  "silent": false,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.huntoffice.ie/microsoft-bluetooth-ergonomic-mouse-mouse-ergonomic-optical-5-buttons-wireless-bluetooth-5-0-le-matte-black-222-00004-6152611.html",
+   "ids": ""
+  },
+  "layout": {
+   "physical": 5,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "unknown"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "unknown"
+    }
+   ],
+   "source": "https://neofiliac.com/product/1726/microsoft-bluetooth-ergonomic-mouse"
+  },
+  "note": "Mã 222-000xx. 2 nút hông lập trình được qua Microsoft Mouse and Keyboard Center (Windows); trên Mac chưa kiểm có gửi nút 4/5 không. DPI chưa có nguồn hãng."
+ },
+ {
+  "brand": "Apple",
+  "model": "Magic Mouse (USB-C, 2024)",
+  "group": "văn phòng",
+  "dpi": "hãng không công bố",
+  "weight_g": 99,
+  "connection": [
+   "Bluetooth",
+   "Cáp USB-C (sạc + ghép đôi)"
+  ],
+  "battery": "Pin sạc tích hợp, khoảng 1 tháng trở lên mỗi lần sạc",
+  "buttons": 1,
+  "sensor": "Quang học (hãng không công bố loại)",
+  "silent": false,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [
+    "Magic Mouse"
+   ],
+   "bt_ids": [
+    "004C:0323"
+   ],
+   "usb_ids": [
+    {
+     "id": "05AC:0323",
+     "what": "cắm cáp USB-C",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://support.apple.com/en-sg/121931",
+   "ids": "https://raw.githubusercontent.com/torvalds/linux/master/drivers/hid/hid-ids.h"
+  },
+  "layout": {
+   "physical": 1,
+   "buttons": [
+    {
+     "name": "Nhấn (cả vỏ)",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Nhấn phải (vùng cảm ứng)",
+     "kind": "right",
+     "signal": "touch"
+    },
+    {
+     "name": "Bề mặt Multi-Touch (cuộn, vuốt)",
+     "kind": "touch",
+     "signal": "touch"
+    }
+   ],
+   "source": "https://support.apple.com/en-sg/121931"
+  },
+  "note": "PID 0x0323 = USB_DEVICE_ID_APPLE_MAGICMOUSE2_USBC trong Linux hid-ids.h; VID Bluetooth Apple 004C, VID USB 05AC. Tên BT macOS mặc định thường là \"<tên>’s Magic Mouse\" – nên so khớp chứa \"Magic Mouse\"."
+ },
+ {
+  "brand": "Apple",
+  "model": "Magic Mouse 2",
+  "group": "văn phòng",
+  "dpi": "hãng không công bố",
+  "weight_g": 99,
+  "connection": [
+   "Bluetooth",
+   "Cáp Lightning (sạc + ghép đôi)"
+  ],
+  "battery": "Pin sạc tích hợp (sạc qua Lightning)",
+  "buttons": 1,
+  "sensor": "Quang học (hãng không công bố loại)",
+  "silent": false,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [
+    "Magic Mouse",
+    "Magic Mouse 2"
+   ],
+   "bt_ids": [
+    "004C:0269"
+   ],
+   "usb_ids": [
+    {
+     "id": "05AC:0269",
+     "what": "cắm cáp Lightning",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://support.apple.com/en-au/111885",
+   "ids": "https://raw.githubusercontent.com/torvalds/linux/master/drivers/hid/hid-ids.h"
+  },
+  "layout": {
+   "physical": 1,
+   "buttons": [
+    {
+     "name": "Nhấn (cả vỏ)",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Nhấn phải (vùng cảm ứng)",
+     "kind": "right",
+     "signal": "touch"
+    },
+    {
+     "name": "Bề mặt Multi-Touch (cuộn, vuốt)",
+     "kind": "touch",
+     "signal": "touch"
+    }
+   ],
+   "source": "https://support.apple.com/en-au/111885"
+  },
+  "note": "PID 0x0269 = USB_DEVICE_ID_APPLE_MAGICMOUSE2 (Linux hid-ids.h). Trọng lượng 99 g theo trang Apple (qua kết quả tìm kiếm, chưa mở trực tiếp). Magic Mouse đời 1 (pin AA) là 05AC:030D."
+ },
+ {
+  "brand": "Dell",
+  "model": "MS3320W",
+  "group": "văn phòng",
+  "dpi": "1000 / 1600 (mặc định) / 2400 / 4000 (đại lý ghi)",
+  "weight_g": 65,
+  "connection": [
+   "2.4G (USB dongle)",
+   "Bluetooth 5.0"
+  ],
+  "battery": "1 pin AA, tới ~36 tháng",
+  "buttons": 3,
+  "sensor": "Quang học",
+  "silent": false,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "413C:301C",
+     "what": "Dell Universal Receiver (dongle 2.4G)",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": [
+    "Dell Universal Receiver"
+   ]
+  },
+  "sources": {
+   "specs": "https://us.stockinthechannel.com/Product/DELL-MS3320W-mouse-Ambidextrous-Office-RF-Wireless-Bluetooth-Optical-1600-DPI/49092094",
+   "ids": "https://drivermax.com/Dell-Universal-Receiver-DELL-USB-VID-413c-PID-301c-MI-00-1_0_0_4-2016-08-16-4399610-driver.htm"
+  },
+  "layout": {
+   "physical": 3,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://us.stockinthechannel.com/Product/DELL-MS3320W-mouse-Ambidextrous-Office-RF-Wireless-Bluetooth-Optical-1600-DPI/49092094"
+  },
+  "note": "Hướng dẫn PDF Dell (dl.dell.com) đoán sai tên file → 404, số liệu đại lý. 413C:301C là Dell Universal Receiver dùng chung nhiều mẫu Dell; chưa có log thật xác nhận đúng PID dongle của MS3320W (có thể là 413C:2514/2519). Nút chuyển kênh (nếu có) chưa xác minh."
+ },
+ {
+  "brand": "Dell",
+  "model": "MS5320W",
+  "group": "văn phòng",
+  "dpi": "1600 (đại lý ghi; hướng dẫn Dell không ghi)",
+  "weight_g": 84,
+  "connection": [
+   "2.4G (Dell Universal USB dongle)",
+   "Bluetooth (2 kênh)"
+  ],
+  "battery": "1 pin AA alkaline (đại lý ghi tới ~36 tháng)",
+  "buttons": 6,
+  "sensor": "Quang học",
+  "silent": false,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [
+    "Dell Mouse",
+    "Mouse MS5320W"
+   ],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "413C:301C",
+     "what": "Dell Universal Receiver (dongle 2.4G)",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": [
+    "Dell Universal Receiver"
+   ]
+  },
+  "sources": {
+   "specs": "https://dl.dell.com/manuals/all-products/esuprt_electronics_accessories/esuprt_electronics_accessories_pc_tablet/dell-multi-device-wireless-mouse-ms5320w_User's-Guide_en-us.pdf",
+   "ids": "https://drivermax.com/Dell-Universal-Receiver-DELL-USB-VID-413c-PID-301c-MI-00-1_0_0_4-2016-08-16-4399610-driver.htm"
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút chế độ kết nối",
+     "kind": "mode",
+     "signal": "none"
+    }
+   ],
+   "source": "https://dl.dell.com/manuals/all-products/esuprt_electronics_accessories/esuprt_electronics_accessories_pc_tablet/dell-multi-device-wireless-mouse-ms5320w_User's-Guide_en-us.pdf"
+  },
+  "note": "Hướng dẫn Dell (đã đọc): 84 g không pin, 1 AA, 2.4G + Bluetooth, 3 kênh (1 dongle + 2 BT); khi ghép BT danh sách hiện \"Dell Mouse\" / \"Mouse MS5320W\". Sơ đồ nút có 6 nút (trái, phải, bánh xe, tiến, lùi, nút chế độ); đại lý ghi 7 nút – có thể tính cả nghiêng bánh xe, chưa xác minh. Nút tiến/lùi gán lại qua Dell Peripheral Manager; tín hiệu HID mặc định trên Mac chưa đo."
+ },
+ {
+  "brand": "Dell",
+  "model": "MS7421W",
+  "group": "văn phòng",
+  "dpi": "1600 (4 mức, đại lý ghi; vài nơi ghi 4000)",
+  "weight_g": 80,
+  "connection": [
+   "2.4G (USB dongle)",
+   "Bluetooth",
+   "Cáp USB-C (sạc)"
+  ],
+  "battery": "Pin sạc 750 mAh, tới ~6 tháng/lần sạc; sạc nhanh 2 phút dùng 1 ngày",
+  "buttons": 7,
+  "sensor": "Quang học",
+  "silent": false,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "413C:301C",
+     "what": "Dell Universal Receiver (dongle 2.4G)",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": [
+    "Dell Universal Receiver"
+   ]
+  },
+  "sources": {
+   "specs": "https://www.dell.com/support/kbdoc/000182231/dell-ms7421w-premier-rechargeable-wireless-mouse-usage-and-troubleshooting-guide",
+   "ids": "https://drivermax.com/Dell-Universal-Receiver-DELL-USB-VID-413c-PID-301c-MI-00-1_0_0_4-2016-08-16-4399610-driver.htm"
+  },
+  "layout": {
+   "physical": 7,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://www.dell.com/support/kbdoc/000182231/dell-ms7421w-premier-rechargeable-wireless-mouse-usage-and-troubleshooting-guide"
+  },
+  "note": "Nay Dell gọi là \"Dell Pro Premium Compact Mouse MS7421W\". 7 nút nhưng chỉ liệt kê chắc 3 nút chính; 4 nút còn lại (tiến/lùi/DPI/chế độ…) chưa xác minh vị trí – cần đọc hướng dẫn PDF. Số liệu chủ yếu từ đại lý (dl.dell.com chặn). Dongle PID chưa xác nhận riêng mẫu này."
+ },
+ {
+  "brand": "HP",
+  "model": "240 Bluetooth Mouse",
+  "group": "văn phòng",
+  "dpi": "1600",
+  "weight_g": 54.2,
+  "connection": [
+   "Bluetooth 5.1"
+  ],
+  "battery": "1 pin AA (kèm); thời lượng: HP MY ghi tới 15 tháng, B&H ghi 24 tháng",
+  "buttons": 3,
+  "sensor": "Quang học",
+  "silent": false,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.hp.com/sa-en/products/accessories/product-details/2100860182",
+   "ids": ""
+  },
+  "layout": {
+   "physical": 3,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://www.hp.com/sa-en/products/accessories/product-details/2100860182"
+  },
+  "note": "Mã 3V0G9AA (đen) / 793F9AA (trắng) / 43N04AA (bạc). Tên BT trên Mac chưa kiểm."
+ },
+ {
+  "brand": "HP",
+  "model": "430 Multi-Device Wireless Mouse",
+  "group": "văn phòng",
+  "dpi": "tới 4000 (đại lý: 800–4000, mặc định 1200)",
+  "weight_g": 78.2,
+  "connection": [
+   "2.4G (USB-A nano dongle)",
+   "Bluetooth (đại lý ghi 5.2)"
+  ],
+  "battery": "1 pin AA, tới ~24 tháng",
+  "buttons": 5,
+  "sensor": "Multi-Surface (quang học)",
+  "silent": false,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.hp.com/au-en/shop/accessories/mice/hp-430-multi-device-wireless-mouse-3b4q2aa.html",
+   "ids": ""
+  },
+  "layout": {
+   "physical": 5,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút phụ 1",
+     "kind": "other",
+     "signal": "unknown"
+    },
+    {
+     "name": "Nút phụ 2",
+     "kind": "other",
+     "signal": "unknown"
+    }
+   ],
+   "source": "https://www.hp.com/au-en/shop/accessories/mice/hp-430-multi-device-wireless-mouse-3b4q2aa.html"
+  },
+  "note": "Mã 3B4Q2AA. HP ghi 5 nút, 4 nút tuỳ chỉnh được (HP Accessory Center); vị trí 2 nút phụ chưa xác minh. Kết nối 2 thiết bị. ID dongle chưa tìm được."
+ },
+ {
+  "brand": "Lenovo",
+  "model": "ThinkPad Bluetooth Silent Mouse",
+  "group": "silent",
+  "dpi": "800 / 1600 / 2400 (đại lý ghi)",
+  "weight_g": 61,
+  "connection": [
+   "Bluetooth 5.0"
+  ],
+  "battery": "1 pin AA, tới ~12 tháng",
+  "buttons": 3,
+  "sensor": "Blue Optical",
+  "silent": true,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://e-retail.com/?p=148052",
+   "ids": ""
+  },
+  "layout": {
+   "physical": 3,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://www.bzdefense.com/products/67223/3219694000279765656"
+  },
+  "note": "Mã 4Y50X88822. Trang PSREF không đọc được nội dung (tải động) → số liệu đại lý. Đổi DPI có thể bằng nút riêng – chưa xác minh, nên chưa đưa vào layout."
+ },
+ {
+  "brand": "Rapoo",
+  "model": "M100 Silent",
+  "group": "silent",
+  "dpi": "1300 (không có nút DPI)",
+  "weight_g": 55,
+  "connection": [
+   "2.4G (Nano USB)",
+   "Bluetooth 3.0",
+   "Bluetooth 4.0",
+   "Bluetooth 5.0"
+  ],
+  "battery": "1 pin AA alkaline (kèm), ~9 tháng",
+  "buttons": 3,
+  "sensor": "Quang học",
+  "silent": true,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.rapoo-eu.com/product/m100-silent/",
+   "ids": ""
+  },
+  "layout": {
+   "physical": 3,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://www.rapoo-eu.com/product/m100-silent/"
+  },
+  "note": "Đa chế độ, chuyển 3 thiết bị. Dongle Rapoo thường VID 24AE (Linux có 24AE:2015 \"Rapoo 2.4G receiver\", dùng chung nhiều mẫu) – chưa xác nhận PID của M100 nên để trống."
+ },
+ {
+  "brand": "Rapoo",
+  "model": "M300 Silent",
+  "group": "silent",
+  "dpi": "600–1600 (có nút DPI)",
+  "weight_g": 83,
+  "connection": [
+   "2.4G (Nano USB)",
+   "Bluetooth 3.0",
+   "Bluetooth 4.0",
+   "Bluetooth 5.0"
+  ],
+  "battery": "1 pin AA alkaline (kèm), tới ~9 tháng",
+  "buttons": 6,
+  "sensor": "Quang học",
+  "silent": true,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.rapoo-eu.com/product/m300-silent/",
+   "ids": ""
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút DPI",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.rapoo-eu.com/product/m300-silent/"
+  },
+  "note": "Hãng ghi 6 nút nhưng không mô tả vị trí; mới liệt kê chắc 4 (trái, phải, bánh xe, DPI). 2 nút còn lại chưa xác minh (có thể là nút hông / chuyển kênh)."
+ },
+ {
+  "brand": "Rapoo",
+  "model": "M650 Silent",
+  "group": "silent",
+  "dpi": "1300 (đại lý ghi)",
+  "weight_g": 60,
+  "connection": [
+   "2.4G (USB dongle)",
+   "Bluetooth 3.0",
+   "Bluetooth 5.0"
+  ],
+  "battery": "1 pin AA alkaline, tới ~9 tháng (đại lý ghi)",
+  "buttons": null,
+  "sensor": "Quang học",
+  "silent": true,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://shop.tti.com.ph/rapoo-m650-silent-wireless-bluetooth-mouse",
+   "ids": ""
+  },
+  "layout": {
+   "physical": null,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://shop.tti.com.ph/rapoo-m650-silent-wireless-bluetooth-mouse"
+  },
+  "note": "Không tìm được trang Rapoo chính thức (rapoo-eu.com 404) → số liệu đại lý. Số nút đại lý ghi lệch 3 hoặc 4 (có thể có nút chuyển kênh). 60 g không pin. Chuyển 3 thiết bị."
+ },
+ {
+  "brand": "Xiaomi",
+  "model": "Mi Dual Mode Wireless Mouse Silent Edition",
+  "group": "silent",
+  "dpi": "1300",
+  "weight_g": 93,
+  "connection": [
+   "2.4G (USB dongle cất trong chuột)",
+   "Bluetooth 4.2"
+  ],
+  "battery": "đại lý ghi 2 pin AAA, tới ~12 tháng (chưa xác minh từ hãng)",
+  "buttons": null,
+  "sensor": "Quang học",
+  "silent": true,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "2717:5014",
+     "what": "dongle 2.4G Xiaomi \"Mi Silent Mouse\"",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://mistore.se/en/products/mi-dual-mode-wireless-mouse-silent-edition",
+   "ids": "https://raw.githubusercontent.com/torvalds/linux/master/drivers/hid/hid-ids.h"
+  },
+  "layout": {
+   "physical": null,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://mistore.se/en/products/mi-dual-mode-wireless-mouse-silent-edition"
+  },
+  "note": "Mã WXSMSBMW02. mi.com chặn tải (403). 2717:5014 = USB_DEVICE_ID_MI_SILENT_MOUSE trong Linux hid-ids.h – chưa chắc 100% là đúng bản Dual Mode (Xiaomi có vài mẫu silent). Số nút chưa xác minh."
+ },
+ {
+  "brand": "Ugreen",
+  "model": "MU006 Ergonomic Silent Wireless Mouse",
+  "group": "silent",
+  "dpi": "tới 4000 (đại lý ghi 1000/1600/2000/4000 hoặc 800–4000)",
+  "weight_g": null,
+  "connection": [
+   "2.4G (USB dongle)",
+   "Bluetooth 5.0 (tuỳ bản, có bản chỉ 2.4G)"
+  ],
+  "battery": "1 pin AA (không kèm, theo đại lý)",
+  "buttons": 6,
+  "sensor": "Quang học",
+  "silent": true,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.joybuy.de/dp/ugreen-mu006-wireless-usb-24ghz-4000/10335175",
+   "ids": ""
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://mall.lapasar.com/products/154394"
+  },
+  "note": "Chọn MU006 (mã 90855 bản 2.4G+BT, 90545 bản 2.4G) – mẫu silent công thái học phổ biến nhất. Không mở được ugreen.com. Trọng lượng đại lý ghi lệch 95–120 g → để trống. 6 nút (đại lý); 3 nút còn lại (hông + DPI?) chưa xác minh."
+ },
+ {
+  "brand": "Asus",
+  "model": "MD100 (Marshmallow Mouse)",
+  "group": "silent",
+  "dpi": "800 / 1000 / 1600",
+  "weight_g": 56,
+  "connection": [
+   "2.4G (USB dongle)",
+   "Bluetooth (bản Lite trang Asus DK ghi 5.0)"
+  ],
+  "battery": "1 pin AA, tới ~12 tháng",
+  "buttons": null,
+  "sensor": "Quang học",
+  "silent": true,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.asus.com/accessories/mice-and-mouse-pads/asus-mouse-and-mouse-pad/asus-marshmallow-mouse-md100/techspec/",
+   "ids": ""
+  },
+  "layout": {
+   "physical": null,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://www.asus.com/accessories/mice-and-mouse-pads/asus-mouse-and-mouse-pad/asus-marshmallow-mouse-md100/techspec/"
+  },
+  "note": "Trang Asus không ghi số nút / độ ồn cho MD100; bản MD100 Lite ghi độ ồn <20 dB, công tắc 10 triệu lần. Có đổi DPI nên có thể có nút DPI – chưa xác minh."
+ },
+ {
+  "brand": "HyperWork",
+  "model": "Silentium MS01",
+  "group": "silent",
+  "dpi": "800 / 1200 (mặc định) / 1600 / 2400",
+  "weight_g": null,
+  "connection": [
+   "2.4G (USB dongle)",
+   "Bluetooth 5.1",
+   "Cáp USB-C (sạc)"
+  ],
+  "battery": "Pin sạc 300 mAh (USB-C); TGDD ghi tới ~300 giờ dùng",
+  "buttons": 7,
+  "sensor": "PixArt 3212 (theo TGDD)",
+  "silent": true,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [
+    "HPW-MS01"
+   ],
+   "bt_ids": [
+    "25A7:FAA0"
+   ],
+   "usb_ids": [
+    {
+     "id": "25A7:FA61",
+     "what": "2.4G dongle (chip Compx)",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": [
+    "2.4G Receiver"
+   ]
+  },
+  "sources": {
+   "specs": "https://www.thegioididong.com/chuot-may-tinh/chuot-sac-bluetooth-hyperwork-silentium-ms01",
+   "ids": "đo thật trên Mac của anh Duck"
+  },
+  "layout": {
+   "physical": 7,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau (dưới)",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước (trên)",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút DPI (sau bánh xe)",
+     "kind": "dpi",
+     "signal": "none"
+    },
+    {
+     "name": "Nút chế độ / Bluetooth (bên hông)",
+     "kind": "mode",
+     "signal": "none"
+    }
+   ],
+   "source": "đo thật trên Mac của anh Duck"
+  },
+  "note": "ID + nút + DPI + pin theo đo thật/hộp. Descriptor dongle khai cuộn ngang nhưng chuột không có bánh nghiêng. hyperwork.vn chặn tải (429) → chưa có link trang hãng; trọng lượng chưa có nguồn. 25A7:FA61 là chip Compx dùng chung nhiều hãng."
+ },
+ {
+  "brand": "HyperWork",
+  "model": "Silentium Gen 2",
+  "group": "silent",
+  "dpi": "1000 (GearVN ghi; bản trắng ghi 4800 – lệch)",
+  "weight_g": 100,
+  "connection": [
+   "2.4G (receiver USB-A)",
+   "2.4G (receiver USB-C)",
+   "Bluetooth"
+  ],
+  "battery": "Pin sạc, khoảng ~70 ngày (GearVN ghi)",
+  "buttons": null,
+  "sensor": "Quang học",
+  "silent": true,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://gearvn.com/products/chuot-khong-day-hyperwork-silentium-gen-2-ms01-den",
+   "ids": ""
+  },
+  "layout": {
+   "physical": null,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh cuộn ngang (rocker trái/phải)",
+     "kind": "hscroll",
+     "signal": "unknown"
+    }
+   ],
+   "source": "https://gearvn.com/products/chuot-khong-day-hyperwork-silentium-gen-2-ms01-den"
+  },
+  "note": "Tên bán \"Silentium Gen 2 MS01\". Công tắc Huano Silent, bánh Air Spin + bánh cuộn ngang, ghép 3 thiết bị. Không đọc được hyperwork.vn (429). ID chưa có – có thể cũng dùng chip 25A7 như MS01, cần đo thật."
+ },
+ {
+  "brand": "Logitech",
+  "model": "G102 Lightsync",
+  "group": "gaming",
+  "dpi": "200–8.000",
+  "weight_g": 85,
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 6,
+  "sensor": "Cảm biến gaming (hãng không nêu tên)",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "046D:C092",
+     "what": "chuột có dây (G102/G203 LIGHTSYNC dùng chung)",
+     "shared": true
+    },
+    {
+     "id": "046D:C09D",
+     "what": "chuột có dây (bản G102/G203 đời mới, dùng chung)",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitechg.com/en-us/products/gaming-mice/g203-lightsync-rgb-gaming-mouse.html",
+   "ids": "https://raw.githubusercontent.com/libratbag/libratbag/master/data/devices/logitech-g102-g203.device"
+  },
+  "note": "Thông số lấy theo G203 LIGHTSYNC (cùng thân, bán ở châu Á); trang G102 en-us 404. PID dùng chung với G203 → không phân biệt được G102/G203 qua USB.",
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút DPI (dưới bánh xe)",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.manualslib.com/manual/1956927/Logitech-Lightsync-G102.html"
+  }
+ },
+ {
+  "brand": "Logitech",
+  "model": "G203 Lightsync",
+  "group": "gaming",
+  "dpi": "200–8.000",
+  "weight_g": 85,
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 6,
+  "sensor": "Cảm biến gaming (hãng không nêu tên)",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "046D:C092",
+     "what": "chuột có dây (G102/G203 LIGHTSYNC dùng chung)",
+     "shared": true
+    },
+    {
+     "id": "046D:C09D",
+     "what": "chuột có dây (bản G102/G203 đời mới, dùng chung)",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitechg.com/en-us/products/gaming-mice/g203-lightsync-rgb-gaming-mouse.html",
+   "ids": "https://raw.githubusercontent.com/libratbag/libratbag/master/data/devices/logitech-g102-g203.device"
+  },
+  "note": "85 g / 1000 Hz / 6 nút lấy từ kết quả tìm kiếm trang Logitech + nhà bán lẻ (bảng thông số trên trang hãng tải động). 046D:C084 là G203 Prodigy đời cũ, không đưa vào. | Bố cục nút: Theo hướng dẫn G102 (cùng thân).",
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút DPI (dưới bánh xe)",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.manualslib.com/manual/1956927/Logitech-Lightsync-G102.html"
+  }
+ },
+ {
+  "brand": "Logitech",
+  "model": "G304",
+  "group": "gaming",
+  "dpi": "200–12.000",
+  "weight_g": 99,
+  "connection": [
+   "Lightspeed 2.4 GHz"
+  ],
+  "battery": "1 pin AA, ~250 giờ",
+  "buttons": 6,
+  "sensor": "HERO",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "046D:C53F",
+     "what": "đầu thu Lightspeed 1.1 (dùng chung G304/G305…)",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://logitechg.com/en-ca/products/gaming-mice/g305-lightspeed-se-gaming-mouse.html",
+   "ids": "https://raw.githubusercontent.com/pwr-Solaar/Solaar/master/lib/logitech_receiver/base_usb.py"
+  },
+  "note": "G304 = G305 bán ở châu Á, thông số lấy theo G305 (trang G304 en-us 404). Không có chế độ cáp. Đầu thu C53F gán theo kernel (LIGHTSPEED_1_1) – chưa đọc tài liệu nói rõ G304 dùng C53F. Sau đầu thu, chuột có wpid 4074 (libratbag). | Bố cục nút: Bố cục chưa đọc sơ đồ hãng.",
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút DPI (sau bánh xe)",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://logitechg.com/en-ca/products/gaming-mice/g305-lightspeed-se-gaming-mouse.html"
+  }
+ },
+ {
+  "brand": "Logitech",
+  "model": "G305",
+  "group": "gaming",
+  "dpi": "200–12.000",
+  "weight_g": 99,
+  "connection": [
+   "Lightspeed 2.4 GHz"
+  ],
+  "battery": "1 pin AA, ~250 giờ",
+  "buttons": 6,
+  "sensor": "HERO",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "046D:C53F",
+     "what": "đầu thu Lightspeed 1.1 (dùng chung G304/G305…)",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitechg.com/en-us/products/gaming-mice/g305-lightspeed-wireless-gaming-mouse.910-005280.html",
+   "ids": "https://raw.githubusercontent.com/libratbag/libratbag/master/data/devices/logitech-g305.device"
+  },
+  "note": "99 g có pin. libratbag: wpid 046d:4074 (ID chuột sau đầu thu, macOS chỉ thấy đầu thu). Đầu thu C53F chưa kiểm chắc. | Bố cục nút: Bố cục chưa đọc sơ đồ hãng.",
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút DPI (sau bánh xe)",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.logitechg.com/en-us/products/gaming-mice/g305-lightspeed-wireless-gaming-mouse.910-005280.html"
+  }
+ },
+ {
+  "brand": "Logitech",
+  "model": "G502 Hero",
+  "group": "gaming",
+  "dpi": "100–25.600",
+  "weight_g": 121,
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 11,
+  "sensor": "HERO 25K",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "046D:C08B",
+     "what": "chuột có dây",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitechg.com/en-us/products/gaming-mice/g502-hero-gaming-mouse.910-005469.html",
+   "ids": "https://raw.githubusercontent.com/libratbag/libratbag/master/data/devices/logitech-g502-hero.device"
+  },
+  "note": "Trang hãng ghi lẫn 100 và 200 DPI tối thiểu; cân nặng 121 g + quả nặng 18 g chưa đọc được trên trang hãng (bảng tải động). Polling 1000 Hz chưa thấy trên trang. | Bố cục nút: Đọc theo sơ đồ G502 X (G4–G9 giống nhau); hãng tính 11 nút, không tính nút chuyển chế độ bánh xe cơ học. Nghiêng bánh xe mặc định = cuộn ngang.",
+  "layout": {
+   "physical": 12,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Nghiêng bánh xe trái",
+     "kind": "tilt_left",
+     "signal": "hid"
+    },
+    {
+     "name": "Nghiêng bánh xe phải",
+     "kind": "tilt_right",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút sniper (G6, DPI Shift)",
+     "kind": "sniper",
+     "signal": "none"
+    },
+    {
+     "name": "DPI giảm (G7)",
+     "kind": "dpi",
+     "signal": "none"
+    },
+    {
+     "name": "DPI tăng (G8)",
+     "kind": "dpi",
+     "signal": "none"
+    },
+    {
+     "name": "Đổi profile (G9)",
+     "kind": "profile",
+     "signal": "none"
+    },
+    {
+     "name": "Chuyển chế độ bánh xe (cơ học)",
+     "kind": "wheel_mode",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.logitech.com/assets/66240/g502-x-corded-gaming-mice-artanis.pdf"
+  }
+ },
+ {
+  "brand": "Logitech",
+  "model": "G502 X",
+  "group": "gaming",
+  "dpi": "100–25.600",
+  "weight_g": 89,
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 13,
+  "sensor": "HERO 25K",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "046D:C099",
+     "what": "chuột có dây",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitechg.com/en-us/products/gaming-mice/g502-x-wired-lightforce.html",
+   "ids": "https://raw.githubusercontent.com/libratbag/libratbag/master/data/devices/logitech-g502-x.device"
+  },
+  "note": "Trang hãng: 89 g, HERO 25K; DPI và polling không hiện trên trang (bảng tải động) – lấy theo dải HERO 25K. | Bố cục nút: Hãng tính 13 điều khiển = 11 nút + cuộn lên/xuống; nút chế độ bánh xe không lập trình được. Thứ tự G4/G5 sau/trước chưa chắc.",
+  "layout": {
+   "physical": 12,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Nghiêng bánh xe trái",
+     "kind": "tilt_left",
+     "signal": "hid"
+    },
+    {
+     "name": "Nghiêng bánh xe phải",
+     "kind": "tilt_right",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút sniper (G6, DPI Shift)",
+     "kind": "sniper",
+     "signal": "none"
+    },
+    {
+     "name": "DPI giảm (G7)",
+     "kind": "dpi",
+     "signal": "none"
+    },
+    {
+     "name": "DPI tăng (G8)",
+     "kind": "dpi",
+     "signal": "none"
+    },
+    {
+     "name": "Đổi profile (G9)",
+     "kind": "profile",
+     "signal": "none"
+    },
+    {
+     "name": "Chuyển chế độ bánh xe (cơ học)",
+     "kind": "wheel_mode",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.logitech.com/assets/66240/g502-x-corded-gaming-mice-artanis.pdf"
+  }
+ },
+ {
+  "brand": "Logitech",
+  "model": "G502 X Plus",
+  "group": "gaming",
+  "dpi": "100–25.600",
+  "weight_g": 106,
+  "connection": [
+   "Lightspeed 2.4 GHz",
+   "Cáp USB (sạc + dùng có dây)"
+  ],
+  "battery": "Pin sạc, ~130 giờ (tắt RGB), ~37 giờ (RGB luôn bật); sạc POWERPLAY",
+  "buttons": 13,
+  "sensor": "HERO 25K",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "046D:C095",
+     "what": "chuột khi cắm cáp",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitechg.com/en-us/products/gaming-mice/g502-x-plus-wireless-lightforce.html",
+   "ids": "https://raw.githubusercontent.com/libratbag/libratbag/master/data/devices/logitech-g502-x-plus.device"
+  },
+  "note": "Không Bluetooth. Trang hãng hiện nhắc cả 'HERO 44K' lẫn 'HERO 25K' (có thể đã ra bản cảm biến mới) → cần kiểm. Đầu thu Lightspeed (có thể C547, dùng chung) CHƯA kiểm nên chưa ghi. wpid 4099. | Bố cục nút: Như G502 X (cùng sơ đồ). Công tắc nguồn dưới đáy không tính.",
+  "layout": {
+   "physical": 12,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Nghiêng bánh xe trái",
+     "kind": "tilt_left",
+     "signal": "hid"
+    },
+    {
+     "name": "Nghiêng bánh xe phải",
+     "kind": "tilt_right",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút sniper (G6, DPI Shift)",
+     "kind": "sniper",
+     "signal": "none"
+    },
+    {
+     "name": "DPI giảm (G7)",
+     "kind": "dpi",
+     "signal": "none"
+    },
+    {
+     "name": "DPI tăng (G8)",
+     "kind": "dpi",
+     "signal": "none"
+    },
+    {
+     "name": "Đổi profile (G9)",
+     "kind": "profile",
+     "signal": "none"
+    },
+    {
+     "name": "Chuyển chế độ bánh xe (cơ học)",
+     "kind": "wheel_mode",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.logitech.com/assets/66240/g502-x-corded-gaming-mice-artanis.pdf"
+  }
+ },
+ {
+  "brand": "Logitech",
+  "model": "G502 X Lightspeed",
+  "group": "gaming",
+  "dpi": "100–25.600",
+  "weight_g": 102,
+  "connection": [
+   "Lightspeed 2.4 GHz",
+   "Cáp USB (sạc + dùng có dây)"
+  ],
+  "battery": "Pin sạc, ~140 giờ; sạc POWERPLAY",
+  "buttons": 13,
+  "sensor": "HERO 25K",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "046D:C098",
+     "what": "chuột khi cắm cáp",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitechg.com/en-us/products/gaming-mice/g502-x-wireless-lightforce.html",
+   "ids": "https://raw.githubusercontent.com/libratbag/libratbag/master/data/devices/logitech-g502-x-wireless.device"
+  },
+  "note": "102 g và ~140 giờ pin CHƯA đọc được trên trang hãng (bảng tải động). Trang hãng ghi HERO 44K → có thể đã đổi cảm biến, cần kiểm. Đầu thu chưa kiểm. wpid 409F. | Bố cục nút: Như G502 X (cùng sơ đồ). Công tắc nguồn dưới đáy không tính.",
+  "layout": {
+   "physical": 12,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Nghiêng bánh xe trái",
+     "kind": "tilt_left",
+     "signal": "hid"
+    },
+    {
+     "name": "Nghiêng bánh xe phải",
+     "kind": "tilt_right",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút sniper (G6, DPI Shift)",
+     "kind": "sniper",
+     "signal": "none"
+    },
+    {
+     "name": "DPI giảm (G7)",
+     "kind": "dpi",
+     "signal": "none"
+    },
+    {
+     "name": "DPI tăng (G8)",
+     "kind": "dpi",
+     "signal": "none"
+    },
+    {
+     "name": "Đổi profile (G9)",
+     "kind": "profile",
+     "signal": "none"
+    },
+    {
+     "name": "Chuyển chế độ bánh xe (cơ học)",
+     "kind": "wheel_mode",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.logitech.com/assets/66240/g502-x-corded-gaming-mice-artanis.pdf"
+  }
+ },
+ {
+  "brand": "Logitech",
+  "model": "G Pro X Superlight",
+  "group": "gaming",
+  "dpi": "100–25.600",
+  "weight_g": 63,
+  "connection": [
+   "Lightspeed 2.4 GHz",
+   "Cáp USB (sạc + dùng có dây)"
+  ],
+  "battery": "Pin sạc, ~70 giờ",
+  "buttons": 5,
+  "sensor": "HERO 25K",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "046D:C094",
+     "what": "chuột khi cắm cáp",
+     "shared": false
+    },
+    {
+     "id": "046D:C547",
+     "what": "đầu thu Lightspeed (dùng chung nhiều chuột đời 2021+)",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitechg.com/en-us/products/gaming-mice/pro-x-superlight-wireless-mouse.910-005878.html",
+   "ids": "https://raw.githubusercontent.com/libratbag/libratbag/master/data/devices/logitech-g-pro-x-wireless-superlight.device"
+  },
+  "note": "Hãng ghi '<63 g'. C547 = đầu thu Superlight theo patch kernel logitech-dj 2021. wpid 4093. | Bố cục nút: Không có nút DPI; đáy chỉ có công tắc nguồn. Chưa đọc sơ đồ hãng.",
+  "layout": {
+   "physical": 5,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://www.logitechg.com/en-us/products/gaming-mice/pro-x-superlight-wireless-mouse.910-005878.html"
+  }
+ },
+ {
+  "brand": "Logitech",
+  "model": "G Pro X Superlight 2",
+  "group": "gaming",
+  "dpi": "100–44.000",
+  "weight_g": 60,
+  "connection": [
+   "Lightspeed 2.4 GHz",
+   "Cáp USB (sạc + dùng có dây)"
+  ],
+  "battery": "Pin sạc, ~95 giờ",
+  "buttons": 5,
+  "sensor": "HERO 2",
+  "silent": false,
+  "polling_hz": "8000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "046D:C09B",
+     "what": "chuột khi cắm cáp",
+     "shared": false
+    },
+    {
+     "id": "046D:C54D",
+     "what": "đầu thu Lightspeed 1.4",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitechg.com/en-us/products/gaming-mice/pro-x2-superlight-wireless-mouse.910-006628.html",
+   "ids": "https://lkml.iu.edu/2511.1/00202.html"
+  },
+  "note": "Ban đầu 32.000 DPI, lên 44.000 qua firmware (trang hãng ghi 'up to 44K'). 8 kHz chỉ ở chế độ không dây. ID từ patch kernel Linux, chưa có file libratbag. | Bố cục nút: Không có nút DPI; đáy chỉ có công tắc nguồn. Chưa đọc sơ đồ hãng.",
+  "layout": {
+   "physical": 5,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://www.logitechg.com/en-us/products/gaming-mice/pro-x2-superlight-wireless-mouse.910-006628.html"
+  }
+ },
+ {
+  "brand": "Logitech",
+  "model": "G Pro Wireless",
+  "group": "gaming",
+  "dpi": "100–25.600",
+  "weight_g": 80,
+  "connection": [
+   "Lightspeed 2.4 GHz",
+   "Cáp USB (sạc + dùng có dây)"
+  ],
+  "battery": "Pin sạc, ~48 giờ (đèn mặc định), ~60 giờ (tắt đèn); sạc POWERPLAY",
+  "buttons": 8,
+  "sensor": "HERO 25K",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "046D:C088",
+     "what": "chuột khi cắm cáp",
+     "shared": false
+    },
+    {
+     "id": "046D:C539",
+     "what": "đầu thu Lightspeed (dùng chung G Pro Wireless/G703/G903…)",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.logitechg.com/en-us/shop/p/pro-wireless-mouse",
+   "ids": "https://raw.githubusercontent.com/libratbag/libratbag/master/data/devices/logitech-g-pro-wireless.device"
+  },
+  "note": "Số nút 4–8 tuỳ gắn nút bên tháo rời (ghi 8 = tối đa; chưa thấy hãng ghi rõ). Bản đầu dùng HERO 16K. wpid 4079. | Bố cục nút: Nút hông bên phải tháo rời, mặc định chưa kiểm. Chưa đọc sơ đồ hãng.",
+  "layout": {
+   "physical": 8,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông phải sau (tháo rời)",
+     "kind": "back",
+     "signal": "unknown"
+    },
+    {
+     "name": "Hông phải trước (tháo rời)",
+     "kind": "forward",
+     "signal": "unknown"
+    },
+    {
+     "name": "Nút DPI (đáy)",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.logitechg.com/en-us/shop/p/pro-wireless-mouse"
+  }
+ },
+ {
+  "brand": "Logitech",
+  "model": "G703 Lightspeed Hero",
+  "group": "gaming",
+  "dpi": "100–25.600",
+  "weight_g": 95,
+  "connection": [
+   "Lightspeed 2.4 GHz",
+   "Cáp USB (sạc + dùng có dây)"
+  ],
+  "battery": "Pin sạc, ~35 giờ (đèn mặc định), ~60 giờ (tắt đèn); sạc POWERPLAY",
+  "buttons": 6,
+  "sensor": "HERO 25K",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "046D:C090",
+     "what": "chuột khi cắm cáp",
+     "shared": false
+    },
+    {
+     "id": "046D:C539",
+     "what": "đầu thu Lightspeed (dùng chung G Pro Wireless/G703/G903…)",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://logitechg.com/en-nz/products/gaming-mice/g703-hero-wireless-gaming-mouse.html",
+   "ids": "https://raw.githubusercontent.com/libratbag/libratbag/master/data/devices/logitech-g703-hero.device"
+  },
+  "note": "95 g + quả nặng 10 g. G703 đời cũ (không Hero) có PID C087 – khác model. wpid 4086. | Bố cục nút: Chưa đọc sơ đồ hãng.",
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút DPI (sau bánh xe)",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://logitechg.com/en-nz/products/gaming-mice/g703-hero-wireless-gaming-mouse.html"
+  }
+ },
+ {
+  "brand": "Razer",
+  "model": "DeathAdder Essential",
+  "group": "gaming",
+  "dpi": "tối đa 6.400",
+  "weight_g": "hãng không công bố",
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 5,
+  "sensor": "Quang học 6.400 DPI",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "1532:006E",
+     "what": "chuột có dây",
+     "shared": false
+    },
+    {
+     "id": "1532:0071",
+     "what": "chuột có dây (bản trắng)",
+     "shared": false
+    },
+    {
+     "id": "1532:0098",
+     "what": "chuột có dây (bản 2021)",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.razer.com/gaming-mice/razer-deathadder-essential",
+   "ids": "https://raw.githubusercontent.com/openrazer/openrazer/master/driver/razermouse_driver.h"
+  },
+  "note": "Trang hãng không hiện cân nặng/polling (tab Tech Specs tải động); 1000 Hz chưa kiểm. 3 PID đều là DeathAdder Essential. | Bố cục nút: Hãng ghi 5 nút; không có nút DPI.",
+  "layout": {
+   "physical": 5,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://www.razer.com/gaming-mice/razer-deathadder-essential"
+  }
+ },
+ {
+  "brand": "Razer",
+  "model": "DeathAdder V2",
+  "group": "gaming",
+  "dpi": "tối đa 20.000",
+  "weight_g": 82,
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 8,
+  "sensor": "Focus+ 20K",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "1532:0084",
+     "what": "chuột có dây",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://mysupport.razer.com/app/answers/detail/a_id/2061/kw/deathadder%20v2",
+   "ids": "https://raw.githubusercontent.com/openrazer/openrazer/master/driver/razermouse_driver.h"
+  },
+  "note": "82 g và 1000 Hz CHƯA đọc được trên trang hãng (theo thông số phổ biến) – cần kiểm. DPI + cảm biến từ trang hỗ trợ Razer, 8 nút từ Tom's Hardware. | Bố cục nút: Hãng tính 8 nút (có thể gồm cuộn lên/xuống) – vị trí/số nút DPI CHƯA kiểm.",
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút DPI (đáy)",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://mysupport.razer.com/app/answers/detail/a_id/2061/kw/deathadder%20v2"
+  }
+ },
+ {
+  "brand": "Razer",
+  "model": "DeathAdder V3",
+  "group": "gaming",
+  "dpi": "tối đa 30.000",
+  "weight_g": 59,
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 6,
+  "sensor": "Focus Pro 30K",
+  "silent": false,
+  "polling_hz": "8000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "1532:00B2",
+     "what": "chuột có dây",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.razer.com/gaming-mice/razer-deathadder-v3",
+   "ids": "https://raw.githubusercontent.com/openrazer/openrazer/master/driver/razermouse_driver.h"
+  },
+  "note": "Trang hãng: '8 programmable controls, 6 nút' – ghi 6. 8000 Hz chỉnh trong Synapse (mặc định 1000). | Bố cục nút: Hãng: 6 nút.",
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút DPI (đáy)",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.razer.com/gaming-mice/razer-deathadder-v3"
+  }
+ },
+ {
+  "brand": "Razer",
+  "model": "DeathAdder V3 Pro",
+  "group": "gaming",
+  "dpi": "tối đa 30.000",
+  "weight_g": 63,
+  "connection": [
+   "HyperSpeed 2.4 GHz",
+   "Cáp USB-C (sạc + dùng có dây)"
+  ],
+  "battery": "Pin sạc, ~90 giờ",
+  "buttons": 5,
+  "sensor": "Focus Pro 30K",
+  "silent": false,
+  "polling_hz": "1000 (8000 với dongle HyperPolling)",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "1532:00B6",
+     "what": "chuột khi cắm cáp",
+     "shared": false
+    },
+    {
+     "id": "1532:00B7",
+     "what": "đầu thu HyperSpeed (không dây)",
+     "shared": false
+    },
+    {
+     "id": "1532:00C2",
+     "what": "chuột khi cắm cáp (bản mới)",
+     "shared": false
+    },
+    {
+     "id": "1532:00C3",
+     "what": "đầu thu (bản mới)",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.razer.com/gaming-mice/razer-deathadder-v3-pro",
+   "ids": "https://raw.githubusercontent.com/openrazer/openrazer/master/driver/razermouse_driver.h"
+  },
+  "note": "Trang hãng ghi 63 g (bản trắng ~64 g); số nút 5 chưa thấy hãng ghi rõ. Không Bluetooth. 00C2/00C3 là ID 'ALT' trong OpenRazer. | Bố cục nút: Trang hãng nhắc nút DPI/nguồn dưới đáy; hãng tính 5 nút.",
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút DPI/nguồn (đáy)",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.razer.com/gaming-mice/razer-deathadder-v3-pro"
+  }
+ },
+ {
+  "brand": "Razer",
+  "model": "Viper Mini",
+  "group": "gaming",
+  "dpi": "tối đa 8.500",
+  "weight_g": 61,
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 6,
+  "sensor": "Quang học 8.500 DPI",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "1532:008A",
+     "what": "chuột có dây",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.razer.com/gaming-mice/razer-viper-mini",
+   "ids": "https://raw.githubusercontent.com/openrazer/openrazer/master/driver/razermouse_driver.h"
+  },
+  "note": "Polling 1000 Hz chưa thấy trên trang hãng. Viper Mini SE (009E/009F) là model khác. | Bố cục nút: Chưa đọc sơ đồ hãng.",
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút DPI (sau bánh xe)",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.razer.com/gaming-mice/razer-viper-mini"
+  }
+ },
+ {
+  "brand": "Razer",
+  "model": "Viper V3 Pro",
+  "group": "gaming",
+  "dpi": "tối đa 35.000",
+  "weight_g": 54,
+  "connection": [
+   "HyperSpeed 2.4 GHz",
+   "Cáp USB-C (sạc + dùng có dây)"
+  ],
+  "battery": "Pin sạc, ~95 giờ",
+  "buttons": 8,
+  "sensor": "Focus Pro 35K Gen-2",
+  "silent": false,
+  "polling_hz": "8000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "1532:00C0",
+     "what": "chuột khi cắm cáp",
+     "shared": false
+    },
+    {
+     "id": "1532:00C1",
+     "what": "đầu thu HyperSpeed (không dây)",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.razer.com/gaming-mice/razer-viper-v3-pro",
+   "ids": "https://raw.githubusercontent.com/openrazer/openrazer/master/driver/razermouse_driver.h"
+  },
+  "note": "Hãng ghi '8 programmable controls'; bản trắng 55 g. 8000 Hz cần dongle HyperPolling. Viper V3 Pro SE có PID riêng 00DE/00DF. | Bố cục nút: Chỉ có 2 nút hông bên trái; hãng tính 8 điều khiển (có thể gồm cuộn lên/xuống). Chưa đọc sơ đồ hãng.",
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút DPI (đáy)",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.razer.com/gaming-mice/razer-viper-v3-pro"
+  }
+ },
+ {
+  "brand": "Razer",
+  "model": "Basilisk V3",
+  "group": "gaming",
+  "dpi": "tối đa 26.000",
+  "weight_g": 101,
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 11,
+  "sensor": "Focus+ 26K",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "1532:0099",
+     "what": "chuột có dây",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.razer.com/gaming-mice/razer-basilisk-v3/specs",
+   "ids": "https://raw.githubusercontent.com/openrazer/openrazer/master/driver/razermouse_driver.h"
+  },
+  "note": "11 nút (10+1). Polling chưa thấy trên trang hãng. Basilisk V3 35K (00CB) là bản khác. | Bố cục nút: Hãng: 10+1 nút; bố cục cụ thể CHƯA đọc sơ đồ hãng.",
+  "layout": {
+   "physical": 11,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Nghiêng bánh xe trái",
+     "kind": "tilt_left",
+     "signal": "hid"
+    },
+    {
+     "name": "Nghiêng bánh xe phải",
+     "kind": "tilt_right",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "DPI tăng",
+     "kind": "dpi",
+     "signal": "none"
+    },
+    {
+     "name": "DPI giảm",
+     "kind": "dpi",
+     "signal": "none"
+    },
+    {
+     "name": "Chuyển chế độ cuộn (free-spin)",
+     "kind": "wheel_mode",
+     "signal": "none"
+    },
+    {
+     "name": "Lẫy sniper (clutch)",
+     "kind": "sniper",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.razer.com/gaming-mice/razer-basilisk-v3/specs"
+  }
+ },
+ {
+  "brand": "Razer",
+  "model": "Basilisk X HyperSpeed",
+  "group": "gaming",
+  "dpi": "tối đa 16.000",
+  "weight_g": 83,
+  "connection": [
+   "HyperSpeed 2.4 GHz",
+   "Bluetooth"
+  ],
+  "battery": "1 pin AA, ~285 giờ (HyperSpeed), ~450 giờ (Bluetooth)",
+  "buttons": 6,
+  "sensor": "Razer 5G Advanced Optical",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "1532:0083",
+     "what": "đầu thu HyperSpeed (không dây)",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.razer.com/gaming-mice/razer-basilisk-x-hyperspeed",
+   "ids": "https://raw.githubusercontent.com/openrazer/openrazer/master/driver/razermouse_driver.h"
+  },
+  "note": "83 g không pin (nhà bán lẻ). Polling chưa thấy trên trang hãng. Tên Bluetooth chưa tra được → để trống. Không có chế độ cáp. | Bố cục nút: Công tắc kết nối dưới đáy không tính. Chưa đọc sơ đồ hãng.",
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút DPI (dưới bánh xe)",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.razer.com/gaming-mice/razer-basilisk-x-hyperspeed"
+  }
+ },
+ {
+  "brand": "SteelSeries",
+  "model": "Rival 3",
+  "group": "gaming",
+  "dpi": "200–8.500",
+  "weight_g": 77,
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 6,
+  "sensor": "TrueMove Core",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "1038:1824",
+     "what": "chuột có dây",
+     "shared": false
+    },
+    {
+     "id": "1038:184C",
+     "what": "chuột có dây (firmware v0.37.0.0)",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://steelseries.com/gaming-mice/rival-3",
+   "ids": "https://github.com/flozz/rivalcfg/blob/master/README.rst"
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút CPI/DPI",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://github.com/flozz/rivalcfg/blob/master/README.rst"
+  },
+  "note": "Trang hãng ghi 200–8.500 CPI; bảng so sánh của hãng ghi 100/10–8.500 → lệch mức thấp nhất. Trang hãng chặn captcha, số liệu đọc qua kết quả tìm kiếm trên steelseries.com."
+ },
+ {
+  "brand": "SteelSeries",
+  "model": "Rival 3 Wireless",
+  "group": "gaming",
+  "dpi": "100–18.000",
+  "weight_g": 106,
+  "connection": [
+   "USB 2.4GHz",
+   "Bluetooth 5.0"
+  ],
+  "battery": "Pin AAA thay được (1–2 viên), 400+ giờ (chế độ tiết kiệm)",
+  "buttons": 6,
+  "sensor": "TrueMove Air",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "1038:1830",
+     "what": "đầu thu 2.4GHz",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://steelseries.com/gaming-mice/rival-3-wireless",
+   "ids": "https://github.com/flozz/rivalcfg/blob/master/README.rst"
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút CPI/DPI",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://github.com/flozz/rivalcfg/blob/master/README.rst"
+  },
+  "note": "106 g với 2 pin, 96 g với 1 pin. Bản Gen 2 (1038:1872) là sản phẩm khác. Chưa có tên Bluetooth đã xác minh."
+ },
+ {
+  "brand": "SteelSeries",
+  "model": "Aerox 3 Wireless",
+  "group": "gaming",
+  "dpi": "100–18.000",
+  "weight_g": 66,
+  "connection": [
+   "USB 2.4GHz",
+   "Bluetooth 5.0",
+   "Cáp USB-C"
+  ],
+  "battery": "Pin sạc, tới 200 giờ (Bluetooth) / 80 giờ (2.4GHz)",
+  "buttons": 6,
+  "sensor": "TrueMove Air",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "1038:183A",
+     "what": "cắm cáp",
+     "shared": false
+    },
+    {
+     "id": "1038:1838",
+     "what": "đầu thu 2.4GHz",
+     "shared": false
+    },
+    {
+     "id": "1038:187A",
+     "what": "cắm cáp (bản CS2 Dragon Lore)",
+     "shared": false
+    },
+    {
+     "id": "1038:1878",
+     "what": "đầu thu 2.4GHz (bản CS2 Dragon Lore)",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://steelseries.com/gaming-mice/aerox-3-wireless",
+   "ids": "https://github.com/flozz/rivalcfg/blob/master/README.rst"
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút CPI/DPI",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://github.com/flozz/rivalcfg/blob/master/README.rst"
+  },
+  "note": "Bản 2022 hãng ghi 68 g; bản gốc 66 g. Chống nước IP54. Chưa có tên Bluetooth đã xác minh."
+ },
+ {
+  "brand": "SteelSeries",
+  "model": "Prime Wireless",
+  "group": "gaming",
+  "dpi": "100–18.000",
+  "weight_g": 80,
+  "connection": [
+   "USB 2.4GHz",
+   "Cáp USB-C"
+  ],
+  "battery": "Pin sạc, 100 giờ (1000 Hz)",
+  "buttons": 6,
+  "sensor": "TrueMove Air",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "1038:1842",
+     "what": "cắm cáp",
+     "shared": false
+    },
+    {
+     "id": "1038:1840",
+     "what": "đầu thu 2.4GHz",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://steelseries.com/gaming-mice/prime-wireless",
+   "ids": "https://github.com/flozz/rivalcfg/blob/master/README.rst"
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút CPI/DPI",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://github.com/flozz/rivalcfg/blob/master/README.rst"
+  },
+  "note": "1038:184A/1848 là Prime Mini Wireless (khác mẫu). Hãng không ghi Bluetooth."
+ },
+ {
+  "brand": "Corsair",
+  "model": "Harpoon RGB Wireless",
+  "group": "gaming",
+  "dpi": "tới 10.000",
+  "weight_g": 99,
+  "connection": [
+   "USB 2.4GHz (SLIPSTREAM)",
+   "Bluetooth",
+   "Cáp USB"
+  ],
+  "battery": "Pin sạc, tới 60 giờ (Bluetooth); bảng thông số ghi 26 giờ dùng thường (2.4GHz)",
+  "buttons": 6,
+  "sensor": "PixArt PMW3325",
+  "silent": false,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "1B1C:1B5E",
+     "what": "cắm cáp",
+     "shared": false
+    },
+    {
+     "id": "1B1C:1B65",
+     "what": "đầu thu SLIPSTREAM",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.corsair.com/us/en/p/gaming-mouse/ch-9311011-na/harpoon-rgb-wireless-gaming-mouse-ch-9311011-na",
+   "ids": "https://github.com/ckb-next/ckb-next/blob/master/src/daemon/usb.h"
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút CPI/DPI",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://assets.corsair.com/image/upload/corsairmedia/sys_master/productcontent/Harpoon_RGB_Wireless_QSG.pdf"
+  },
+  "note": "Trang hãng lệch cân nặng: 99 g (quảng cáo) vs 145 g (bảng thông số, có thể kèm hộp). Đầu thu 1B65 là đầu thu SLIPSTREAM dùng chung (ckb-next xếp chung với K57)."
+ },
+ {
+  "brand": "Corsair",
+  "model": "Katar Pro Wireless",
+  "group": "gaming",
+  "dpi": "tới 10.000",
+  "weight_g": 96,
+  "connection": [
+   "USB 2.4GHz (SLIPSTREAM)",
+   "Bluetooth"
+  ],
+  "battery": "1 pin AA thay được, tới 135 giờ",
+  "buttons": 6,
+  "sensor": "hãng không công bố",
+  "silent": false,
+  "polling_hz": "125/250/500/1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "1B1C:1B94",
+     "what": "đầu thu SLIPSTREAM",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": [
+    "CORSAIR KATAR PRO Wireless Gaming Dongle"
+   ]
+  },
+  "sources": {
+   "specs": "https://www.corsair.com/us/en/p/gaming-mouse/ch-931c011-na/katar-pro-wireless-gaming-mouse-ch-931c011-na",
+   "ids": "https://linux-hardware.org/?view=search&name=Katar+Pro"
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút CPI/DPI",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://assets.corsair.com/image/upload/corsairmedia/sys_master/productcontent/EU_KATAR_PRO_WIRELESS_QSG_AB.pdf"
+  },
+  "note": "Một bảng thông số hãng ghi 75 g, thông cáo ghi 96 g. 1B1C:1B93 là Katar Pro có dây (khác mẫu). Mã cảm biến hãng không ghi (chỉ ghi quang học 10.000 DPI)."
+ },
+ {
+  "brand": "Corsair",
+  "model": "M65 RGB Ultra",
+  "group": "gaming",
+  "dpi": "tới 26.000",
+  "weight_g": 97,
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 8,
+  "sensor": "CORSAIR MARKSMAN",
+  "silent": false,
+  "polling_hz": "125–8000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "1B1C:1B9E",
+     "what": "chuột có dây",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": [
+    "CORSAIR M65 RGB ULTRA Gaming Mouse"
+   ]
+  },
+  "sources": {
+   "specs": "https://www.corsair.com/us/en/p/gaming-mouse/ch-9309411-na2/m65-rgb-ultra-tunable-fps-gaming-mouse-ch-9309411-na2",
+   "ids": "https://gitlab.com/CalcProgrammer1/OpenRGB/-/blob/master/Controllers/CorsairPeripheralV2Controller/CorsairPeripheralV2Devices.h"
+  },
+  "layout": {
+   "physical": 8,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút bắn tỉa (Sniper)",
+     "kind": "sniper",
+     "signal": "none"
+    },
+    {
+     "name": "Tăng DPI",
+     "kind": "dpi",
+     "signal": "none"
+    },
+    {
+     "name": "Giảm DPI",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.corsair.com/us/en/p/gaming-mouse/ch-9309411-na2/m65-rgb-ultra-tunable-fps-gaming-mouse-ch-9309411-na2"
+  },
+  "note": "Cân nặng chỉnh 97–115 g bằng tạ; bảng thông số ghi 152 g. 1B1C:1BB5 là bản M65 RGB Ultra WIRELESS (khác mẫu). Vị trí/chức năng mặc định nút bắn tỉa, tăng/giảm DPI chưa đối chiếu sơ đồ hướng dẫn."
+ },
+ {
+  "brand": "Corsair",
+  "model": "Dark Core RGB Pro",
+  "group": "gaming",
+  "dpi": "tới 18.000",
+  "weight_g": 140,
+  "connection": [
+   "USB 2.4GHz (SLIPSTREAM)",
+   "Bluetooth",
+   "Cáp USB"
+  ],
+  "battery": "Pin sạc, tới 50 giờ (bảng thông số: tối thiểu 16 giờ dùng thường)",
+  "buttons": 8,
+  "sensor": "PixArt PAW3392",
+  "silent": false,
+  "polling_hz": "tới 2000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "1B1C:1B80",
+     "what": "cắm cáp",
+     "shared": false
+    },
+    {
+     "id": "1B1C:1B81",
+     "what": "đầu thu SLIPSTREAM",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": [
+    "CORSAIR DARK CORE RGB PRO Gaming Mouse",
+    "CORSAIR DARK CORE RGB PRO Gaming Dongle"
+   ]
+  },
+  "sources": {
+   "specs": "https://www.corsair.com/us/en/p/gaming-mouse/ch-9315411-na/dark-core-rgb-pro-wireless-gaming-mouse-ch-9315411-na",
+   "ids": "https://github.com/ckb-next/ckb-next/blob/master/src/daemon/usb.h"
+  },
+  "layout": {
+   "physical": 8,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút phụ 1",
+     "kind": "other",
+     "signal": "unknown"
+    },
+    {
+     "name": "Nút phụ 2",
+     "kind": "other",
+     "signal": "unknown"
+    },
+    {
+     "name": "Nút phụ 3",
+     "kind": "other",
+     "signal": "unknown"
+    }
+   ],
+   "source": "https://assets.corsair.com/image/upload/corsairmedia/sys_master/productcontent/NA_DARK_CORE_RGB_PRO_QSG_AA.pdf"
+  },
+  "note": "Hãng ghi 8 nút; 3 nút ngoài 5 nút chuẩn chưa xác minh vị trí/chức năng. 1B7E/1B7F là bản Pro SE (khác mẫu)."
+ },
+ {
+  "brand": "HyperX",
+  "model": "Pulsefire Haste",
+  "group": "gaming",
+  "dpi": "tới 16.000",
+  "weight_g": 59,
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 6,
+  "sensor": "PixArt PAW3335",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "0951:1727",
+     "what": "chuột có dây (Kingston)",
+     "shared": false
+    },
+    {
+     "id": "03F0:0F8F",
+     "what": "chuột có dây (lô HP)",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://hyperx.com/products/hyperx-pulsefire-haste-gaming-mouse",
+   "ids": "https://gitlab.com/CalcProgrammer1/OpenRGB/-/blob/master/Controllers/HyperXMouseController/HyperXMouseControllerDetect.cpp"
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút CPI/DPI",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://hyperx.com/products/hyperx-pulsefire-haste-gaming-mouse"
+  },
+  "note": "59 g không cáp, 80 g kèm cáp. 03F0:028E/048E là Haste Wireless (khác mẫu)."
+ },
+ {
+  "brand": "HyperX",
+  "model": "Pulsefire Haste 2",
+  "group": "gaming",
+  "dpi": "tới 26.000",
+  "weight_g": 53,
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 6,
+  "sensor": "HyperX 26K",
+  "silent": false,
+  "polling_hz": "1000 (tới 8000)",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "03F0:0B97",
+     "what": "chuột có dây",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": [
+    "HyperX Pulsefire Haste 2"
+   ]
+  },
+  "sources": {
+   "specs": "https://hyperx.com/products/hyperx-pulsefire-haste-2-gaming-mouse",
+   "ids": "https://linux-hardware.org/?view=search&name=Haste"
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút CPI/DPI",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://hyperx.com/products/hyperx-pulsefire-haste-2-gaming-mouse"
+  },
+  "note": "52 g (đen) / 53 g (trắng), không cáp. Bản Haste 2 Wireless: 03F0:0D97, 03F0:0F98 (khác mẫu, chưa rõ cái nào là đầu thu). Mã 0B97 lấy từ linux-hardware (dữ liệu người dùng gửi)."
+ },
+ {
+  "brand": "HyperX",
+  "model": "Pulsefire Core",
+  "group": "gaming",
+  "dpi": "tới 6.200",
+  "weight_g": 87,
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 7,
+  "sensor": "PixArt PAW3327",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "0951:16DE",
+     "what": "chuột có dây (Kingston)",
+     "shared": false
+    },
+    {
+     "id": "03F0:0D8F",
+     "what": "chuột có dây (lô HP)",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://hyperx.com/products/hyperx-pulsefire-core-gaming-mouse",
+   "ids": "https://gitlab.com/CalcProgrammer1/OpenRGB/-/blob/master/Controllers/HyperXMouseController/HyperXMouseControllerDetect.cpp"
+  },
+  "layout": {
+   "physical": 7,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút CPI/DPI",
+     "kind": "dpi",
+     "signal": "none"
+    },
+    {
+     "name": "Nút phụ",
+     "kind": "other",
+     "signal": "unknown"
+    }
+   ],
+   "source": "https://hyperx.com/products/hyperx-pulsefire-core-gaming-mouse"
+  },
+  "note": "Trang hỗ trợ HyperX ghi 100 g (không cáp) – lệch với 87 g trên trang sản phẩm. Nút thứ 7 chưa xác minh."
+ },
+ {
+  "brand": "Glorious",
+  "model": "Model O",
+  "group": "gaming",
+  "dpi": "tới 12.000",
+  "weight_g": 67,
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 6,
+  "sensor": "PixArt PMW3360",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "258A:0036",
+     "what": "chuột có dây (chip SINOWEALTH)",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.gloriousgaming.com/pages/guide-model-o-wired",
+   "ids": "https://github.com/libratbag/libratbag/blob/master/data/devices/glorious-model-o.device"
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút DPI (mặt dưới)",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.gloriousgaming.com/pages/guide-model-o-wired"
+  },
+  "note": "258A:0036 dùng chung cho Model O và O- (libratbag: «Model O/O-»). Model O- nặng 58 g."
+ },
+ {
+  "brand": "Glorious",
+  "model": "Model O 2 Wireless",
+  "group": "gaming",
+  "dpi": "tới 26.000",
+  "weight_g": 68,
+  "connection": [
+   "USB 2.4GHz",
+   "Bluetooth 5.2 LE",
+   "Cáp USB"
+  ],
+  "battery": "Pin sạc, 110 giờ (2.4GHz) / 210 giờ (Bluetooth), tắt RGB",
+  "buttons": 6,
+  "sensor": "Glorious BAMF 2.0",
+  "silent": false,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "093A:822A",
+     "what": "Model O 2 Wireless (VID PixArt; chưa rõ cáp hay đầu thu)",
+     "shared": true
+    },
+    {
+     "id": "093A:822D",
+     "what": "Model O 2 Wireless (VID PixArt; chưa rõ cáp hay đầu thu)",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": [
+    "Model O 2 Wireless"
+   ]
+  },
+  "sources": {
+   "specs": "https://www.gloriousgaming.com/pages/guide-model-o-2-wireless",
+   "ids": "https://linux-hardware.org/?view=search&name=Model+O"
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút CPI/DPI",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.gloriousgaming.com/pages/guide-model-o-2-wireless"
+  },
+  "note": "VID 093A là PixArt, nên dựa thêm chuỗi tên «Model O 2 Wireless». Tần số quét chưa đọc được trên trang hãng. Mã lấy từ linux-hardware."
+ },
+ {
+  "brand": "Glorious",
+  "model": "Model D",
+  "group": "gaming",
+  "dpi": "tới 12.000",
+  "weight_g": 68,
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 6,
+  "sensor": "PixArt PMW3360",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "258A:0033",
+     "what": "chuột có dây (chip SINOWEALTH)",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://www.gloriousgaming.com/pages/guide-model-d-wired",
+   "ids": "https://github.com/libratbag/libratbag/blob/master/data/devices/glorious-model-d.device"
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút DPI (mặt dưới)",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.gloriousgaming.com/pages/guide-model-d-wired"
+  },
+  "note": "258A:0033 dùng chung cho Model D và D- (OpenRGB). Model D- nặng 61 g."
+ },
+ {
+  "brand": "Zowie",
+  "model": "EC2-C",
+  "group": "gaming",
+  "dpi": "400/800/1600/3200",
+  "weight_g": 73,
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 5,
+  "sensor": "3360",
+  "silent": false,
+  "polling_hz": "125/500/1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://zowie.benq.com/en-ap/mouse/ec2-c.html",
+   "ids": "https://linux-hardware.org/?view=search&name=Zowie"
+  },
+  "layout": {
+   "physical": 5,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://zowie.benq.com/en-ap/mouse/ec2-c.html"
+  },
+  "note": "Zowie hiện báo VID chung cho mọi mẫu (linux-hardware: 04A5:80xx «BenQ ZOWIE Gaming Mouse», 1AF3:0001/3057:0001 «ZOWIE Gaming mouse»); không gắn được với riêng mẫu này nên để trống. Nút DPI và nút tần số quét nằm mặt dưới (không tính vào 5 nút)."
+ },
+ {
+  "brand": "Zowie",
+  "model": "S2-C",
+  "group": "gaming",
+  "dpi": "400/800/1600/3200",
+  "weight_g": 69,
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 5,
+  "sensor": "3360",
+  "silent": false,
+  "polling_hz": "125/500/1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://zowie.benq.com/en-ap/mouse/s2-c.html",
+   "ids": "https://linux-hardware.org/?view=search&name=Zowie"
+  },
+  "layout": {
+   "physical": 5,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://zowie.benq.com/en-ap/mouse/s2-c.html"
+  },
+  "note": "Zowie hiện báo VID chung cho mọi mẫu (linux-hardware: 04A5:80xx «BenQ ZOWIE Gaming Mouse», 1AF3:0001/3057:0001 «ZOWIE Gaming mouse»); không gắn được với riêng mẫu này nên để trống. Nút DPI và nút tần số quét nằm mặt dưới (không tính vào 5 nút). Trang hãng ghi 69 g trong bảng, 72 g ở mục đo."
+ },
+ {
+  "brand": "ASUS",
+  "model": "ROG Keris Wireless AimPoint",
+  "group": "gaming",
+  "dpi": "100–36.000",
+  "weight_g": 75,
+  "connection": [
+   "USB 2.4GHz",
+   "Bluetooth 5.1",
+   "Cáp USB"
+  ],
+  "battery": "Pin sạc 370 mAh, 86–149 giờ tuỳ chế độ/đèn",
+  "buttons": 6,
+  "sensor": "ROG AimPoint",
+  "silent": false,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [
+    "0B05:1A6A"
+   ],
+   "usb_ids": [
+    {
+     "id": "0B05:1A66",
+     "what": "cắm cáp",
+     "shared": false
+    },
+    {
+     "id": "0B05:1A68",
+     "what": "đầu thu 2.4GHz",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://rog.asus.com/mice-mouse-pads/mice/ergonomic-right-handed/rog-keris-wireless-aimpoint-model/",
+   "ids": "https://github.com/libratbag/libratbag/blob/master/data/devices/asus-rog-keris-wireless-aimpoint.device"
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút CPI/DPI",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://rog.asus.com/mice-mouse-pads/mice/ergonomic-right-handed/rog-keris-wireless-aimpoint-model/"
+  },
+  "note": "Hãng ghi 5 nút lập trình được + 1 nút DPI riêng → 6 nút vật lý. Vai trò 1A66/1A68 suy từ thứ tự tên trong OpenRGB (USB, 2.4Ghz); 1A6A có trong OpenRGB (BT_PID). Có thể dùng đầu thu ROG Omni 0B05:1ACE (libratbag) – chưa xác minh với mẫu này."
+ },
+ {
+  "brand": "ASUS",
+  "model": "ROG Gladius III",
+  "group": "gaming",
+  "dpi": "100–26.000",
+  "weight_g": 79,
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 7,
+  "sensor": "PixArt PAW3370",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "0B05:197B",
+     "what": "chuột có dây",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "sources": {
+   "specs": "https://rog.asus.com/mice-mouse-pads/mice/ergonomic-right-handed/rog-gladius-iii-model/",
+   "ids": "https://gitlab.com/CalcProgrammer1/OpenRGB/-/blob/master/Controllers/AsusAuraUSBController/AsusAuraMouseController/AsusAuraMouseDevices.h"
+  },
+  "layout": {
+   "physical": 7,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút CPI/DPI",
+     "kind": "dpi",
+     "signal": "none"
+    },
+    {
+     "name": "Nút hồ sơ (mặt dưới)",
+     "kind": "profile",
+     "signal": "none"
+    }
+   ],
+   "source": "https://rog.asus.com/mice-mouse-pads/mice/ergonomic-right-handed/rog-gladius-iii-model/"
+  },
+  "note": "Hãng ghi 6 nút lập trình được + 1 nút hồ sơ. Cảm biến gốc 19.000 dpi, chỉnh lên 26.000. Bản Wireless (197D/197F/1981) và Core (1C8D) là mẫu khác."
+ },
+ {
+  "brand": "Pulsar",
+  "model": "X2V2",
+  "group": "gaming",
+  "dpi": "tới 26.000",
+  "weight_g": 53,
+  "connection": [
+   "USB 2.4GHz",
+   "Cáp USB-C"
+  ],
+  "battery": "Pin sạc, tới 100 giờ (1000 Hz)",
+  "buttons": 6,
+  "sensor": "PixArt PAW3395",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "3554:F507",
+     "what": "X2 V2 (VID 3554 dùng chung nhiều hãng; chưa rõ cáp hay đầu thu)",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": [
+    "X2 V2"
+   ]
+  },
+  "sources": {
+   "specs": "https://www.pulsar.gg/products/x2v2-gaming-mouse",
+   "ids": "https://linux-hardware.org/?view=search&name=X2+V2"
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút DPI (mặt dưới)",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.rtings.com/mouse/reviews/pulsar/x2v2"
+  },
+  "note": "Cỡ Medium 53 g; Mini 51 g. Đầu thu 4K chỉ có ở bản Founder's Edition. Số nút theo rtings (6 tổng, 5 lập trình được); hãng không ghi số nút."
+ },
+ {
+  "brand": "Razer",
+  "model": "Cobra",
+  "group": "gaming",
+  "dpi": "tới 8.500",
+  "weight_g": 58,
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 6,
+  "sensor": "Razer 8.500 DPI Optical",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "1532:00A3",
+     "what": "chuột có dây",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": [
+    "Razer Cobra"
+   ]
+  },
+  "sources": {
+   "specs": "https://www.razer.com/gaming-mice/razer-cobra",
+   "ids": "https://github.com/openrazer/openrazer/blob/master/driver/razermouse_driver.h"
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút CPI/DPI",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.razer.com/gaming-mice/razer-cobra"
+  },
+  "note": "Trang hãng đọc được không có số nút/tần số quét; 6 nút và 1000 Hz lấy từ nhà bán lẻ (chưa xác minh hãng). Cobra Pro (00AF/00B0) và HyperSpeed (00DA/00DB) là mẫu khác."
+ },
+ {
+  "brand": "VXE",
+  "model": "Dragonfly R1",
+  "group": "gaming",
+  "dpi": "tối đa 26000 (PAW3395)",
+  "weight_g": 51,
+  "connection": [
+   "2.4 GHz",
+   "Bluetooth",
+   "Cáp USB-C"
+  ],
+  "battery": "Pin sạc, ~40 giờ ở 1000 Hz (theo nhà bán)",
+  "buttons": 6,
+  "sensor": "PixArt PAW3395",
+  "silent": false,
+  "polling_hz": "125–2000 (nhà bán ghi khác nhau 1000/2000)",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút DPI (mặt đáy)",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "Hướng dẫn VXE R1 (manuals.plus): 2 nút hông + nút DPI mặt đáy"
+  },
+  "sources": {
+   "specs": "https://vxe.com/products/vxe-dragonfly-r1-series-wireless-mouse (không đọc được – lỗi 429); số liệu từ newegg/buildcores",
+   "ids": ""
+  },
+  "note": "Trang hãng bị chặn khi đọc; thông số lấy từ nhà bán (Newegg, BuildCores). ID USB chưa tìm được – dongle VXE dùng chip chung (Beken/Compx hoặc Nordic) nên khó nhận riêng."
+ },
+ {
+  "brand": "VXE",
+  "model": "Dragonfly R1 Pro",
+  "group": "gaming",
+  "dpi": "tối đa 26000 (PAW3395)",
+  "weight_g": 48,
+  "connection": [
+   "2.4 GHz",
+   "Cáp USB-C"
+  ],
+  "battery": "Pin sạc ~250 mAh, ~75 giờ ở 1000 Hz (nhà bán)",
+  "buttons": 6,
+  "sensor": "PixArt PAW3395",
+  "silent": false,
+  "polling_hz": "125–1000 (4000 khi dùng dongle 4K riêng)",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút DPI (mặt đáy)",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "https://www.rtings.com/mouse/tools/compare/vgn-dragonfly-f1-pro-max-vxe-r1-pro/42023/60125 (6 nút, 2 nút hông)"
+  },
+  "sources": {
+   "specs": "https://www.atk.store/products/vxe-dragonfly-r1-series-wireless-mouse",
+   "ids": ""
+  },
+  "note": "Không có Bluetooth (chỉ 2.4G + dây). Trọng lượng/pin suy từ bảng thông số chung dòng R1 trên atk.store, bảng bị xáo – cần soát. MCU Nordic 52840. ID USB chưa tìm được."
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "X11",
+  "group": "gaming",
+  "dpi": "800–22000",
+  "weight_g": 63,
+  "connection": [
+   "2.4 GHz",
+   "Bluetooth 5.2",
+   "Cáp USB-C"
+  ],
+  "battery": "Pin sạc 300 mAh, tới ~65 giờ; có đế sạc nam châm",
+  "buttons": 6,
+  "sensor": "PixArt PAW3311",
+  "silent": false,
+  "polling_hz": "125–1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút DPI (mặt đáy)",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "manuals.plus Attack Shark X11 (5 nút lập trình + DPI mặt đáy)"
+  },
+  "sources": {
+   "specs": "https://attackshark.com/products/attack-shark-x11-wireless-gaming-mouse-charging-dock",
+   "ids": ""
+  },
+  "note": "Hãng ghi 63g ±3g. Trang hãng đọc qua kết quả tìm kiếm (fetch trực tiếp bị 429). Nhiều bản X11 khác (SE 59g, PRO V2, ULTRA 8K) – dễ nhầm. ID USB chưa tìm được."
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "R1",
+  "group": "gaming",
+  "dpi": "800–18000",
+  "weight_g": 59,
+  "connection": [
+   "2.4 GHz",
+   "Bluetooth 5.2",
+   "Cáp USB-C"
+  ],
+  "battery": "Pin sạc 300 mAh (~65 giờ theo nhà bán)",
+  "buttons": 6,
+  "sensor": "PixArt PAW3311",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút DPI (mặt đáy)",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "e-catalog.com/cmp/143276/x11-vs-r1 (5 nút) + giả định nút DPI mặt đáy như X11 – CHƯA xác minh vị trí DPI"
+  },
+  "sources": {
+   "specs": "https://attackshark.com/products/attack-shark-r1-mouse",
+   "ids": ""
+  },
+  "note": "Polling 1000 Hz lấy từ nhà bán, hãng không ghi rõ. Vị trí nút DPI của R1 chưa xác minh. ID USB chưa tìm được."
+ },
+ {
+  "brand": "Lamzu",
+  "model": "Atlantis Mini",
+  "group": "gaming",
+  "dpi": "50–26000",
+  "weight_g": 49,
+  "connection": [
+   "2.4 GHz",
+   "Cáp USB-C"
+  ],
+  "battery": "Pin sạc (hãng không công bố dung lượng)",
+  "buttons": 6,
+  "sensor": "PixArt PAW3395",
+  "silent": false,
+  "polling_hz": "125–1000 (bản 4K: tới 4000 với dongle 4K; 8000 với dongle 8K)",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút DPI (mặt đáy)",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "Hướng dẫn Lamzu Atlantis Mini (manuals.plus): nút DPI mặt đáy; nhà bán ghi 6 nút"
+  },
+  "sources": {
+   "specs": "https://lamzu.com/products/lamzu-atlantis-mini-4k-gaming-mouse (không đọc được – 429); số liệu từ techpowerup.com/review/lamzu-atlantis-mini",
+   "ids": ""
+  },
+  "note": "Có nhiều bản: Mini (BK MCU, 1K), Mini 4K/Pro (Nordic 52840), Champion Edition (PAW3950, 51g). Không có Bluetooth. ID USB chưa tìm được."
+ },
+ {
+  "brand": "DareU",
+  "model": "EM901",
+  "group": "gaming",
+  "dpi": "600–6000 (mặc định 2400)",
+  "weight_g": 85,
+  "connection": [
+   "2.4 GHz",
+   "Cáp USB"
+  ],
+  "battery": "Pin sạc Li-ion 930 mAh",
+  "buttons": 6,
+  "sensor": "ATG4090",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút DPI",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "Hướng dẫn DAREU EM901 (cdn.shopify.com/.../DAREU-EM901_Usermanual.pdf) – vị trí nút DPI chưa xác minh"
+  },
+  "sources": {
+   "specs": "https://us.dareu.com/products/wireless-mouse-em901-gaming-mouse",
+   "ids": ""
+  },
+  "note": "Trang hãng đọc qua kết quả tìm kiếm (fetch lỗi chứng chỉ). Nhà bán ghi lệch: 105g, 10000 DPI, PMW3325 – lấy số của hãng. Không nhầm với EM901X (12000 DPI). ID USB chưa tìm được."
+ },
+ {
+  "brand": "DareU",
+  "model": "A918",
+  "group": "gaming",
+  "dpi": "800–16000",
+  "weight_g": 85,
+  "connection": [
+   "2.4 GHz"
+  ],
+  "battery": "1 pin AA (~260 giờ chế độ game, ~10 tháng văn phòng)",
+  "buttons": "hãng không công bố",
+  "sensor": "PixArt PAW3335",
+  "silent": false,
+  "polling_hz": "1000",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "layout": {
+   "physical": "hãng không công bố",
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "Chỉ chắc 3 nút cơ bản; số nút hông/DPI chưa xác minh"
+  },
+  "sources": {
+   "specs": "https://gearvn.com/products/chuot-dare-u-a918-wireless-black",
+   "ids": ""
+  },
+  "note": "Không có trang hãng – dùng GEARVN (85g ±10g). Bản A918X (pin sạc, 75g, 7 nút) là model khác. Số nút: nhà bán ghi 7 cho A918X, A918 chưa rõ."
+ },
+ {
+  "brand": "DareU",
+  "model": "LM115G",
+  "group": "office",
+  "dpi": "800 / 1200 (mặc định) / 1600",
+  "weight_g": 70,
+  "connection": [
+   "2.4 GHz"
+  ],
+  "battery": "1 pin AA",
+  "buttons": 6,
+  "sensor": "PAN3212",
+  "silent": true,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "dareu.com.vn ghi 6 nút nhưng chỉ xác định được 3 nút cơ bản; 3 nút còn lại chưa rõ"
+  },
+  "sources": {
+   "specs": "https://dareu.com.vn/chuot-khong-day-dareu-lm115g-black/",
+   "ids": ""
+  },
+  "note": "Trang DareU VN ghi 70±5g, 6 nút; bảng ghi 'Bluetooth' nhưng FAQ nói KHÔNG hỗ trợ Bluetooth → chỉ 2.4G. Pin AA và switch silent lấy từ GEARVN (gearvn.com/products/chuot-dare-u-lm115g-wireless). ID USB chưa tìm được."
+ },
+ {
+  "brand": "E-Dra",
+  "model": "EM6102",
+  "group": "gaming",
+  "dpi": "1200 / 1600 / 2400 / 3600",
+  "weight_g": "hãng không công bố",
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": "hãng không công bố",
+  "sensor": "hãng không công bố",
+  "silent": false,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "layout": {
+   "physical": "hãng không công bố",
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "Chỉ chắc 3 nút cơ bản; nút hông/DPI chưa xác minh"
+  },
+  "sources": {
+   "specs": "https://e-dra.vn/chuot-gaming-e-dra-em6102/",
+   "ids": ""
+  },
+  "note": "Bản có dây, LED 7 màu, cáp 1,75 m (e-dra.vn). Nhà bán ghi lệch DPI (3200/6400). Có bản EM6102W (2.4G, pin AA), EM6102 Pro, EM6102WL – model khác. ID USB chưa tìm được."
+ },
+ {
+  "brand": "E-Dra",
+  "model": "EM624W",
+  "group": "gaming",
+  "dpi": "1000 / 2000 / 3200 / 3600",
+  "weight_g": 90,
+  "connection": [
+   "2.4 GHz",
+   "Bluetooth 5.0",
+   "Cáp USB-C"
+  ],
+  "battery": "Pin sạc 650 mAh (Hacom)",
+  "buttons": 6,
+  "sensor": "PixArt PAW3212",
+  "silent": false,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "layout": {
+   "physical": 6,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông sau",
+     "kind": "back",
+     "signal": "hid"
+    },
+    {
+     "name": "Hông trước",
+     "kind": "forward",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút DPI",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "e-dra.vn ghi 6 nút + con lăn; cách bố trí lấy theo mẫu chung – vị trí nút DPI chưa xác minh"
+  },
+  "sources": {
+   "specs": "https://e-dra.vn/chuot-gaming-khong-day-e-dra-em624w/",
+   "ids": ""
+  },
+  "note": "Trọng lượng ~90g (e-dra.vn/meta.vn). Cảm biến + pin 650 mAh + BT 5.0 từ CellphoneS/Hacom. Tên Bluetooth chưa tìm được. ID USB chưa tìm được."
+ },
+ {
+  "brand": "Fuhlen",
+  "model": "L102",
+  "group": "office",
+  "dpi": "1000",
+  "weight_g": "hãng không công bố",
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 3,
+  "sensor": "Quang học (hãng không ghi mã)",
+  "silent": false,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "layout": {
+   "physical": 3,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://fuhlen.vn/product/fuhlen_l102_black/"
+  },
+  "sources": {
+   "specs": "https://fuhlen.vn/product/fuhlen_l102_black/",
+   "ids": ""
+  },
+  "note": "Switch Kailh. Chip trong chuột không rõ nên không có ID USB."
+ },
+ {
+  "brand": "Rapoo",
+  "model": "VT9",
+  "group": "gaming",
+  "dpi": "tối đa 26000",
+  "weight_g": "hãng không công bố",
+  "connection": [
+   "2.4 GHz",
+   "Cáp USB"
+  ],
+  "battery": "Pin sạc",
+  "buttons": "hãng không công bố",
+  "sensor": "hãng không công bố",
+  "silent": false,
+  "polling_hz": "tối đa 8000 (theo TGDĐ)",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "layout": {
+   "physical": "hãng không công bố",
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "Chỉ chắc 3 nút cơ bản"
+  },
+  "sources": {
+   "specs": "https://www.thegioididong.com/chuot-may-tinh/chuot-sac-khong-day-gaming-rapoo-vt9",
+   "ids": "http://www.linux-usb.org/usb.ids"
+  },
+  "note": "Dữ liệu YẾU: chỉ có TGDĐ cho bản 'VT9' (có thể là VT9 Pro/4K). VT9 Pro: PAW3398, 68g (GEARVN). Không có Bluetooth. Hãng Rapoo có VID 24AE trong usb.ids nhưng không có PID của VT9."
+ },
+ {
+  "brand": "Xiaomi",
+  "model": "Portable Mouse 2",
+  "group": "office",
+  "dpi": "1200 / 1800 / 2400 / 4000",
+  "weight_g": "hãng không công bố",
+  "connection": [
+   "Bluetooth 4.2",
+   "2.4 GHz"
+  ],
+  "battery": "2 pin AAA (nhà bán; Chiaki ghi AA – lệch)",
+  "buttons": 4,
+  "sensor": "hãng không công bố",
+  "silent": false,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [
+    "MiMouse 2"
+   ],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "layout": {
+   "physical": 4,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    },
+    {
+     "name": "Nút DPI (mặt đáy)",
+     "kind": "dpi",
+     "signal": "none"
+    }
+   ],
+   "source": "chiaki.vn/chuot-khong-day-xiaomi-portable-mouse-2 (nút chỉnh DPI ở đáy)"
+  },
+  "sources": {
+   "specs": "https://www.applegadgetsbd.com/product/xiaomi-mi-portable-wireless-mouse-2",
+   "ids": "https://store.expressioncomp.com/mi-portable-bluetooth-mouse-2"
+  },
+  "note": "Mã BXSBMW02. Không tìm được trang mi.com. Trọng lượng nhà bán ghi lệch (86g / 60g) nên để trống. Tên BT 'MiMouse 2' chỉ theo nhà bán – CHƯA xác minh. Xiaomi VID 2717 nhưng không có PID dongle."
+ },
+ {
+  "brand": "Logitech",
+  "model": "B100",
+  "group": "office",
+  "dpi": "1000 (893–1208)",
+  "weight_g": 85,
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 3,
+  "sensor": "Quang học (đèn đỏ)",
+  "silent": false,
+  "polling_hz": "125",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "046D:C077",
+     "what": "Chuột có dây Logitech (usb.ids ghi 'Mouse')",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": [
+    "USB Optical Mouse"
+   ]
+  },
+  "layout": {
+   "physical": 3,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://support.logi.com/hc/en-001/articles/360024881373-Specification-B100-Optical-USB-Mouse"
+  },
+  "sources": {
+   "specs": "https://support.logi.com/hc/en-001/articles/360024881373-Specification-B100-Optical-USB-Mouse",
+   "ids": "https://linux-hardware.org/?id=usb:046d-c077"
+  },
+  "note": "046D:C077 dùng chung cho B100/M105/M110s (linux-hardware, người dùng tự ghi) → cần hiện nhiều lựa chọn. Một số lô B100 cũ có thể ra 046D:C05A. Product string 'USB Optical Mouse' chưa xác minh trực tiếp cho C077. Polling 125 Hz = chuẩn chuột văn phòng, hãng không ghi."
+ },
+ {
+  "brand": "Logitech",
+  "model": "M90",
+  "group": "office",
+  "dpi": "1000",
+  "weight_g": "hãng không công bố",
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 3,
+  "sensor": "Quang học",
+  "silent": false,
+  "polling_hz": "125",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "046D:C05A",
+     "what": "M90/M100 Optical Mouse",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": [
+    "USB Optical Mouse"
+   ]
+  },
+  "layout": {
+   "physical": 3,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "Chuột 3 nút cơ bản (logitech.com)"
+  },
+  "sources": {
+   "specs": "https://support.logi.com/hc/en-gb/articles/360023465493-Logitech-Mouse-M90-Technical-Specifications",
+   "ids": "https://linux-hardware.org/?id=usb:046d-c05a"
+  },
+  "note": "Trang hỗ trợ Logitech ghi KHÔNG có thông số M90; DPI 1000 theo nhà bán. Trọng lượng nhà bán lệch (82–129g). ID dùng chung với M100. Polling 125 theo systemd hwdb (MOUSE_DPI=1000@125)."
+ },
+ {
+  "brand": "Logitech",
+  "model": "M100",
+  "group": "office",
+  "dpi": "1000 (893–1208)",
+  "weight_g": 90,
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 3,
+  "sensor": "Quang học (đèn đỏ)",
+  "silent": false,
+  "polling_hz": "125",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "046D:C05A",
+     "what": "M90/M100 Optical Mouse",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": [
+    "USB Optical Mouse"
+   ]
+  },
+  "layout": {
+   "physical": 3,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "https://support.logi.com/hc/en-us/articles/360023466193-M100-Technical-Specifications"
+  },
+  "sources": {
+   "specs": "https://support.logi.com/hc/en-us/articles/360023466193-M100-Technical-Specifications",
+   "ids": "https://raw.githubusercontent.com/systemd/systemd/main/hwdb.d/70-mouse.hwdb"
+  },
+  "note": "Cáp 180 cm. Bản M100r mới có thể có PID khác – chưa xác minh. ID dùng chung với M90."
+ },
+ {
+  "brand": "Dell",
+  "model": "MS116",
+  "group": "office",
+  "dpi": "1000",
+  "weight_g": 90,
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 3,
+  "sensor": "Quang học LED",
+  "silent": false,
+  "polling_hz": "125",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "413C:301A",
+     "what": "Dell MS116 Optical Mouse",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": [
+    "Dell MS116 USB Optical Mouse"
+   ]
+  },
+  "layout": {
+   "physical": 3,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "dell.com MS116 (3 nút)"
+  },
+  "sources": {
+   "specs": "https://www.dell.com/en-us/shop/dell-optical-mouse-ms116-black/apd/275-bbcb/",
+   "ids": "https://raw.githubusercontent.com/systemd/systemd/main/hwdb.d/70-mouse.hwdb"
+  },
+  "note": "Bản đen 90g, bản trắng ~87g. Nhà sản xuất USB hiện 'PixArt'. ID riêng (usb.ids + systemd hwdb). Trang Dell đọc qua kết quả tìm kiếm."
+ },
+ {
+  "brand": "HP",
+  "model": "X1000",
+  "group": "office",
+  "dpi": "1000",
+  "weight_g": "hãng không công bố",
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 3,
+  "sensor": "Quang học",
+  "silent": false,
+  "polling_hz": "125",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "093A:2510",
+     "what": "PixArt USB Optical Mouse (chip chung)",
+     "shared": true
+    }
+   ],
+   "usb_product_strings": [
+    "USB Optical Mouse"
+   ]
+  },
+  "layout": {
+   "physical": 3,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "icecat H2C21AA (3 nút)"
+  },
+  "sources": {
+   "specs": "https://icecat.fr/p/hp/h2c21aa/mice-0887111460257-x1000+mouse-14521842.html",
+   "ids": "https://raw.githubusercontent.com/systemd/systemd/main/hwdb.d/70-mouse.hwdb"
+  },
+  "note": "Mã H2C21AA, đã ngừng sản xuất. Trang HP đọc không được; HP Ấn Độ ghi trọng lượng lệch (0,18 lb vs 0,235 kg), icecat ghi 80g → để trống. 093A:2510 dùng chung (Dell MS111, nhiều chuột PixArt) – chỉ gợi ý, không chắc là HP."
+ },
+ {
+  "brand": "Microsoft",
+  "model": "Basic Optical Mouse",
+  "group": "office",
+  "dpi": "800",
+  "weight_g": 92.8,
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 3,
+  "sensor": "Quang học (3000 khung hình/giây)",
+  "silent": false,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [
+    {
+     "id": "045E:00CB",
+     "what": "Basic Optical Mouse v2.0",
+     "shared": false
+    },
+    {
+     "id": "045E:0084",
+     "what": "Basic Optical Mouse (đời cũ)",
+     "shared": false
+    },
+    {
+     "id": "045E:0083",
+     "what": "Basic Optical Mouse (đời cũ)",
+     "shared": false
+    }
+   ],
+   "usb_product_strings": []
+  },
+  "layout": {
+   "physical": 3,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "Datasheet Microsoft Basic Optical Mouse v2.0 (model 1113)"
+  },
+  "sources": {
+   "specs": "https://www.farnell.com/datasheets/2189052.pdf",
+   "ids": "http://www.linux-usb.org/usb.ids"
+  },
+  "note": "Không đọc được trang microsoft.com; dùng datasheet Microsoft bản lưu Farnell. 00CB khớp driver HID\\Vid_045E&Pid_00CB. Product string chưa xác minh."
+ },
+ {
+  "brand": "Genius",
+  "model": "DX-110",
+  "group": "office",
+  "dpi": "1000",
+  "weight_g": 85,
+  "connection": [
+   "Cáp USB"
+  ],
+  "battery": "Không pin (có dây)",
+  "buttons": 3,
+  "sensor": "Quang học",
+  "silent": false,
+  "polling_hz": "hãng không công bố",
+  "match": {
+   "bt_names": [],
+   "bt_ids": [],
+   "usb_ids": [],
+   "usb_product_strings": []
+  },
+  "layout": {
+   "physical": 3,
+   "buttons": [
+    {
+     "name": "Trái",
+     "kind": "left",
+     "signal": "hid"
+    },
+    {
+     "name": "Phải",
+     "kind": "right",
+     "signal": "hid"
+    },
+    {
+     "name": "Bánh xe (nhấn)",
+     "kind": "middle",
+     "signal": "hid"
+    }
+   ],
+   "source": "Nhà bán: 3 nút (trái, phải, giữa/cuộn)"
+  },
+  "sources": {
+   "specs": "https://www.jib.co.th/web/product/readProduct/41312/1419/MOUSE--เมาส์--GENIUS-DX-110-USB-OPTICAL-MOUSE--BLUE-",
+   "ids": "http://www.linux-usb.org/usb.ids"
+  },
+  "note": "Không đọc được geniusnet.com; nhà bán ghi ~85g, cáp 1,5 m (có nơi ghi 1200 DPI). VID Genius/KYE = 0458 nhưng usb.ids không có PID DX-110 (chỉ DX-120 = 0458:0186) → để trống. Có bản PS/2."
+ }
+]

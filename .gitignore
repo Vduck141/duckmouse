@@ -1,0 +1,11 @@
+# Chỉ đưa lên git những file công khai được (mọi thứ khác: ghi chú riêng, bản chụp Mos, trang xem thử, bản build…)
+/*
+!/.gitignore
+!/README.md
+!/HUONG-DAN-CAI.md
+!/LICENSE
+!/anh/
+!/Ma nguon/
+/Ma nguon/.ky-app
+._*
+.DS_Store
