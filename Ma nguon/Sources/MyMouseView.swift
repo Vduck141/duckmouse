@@ -1,4 +1,4 @@
-// Tab "Chuột của tôi": chuột đang nối + đã từng ghép, nhận chuột từ danh sách 100 mẫu, chọn / nhập tay chuột lạ
+// Tab "Chuột của tôi": chuột đang nối + đã từng ghép, nhận chuột từ danh sách 300 mẫu, chọn / nhập tay chuột lạ
 import SwiftUI
 import AppKit
 
@@ -159,7 +159,7 @@ struct MyMouseView: View {
                 }
                 .buttonStyle(.plain)
             }
-            HStack { Button("Không có trong đây – tìm trong 100 mẫu") { pickFor = d }.buttonStyle(DMButton(kind: .ghost))
+            HStack { Button("Không có trong đây – tìm trong \(db.all.count) mẫu") { pickFor = d }.buttonStyle(DMButton(kind: .ghost))
                 Button("Nhập tay") { editFor = EditTarget(device: d, spec: nil) }.buttonStyle(DMButton(kind: .ghost)) }
         }
     }
@@ -170,7 +170,7 @@ struct MyMouseView: View {
             Text("Chuột chưa có trong danh sách – máy chỉ đọc được tên, mã, số nút. DPI, cân nặng, pin… chuột không gửi sang máy.")
                 .font(.system(size: 13)).foregroundStyle(T.ink3)
             HStack(spacing: 8) {
-                Button("Chọn trong 100 mẫu") { pickFor = d }.buttonStyle(DMButton(kind: .brand))
+                Button("Chọn trong \(db.all.count) mẫu") { pickFor = d }.buttonStyle(DMButton(kind: .brand))
                 Button("Nhập tay") { editFor = EditTarget(device: d, spec: nil) }.buttonStyle(DMButton(kind: .ghost))
             }
         }

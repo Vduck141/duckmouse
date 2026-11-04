@@ -1,4 +1,4 @@
-// Danh sách thông số chuột (100 mẫu tra 04/11/2026, file mice.json trong app) + chuột anh tự chọn / nhập tay.
+// Danh sách thông số chuột (300 mẫu tra 04/11/2026, file mice.json trong app) + chuột anh tự chọn / nhập tay.
 // Nhận chuột 3 bước: khớp mã (Bluetooth / USB) → khớp tên → hỏi người dùng chọn.
 import Foundation
 

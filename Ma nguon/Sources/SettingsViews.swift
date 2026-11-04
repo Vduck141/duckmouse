@@ -67,6 +67,10 @@ enum AppInfo {
     static let releaseDate = "04/11/2026"
     static let github = URL(string: "https://github.com/Vduck141/duckmouse")!
     static let whatsNew = """
+    1.1.0 (04/11/2026)
+    • Thêm 200 mẫu chuột – tổng 300 mẫu văn phòng, silent, gaming (Logitech, Razer, SteelSeries, Corsair, HyperX, Glorious, Zowie, ASUS, Microsoft, Dell, HP, Lenovo, Rapoo, DareU, E-Dra, Fuhlen…).
+    • Tab Mời cà phê: mã VietQR ủng hộ ngay trong app.
+
     1.0.0 (04/11/2026) – bản đầu tiên
     • Chuột của tôi: tự nhận chuột (cáp / dongle / Bluetooth), thông số 100 mẫu chuột, chọn hoặc nhập tay chuột lạ.
     • Test chuột 3 bước: độ mượt, từng nút (ô thử khoá chức năng), bánh xe – kết luận bằng lời.

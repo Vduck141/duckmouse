@@ -65,7 +65,7 @@ final class TestSession: ObservableObject {
     }
 
     // MARK: bước 2
-    /// Dựng danh sách nút theo chuột đang dùng (danh sách 100 mẫu) + nút anh đã thêm
+    /// Dựng danh sách nút theo chuột đang dùng (danh sách 300 mẫu) + nút anh đã thêm
     func buildKeys(for d: MouseDevice?) {
         let spec = d.flatMap { MiceDB.shared.spec(for: $0) }
         let has: (String) -> Bool = { k in spec?.layout.contains { $0.kind == k && $0.sends } ?? false }
