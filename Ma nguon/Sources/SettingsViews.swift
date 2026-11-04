@@ -51,23 +51,53 @@ struct GeneralView: View {
                                isOn: Binding(get: { model.launchAtLogin }, set: { model.launchAtLogin = $0 }))
                     Divider().overlay(T.line)
                     SettingRow(title: "Hiện chữ khi chức năng chạy", sub: "Ô nhỏ giữa màn hình, tự tắt sau 0,6 giây", isOn: $settings.hud)
-                    Divider().overlay(T.line)
-                    HStack {
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text("Màn giới thiệu").font(.system(size: 14, weight: .bold))
-                            Text("Xem lại các tính năng của app").font(.system(size: 12.5)).foregroundStyle(T.ink3)
-                        }
-                        Spacer()
-                        Button("Xem lại") { withAnimation(T.ease) { nav.showWelcome = true } }.buttonStyle(DMButton(kind: .ghost))
-                    }
-                    .padding(.vertical, 8)
                 }
             }
             DMCard(title: "Giới thiệu") {
-                Text("DuckMouse – app chuột tiếng Việt cho macOS, miễn phí, mã nguồn mở. Thoát app thì chuột trở về như macOS gốc. © 2026 by Vduck")
-                Text("Cuộn mượt học từ Mos của Caldis (github.com/Caldis/Mos, CC BY-NC 4.0 – không thương mại). Giao diện theo Lucian UX/UI Prompt (MIT). Thông số 100 chuột tra 04/11/2026 – nguồn ghi trong từng mẫu.")
-                    .font(.system(size: 12.5)).foregroundStyle(T.ink3)
+                AboutBlock()
             }
+            .id("gioi-thieu")
         }
+    }
+}
+
+/// Giới thiệu – giống Messenger Vdk: biểu tượng, tên, phiên bản · ngày, © by Vduck, các link
+enum AppInfo {
+    static let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?"
+    static let releaseDate = "04/11/2026"
+    static let github = URL(string: "https://github.com/Vduck141/duckmouse")!
+    static let whatsNew = """
+    1.0.0 (04/11/2026) – bản đầu tiên
+    • Chuột của tôi: tự nhận chuột (cáp / dongle / Bluetooth), thông số 100 mẫu chuột, chọn hoặc nhập tay chuột lạ.
+    • Test chuột 3 bước: độ mượt, từng nút (ô thử khoá chức năng), bánh xe – kết luận bằng lời.
+    • Cuộn mượt như trackpad.
+    • Gán chức năng: giữ nút + kéo 4 hướng, 34 chức năng, hình động minh hoạ.
+    """
+}
+
+struct AboutBlock: View {
+    @EnvironmentObject var nav: Nav
+    @State private var showNew = false
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack(spacing: 14) {
+                Image(nsImage: NSApp.applicationIconImage).resizable().frame(width: 64, height: 64)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("DuckMouse").font(.system(size: 20, weight: .semibold))
+                    Text("Phiên bản \(AppInfo.version) · \(AppInfo.releaseDate)").foregroundStyle(T.ink3)
+                    Text("© 2026 by Vduck").font(.system(size: 11.5)).foregroundStyle(T.ink3)
+                }
+            }
+            .padding(.vertical, 4)
+            HStack(spacing: 16) {
+                Button("Có gì mới") { showNew = true }.buttonStyle(.link)
+                Link("Trang GitHub", destination: AppInfo.github)
+                Button("Xem lại giới thiệu") { withAnimation(T.ease) { nav.showWelcome = true } }.buttonStyle(.link)
+            }
+            .font(.system(size: 13, weight: .semibold))
+            Text("App chuột tiếng Việt cho macOS, miễn phí, mã nguồn mở (CC BY-NC 4.0). Giao diện theo Lucian UX/UI Prompt (MIT); thông số chuột ghi nguồn trong từng mẫu.")
+                .font(.system(size: 12)).foregroundStyle(T.ink3).fixedSize(horizontal: false, vertical: true)
+        }
+        .alert("Có gì mới", isPresented: $showNew) { Button("Đóng", role: .cancel) {} } message: { Text(AppInfo.whatsNew) }
     }
 }

@@ -48,6 +48,11 @@ struct DuckMouseApp: App {
                 .frame(minWidth: 900, minHeight: 620)
         }
         .defaultSize(width: 1080, height: 760)
+        .commands {
+            CommandGroup(replacing: .appInfo) {
+                Button("Giới thiệu DuckMouse") { Nav.shared.tab = .caiDat }
+            }
+        }
 
         MenuBarExtra {
             MenuContent()
@@ -76,6 +81,7 @@ struct MenuContent: View {
         if model.mosRunning { Text("⚠️ Mos đang chạy – cuộn/nút của DuckMouse tạm nghỉ") }
         Divider()
         Button("Mở DuckMouse") { openWindow(id: "main"); NSApp.activate(ignoringOtherApps: true) }
+        Button("Giới thiệu DuckMouse") { Nav.shared.tab = .caiDat; openWindow(id: "main"); NSApp.activate(ignoringOtherApps: true) }
         Button("Thoát DuckMouse") { NSApp.terminate(nil) }
     }
 }

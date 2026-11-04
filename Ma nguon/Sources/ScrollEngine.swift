@@ -1,4 +1,4 @@
-// Cuộn mượt – viết lại theo cách Mos làm (Caldis, CC BY-NC 4.0), dùng nội bộ:
+// Cuộn mượt – viết lại theo thuật toán của Mos (Caldis, CC BY-NC 4.0, xem LICENSE):
 // chặn sự kiện bánh xe → cộng vào "đích" → mỗi khung hình màn hình đi 1 phần quãng còn lại (chậm dần)
 // → làm mềm đầu cú đẩy → phát lại sự kiện cuộn nhỏ (giữ số lẻ, không làm tròn).
 import AppKit
