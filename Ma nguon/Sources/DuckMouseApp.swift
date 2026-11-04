@@ -8,7 +8,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 }
 
 enum Tab: String, CaseIterable, Identifiable {
-    case chuot = "Chuột của tôi", test = "Test chuột", cuon = "Cuộn mượt", gan = "Gán chức năng", caiDat = "Cài đặt"
+    case chuot = "Chuột của tôi", test = "Test chuột", cuon = "Cuộn mượt", gan = "Gán chức năng", caiDat = "Cài đặt", moiCafe = "Mời cà phê"
     var id: String { rawValue }
     var icon: String {
         switch self {
@@ -17,6 +17,7 @@ enum Tab: String, CaseIterable, Identifiable {
         case .cuon: return "arrow.up.and.down"
         case .gan: return "plus.viewfinder"
         case .caiDat: return "gearshape"
+        case .moiCafe: return "cup.and.saucer"
         }
     }
 }
@@ -104,6 +105,7 @@ struct MainView: View {
                     case .cuon: ScrollSettingsView()
                     case .gan: GanView()
                     case .caiDat: GeneralView()
+                    case .moiCafe: CoffeeView()
                     }
                 }
                 .id(nav.tab)
