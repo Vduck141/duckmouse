@@ -88,29 +88,42 @@ final class KeyButtons {
 
     func handle(_ type: CGEventType, _ event: CGEvent) -> Unmanaged<CGEvent>? {
         if type == .tapDisabledByTimeout || type == .tapDisabledByUserInput {
+            Log.info("BỘ BẮT", "macOS tạm tắt bộ bắt phím (\(type == .tapDisabledByTimeout ? "chạy chậm" : "người dùng")) → bật lại")
             if let tap { CGEvent.tapEnable(tap: tap, enable: true) }
             return Unmanaged.passUnretained(event)
         }
         let pass = Unmanaged.passUnretained(event)
         guard event.getIntegerValueField(.eventSourceUserData) != ScrollEngine.marker else { return pass }   // phím DuckMouse tự gửi
-        if type.rawValue == Self.systemDefined { return volumeFromMouse(event) ? nil : pass }
+        if type.rawValue == Self.systemDefined { logSystemKey(event); return pass }
         let code = event.getIntegerValueField(.keyboardEventKeycode)
         let candidate = Self.button(keyCode: code, flags: event.flags)
         // nhanh: phím thường không phải từ chuột đang giữ → chỉ cần xem có phải chuột gõ chữ không (đầu thu có bàn phím)
         if candidate == nil && held[code] == nil {
             if type == .keyDown, Self.isTyping(code, event.flags), let c = mouseCode(event), !keyboardCodes.contains(c) { learnKeyboard(c) }
+            // dò lỗi: phím khác chuột gửi (⌃←, ⌘Tab…) – app chưa đổi kiểu này. Gõ chữ thì không ghi phím
+            if Log.debugOn, type == .keyDown, event.getIntegerValueField(.keyboardEventAutorepeat) == 0, mouseCode(event) != nil {
+                Log.detail("PHÍM", "từ chuột: " + (Self.isTyping(code, event.flags) ? "phím gõ chữ (không ghi)" : Self.comboText(code, event.flags) + " – app chưa đổi kiểu này thành nút"))
+            }
             return pass
         }
         if type == .keyUp, let b = held[code] {                     // nhả phím đã đổi (dù ⌘ nhả trước)
             held[code] = nil
+            Log.detail("PHÍM", "\(Self.keyText(code, event.flags)) nhả → nút ảo \(b) nhả")
             ButtonEngine.shared.virtualButton(b, down: false, orig: event)
             MouseHID.shared.emitVirtual(b, down: false, text: nil)
             return nil
         }
-        guard let b = candidate, let c = mouseCode(event), !keyboardCodes.contains(c) else { return pass }
+        guard let b = candidate else { return pass }
+        guard let c = mouseCode(event), !keyboardCodes.contains(c) else {
+            if type == .keyDown, event.getIntegerValueField(.keyboardEventAutorepeat) == 0 {
+                Log.detail("PHÍM", "\(Self.keyText(code, event.flags)) nhấn · \(senderDesc(event)) → để nguyên")
+            }
+            return pass
+        }
         if type == .keyDown {
             if held[code] != nil || event.getIntegerValueField(.keyboardEventAutorepeat) != 0 { return nil }   // phím lặp khi giữ
             held[code] = b
+            Log.detail("PHÍM", "\(Self.keyText(code, event.flags)) nhấn · từ chuột \(String(format: "%04X:%04X", c >> 16, c & 0xFFFF)) → đổi thành nút ảo \(b)")
             MouseHID.shared.emitVirtual(b, down: true, text: "phím " + Self.keyText(code, event.flags))
             ButtonEngine.shared.virtualButton(b, down: true, orig: event)
             return nil
@@ -118,16 +131,33 @@ final class KeyButtons {
         return pass
     }
 
+    /// Tổ hợp phím để ghi nhật ký: ⌃⌥⇧⌘ + tên phím (chỉ dùng cho phím do CHUỘT gửi, không phải chữ gõ)
+    static func comboText(_ code: Int64, _ f: CGEventFlags) -> String {
+        (f.contains(.maskControl) ? "⌃" : "") + (f.contains(.maskAlternate) ? "⌥" : "") + (f.contains(.maskShift) ? "⇧" : "") + (f.contains(.maskCommand) ? "⌘" : "")
+            + (Shortcut.names[CGKeyCode(code)] ?? "#\(code)")
+    }
+
+    /// Thiết bị gửi (cho nhật ký): mã + có phải chuột không + vì sao không đổi
+    private func senderDesc(_ event: CGEvent) -> String {
+        guard Self.mouseCodeHook == nil else { return "thiết bị thử" }
+        guard let h = CGEventCopyIOHIDEvent(event)?.takeRetainedValue() else { return "không có thiết bị gửi (app khác tự tạo phím)" }
+        let sender = IOHIDEventGetSenderID(h)
+        let c = senderCode[sender] ?? Self.lookup(sender)
+        let t = c == 0 ? String(format: "thiết bị 0x%llX (không đọc được mã)", sender) : String(format: "thiết bị %04X:%04X", c >> 16, c & 0xFFFF)
+        if keyboardCodes.contains(c) { return t + " = đầu thu có bàn phím (đã thấy gõ chữ)" }
+        return t + (MouseHID.shared.devices.contains { $0.vendorID != 0 && ($0.vendorID << 16 | $0.productID) == c } ? "" : " – không phải chuột đang nối")
+    }
+
     /// Sự kiện phím hệ thống (âm lượng, phát nhạc…) – NX_SYSDEFINED
     static let systemDefined: UInt32 = 14
 
-    /// Phím âm lượng do CHÍNH con chuột gửi mà chuột đó dùng phím âm lượng làm nút hông (MouseHID đã đổi thành nút 4/5)
-    /// → nuốt, để macOS không vừa đổi âm lượng vừa chạy chức năng. Phím âm lượng của bàn phím thật để nguyên.
-    private func volumeFromMouse(_ event: CGEvent) -> Bool {
-        guard let ns = NSEvent(cgEvent: event), ns.subtype.rawValue == 8 else { return false }
-        let key = (ns.data1 & 0xFFFF0000) >> 16                  // NX_KEYTYPE_SOUND_UP 0 · SOUND_DOWN 1
-        guard key == 0 || key == 1, let c = mouseCode(event) else { return false }
-        return MouseHID.shared.volumeSideCodes.contains(c)
+    /// Dò lỗi: phím hệ thống (âm lượng, phát nhạc…) do CHÍNH con chuột gửi → ghi lại; luôn cho qua
+    private func logSystemKey(_ event: CGEvent) {
+        guard Log.debugOn, let ns = NSEvent(cgEvent: event), ns.subtype.rawValue == 8, mouseCode(event) != nil else { return }
+        let key = (ns.data1 & 0xFFFF0000) >> 16, down = ((ns.data1 & 0xFF00) >> 8) == 0xA
+        let name = [0: "Tăng âm lượng", 1: "Giảm âm lượng", 7: "Tắt tiếng", 16: "Phát / dừng", 17: "Bài sau", 18: "Bài trước",
+                    2: "Tăng độ sáng", 3: "Giảm độ sáng"][key] ?? "phím hệ thống \(key)"
+        Log.detail("PHÍM", "từ chuột: \(name) \(down ? "nhấn" : "nhả") (phím hệ thống – app không đổi, nếu là nút hông thì xem phần mềm hãng)")
     }
 
     /// Mã hãng:mã chuột của thiết bị gửi, nếu thiết bị đó là 1 con chuột đang nối (không phải bàn phím thật)
@@ -164,8 +194,10 @@ final class KeyButtons {
     private func learnKeyboard(_ c: Int) {
         keyboardCodes.insert(c)
         UserDefaults.standard.set(Array(keyboardCodes), forKey: "keyboardDongles")
-        NSLog("DuckMouse: đầu thu %04X:%04X có bàn phím – không đổi phím ⌘[ / ⌥← thành nút chuột", c >> 16, c & 0xFFFF)
+        Log.info("PHÍM", String(format: "đầu thu %04X:%04X có bàn phím (thấy gõ chữ) – từ giờ không đổi ⌘[ / ⌥← của nó thành nút chuột", c >> 16, c & 0xFFFF))
     }
+
+    var keyboardDongles: [Int] { keyboardCodes.sorted() }
 
     /// Đầu thu này app có đổi phím → nút không (MouseHID dùng để báo ở tab Test)
     func converts(vendor: Int, product: Int) -> Bool { running && !keyboardCodes.contains(vendor << 16 | product) }

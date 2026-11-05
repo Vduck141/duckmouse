@@ -53,6 +53,9 @@ struct GeneralView: View {
                     SettingRow(title: "Hiện chữ khi chức năng chạy", sub: "Ô nhỏ giữa màn hình, tự tắt sau 0,6 giây", isOn: $settings.hud)
                 }
             }
+            DMCard(title: "Nhật ký & dò lỗi") {
+                DebugBlock()
+            }
             DMCard(title: "Giới thiệu") {
                 AboutBlock()
             }
@@ -64,9 +67,15 @@ struct GeneralView: View {
 /// Giới thiệu – giống Messenger Vdk: biểu tượng, tên, phiên bản · ngày, © by Vduck, các link
 enum AppInfo {
     static let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?"
-    static let releaseDate = "04/11/2026"
+    static let releaseDate = "05/11/2026"
     static let github = URL(string: "https://github.com/Vduck141/duckmouse")!
     static let whatsNew = """
+    1.1.3 (05/11/2026)
+    • Nhật ký & dò lỗi (Cài đặt): bật Chế độ dò lỗi → bấm nút bị lỗi → Xuất nhật ký ra Tải về → gửi Duck. Không ghi chữ bạn gõ.
+    • Chuột gửi nút hông kiểu phím (Ugreen chế độ Mac ⌘[ / ⌘], kiểu Windows ⌥← / ⌥→, phím Back / Forward) → tự đổi thành nút hông để gán được.
+    • Nút «Thử» gửi phím tắt sang app bạn đang dùng · ghi được phím nóng · cảnh báo app chuột khác đang chạy.
+    • Bỏ phần tự đổi phím âm lượng của 1.1.2 (đó là nút người dùng tự gán trong phần mềm hãng).
+
     1.1.0 (04/11/2026)
     • Thêm 200 mẫu chuột – tổng 300 mẫu văn phòng, silent, gaming (Logitech, Razer, SteelSeries, Corsair, HyperX, Glorious, Zowie, ASUS, Microsoft, Dell, HP, Lenovo, Rapoo, DareU, E-Dra, Fuhlen…).
     • Tab Mời cà phê: mã VietQR ủng hộ ngay trong app.
@@ -77,6 +86,42 @@ enum AppInfo {
     • Cuộn mượt như trackpad.
     • Gán chức năng: giữ nút + kéo 4 hướng, 34 chức năng, hình động minh hoạ.
     """
+}
+
+/// Cài đặt → Nhật ký & dò lỗi: bật ghi chi tiết 10 phút, xuất file gửi Duck
+struct DebugBlock: View {
+    @State private var until: Date? = Log.debugUntil
+    @State private var exported: URL?
+    private let tick = Timer.publish(every: 10, on: .main, in: .common).autoconnect()
+    private var timeText: String { until.map { let f = DateFormatter(); f.dateFormat = "HH:mm"; return f.string(from: $0) } ?? "" }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            SettingRow(title: "Chế độ dò lỗi",
+                       sub: until == nil ? "Ghi chi tiết từng lần bấm nút (chuột gửi gì, app đổi / bỏ qua vì sao) để Duck tìm lỗi. Tự tắt sau 10 phút."
+                                         : "Đang ghi chi tiết – tự tắt lúc \(timeText). Bấm các nút chuột bị lỗi vài lần rồi xuất nhật ký.",
+                       isOn: Binding(get: { until != nil }, set: { Log.setDebug($0); until = Log.debugUntil }))
+            HStack(spacing: 10) {
+                Button("Xuất nhật ký ra Tải về") {
+                    exported = Log.export()
+                    if let u = exported { NSWorkspace.shared.activateFileViewerSelecting([u]) }
+                }
+                .buttonStyle(DMButton(kind: .ink))
+                Button("Mở thư mục nhật ký") {
+                    Log.flush()
+                    NSWorkspace.shared.activateFileViewerSelecting([FileManager.default.fileExists(atPath: Log.file.path) ? Log.file : Log.dir])
+                }
+                .buttonStyle(DMButton(kind: .ghost))
+                Spacer()
+            }
+            if let u = exported {
+                Text("Đã lưu \(u.lastPathComponent) trong Tải về – gửi file này cho Duck.").font(.system(size: 12, weight: .semibold)).foregroundStyle(T.mint)
+            }
+            Text("Cách báo lỗi: bật Chế độ dò lỗi → bấm các nút chuột bị lỗi vài lần → Xuất nhật ký → gửi file trong Tải về cho Duck. Nhật ký chỉ nằm trên máy bạn, không ghi chữ bạn gõ.")
+                .font(.system(size: 12)).foregroundStyle(T.ink3).fixedSize(horizontal: false, vertical: true)
+        }
+        .onReceive(tick) { _ in if until != Log.debugUntil { until = Log.debugUntil } }
+    }
 }
 
 struct AboutBlock: View {

@@ -28,5 +28,12 @@ Bật xong quay lại app, dòng quyền chuyển xanh (không cần mở lại 
 ## 6. Cập nhật bản mới
 Tải DMG mới → kéo đè vào Applications. Vì app ký tạm (không có chứng chỉ trả phí), macOS coi bản mới là app khác: vào **Trợ năng** và **Theo dõi đầu vào**, xoá dòng DuckMouse cũ (nút **–**) rồi cấp lại.
 
-## 7. Gỡ app
+## 7. Báo lỗi (nút chuột không nhận…)
+1. Mở DuckMouse → **Cài đặt** → mục **Nhật ký & dò lỗi** → bật **Chế độ dò lỗi** (tự tắt sau 10 phút).
+2. Bấm các nút chuột bị lỗi vài lần (ở app bạn hay dùng).
+3. Quay lại Cài đặt → **Xuất nhật ký ra Tải về** → gửi file `DuckMouse-nhat-ky-….txt` trong thư mục Tải về cho tác giả.
+
+Nhật ký chỉ nằm trên máy bạn và không ghi chữ bạn gõ.
+
+## 8. Gỡ app
 Thoát DuckMouse (biểu tượng con chuột trên thanh menu → Thoát) → kéo DuckMouse trong Applications vào Thùng rác. Chuột trở về như macOS gốc.

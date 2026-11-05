@@ -123,6 +123,7 @@ struct Shortcut {
 
 enum Actions {
     static func perform(_ s: Slot) {
+        if s.action != .macDinh && s.action != .khongGi { Log.detail("CHẠY", s.action == .phimTat ? "phím tắt \(Shortcut(s.param)?.text ?? "?")" : s.action.title) }
         switch s.action {
         case .macDinh, .khongGi: return
         case .copy: key(8, .maskCommand)
@@ -161,9 +162,9 @@ enum Actions {
         case .moWeb:
             var u = s.param.trimmingCharacters(in: .whitespaces)
             if !u.isEmpty && !u.contains("://") { u = "https://" + u }
-            if let url = URL(string: u), !u.isEmpty { NSWorkspace.shared.open(url) } else { NSSound.beep() }
+            if let url = URL(string: u), !u.isEmpty { NSWorkspace.shared.open(url) } else { Log.info("CHẠY", "địa chỉ web không hợp lệ: \(s.param)"); NSSound.beep() }
         case .phimTat:
-            if let k = Shortcut(s.param) { key(k.code, k.flags) } else { NSSound.beep() }
+            if let k = Shortcut(s.param) { key(k.code, k.flags) } else { Log.info("CHẠY", "phím tắt tự chọn chưa ghi"); NSSound.beep() }
         }
         if Settings.shared.hud { HUD.show(s.action == .phimTat ? (Shortcut(s.param)?.text ?? "Phím tắt") : s.action.title) }
     }
@@ -189,7 +190,7 @@ enum Actions {
     }
 
     static func openApp(_ path: String) {
-        guard !path.isEmpty, FileManager.default.fileExists(atPath: path) else { NSSound.beep(); return }
+        guard !path.isEmpty, FileManager.default.fileExists(atPath: path) else { Log.info("CHẠY", "không thấy app: \(path.isEmpty ? "(chưa chọn)" : path)"); NSSound.beep(); return }
         NSWorkspace.shared.openApplication(at: URL(fileURLWithPath: path), configuration: .init())
     }
 
@@ -197,6 +198,7 @@ enum Actions {
     static func openFolder(_ path: String) {
         DispatchQueue.global().async {
             guard !path.isEmpty, FileManager.default.fileExists(atPath: path) else {
+                Log.info("CHẠY", "không thấy thư mục: \(path.isEmpty ? "(chưa chọn)" : path) – ổ chưa cắm?")
                 DispatchQueue.main.async { NSSound.beep() }   // ổ chưa cắm
                 return
             }

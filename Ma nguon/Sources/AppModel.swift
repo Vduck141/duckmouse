@@ -24,6 +24,7 @@ final class AppModel: ObservableObject {
     private var toastWork: DispatchWorkItem?
 
     func start() {
+        Log.session()
         hid.start()
         if CommandLine.arguments.contains("--gia-lap") { hid.enableSimulation() }
         if !settings.firstLaunchDone {
@@ -43,6 +44,7 @@ final class AppModel: ObservableObject {
             if let a = n.userInfo?[NSWorkspace.applicationUserInfoKey] as? NSRunningApplication, a.processIdentifier != getpid() { self?.lastOtherApp = a }
         }
         check()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { Log.info("MỞ", "tóm tắt lúc mở:\n" + Log.summary()) }
     }
 
     /// Tên app chuột khác đang chạy (danh sách giống app Dò nút; Mos có cảnh báo riêng)
@@ -65,11 +67,12 @@ final class AppModel: ObservableObject {
     func check() {
         hid.retryIfNeeded()
         let t = AXIsProcessTrusted()
-        if t != trusted { trusted = t }
+        if t != trusted { trusted = t; Log.info("QUYỀN", "Trợ năng: \(t ? "CÓ" : "KHÔNG (vừa cập nhật thì xoá dòng DuckMouse cũ trong Trợ năng rồi cấp lại)")") }
         let m = !NSRunningApplication.runningApplications(withBundleIdentifier: Self.mosID).isEmpty
-        if m != mosRunning { mosRunning = m }
+        if m != mosRunning { mosRunning = m; Log.info("APP", m ? "Mos đang chạy → DuckMouse nghỉ cuộn / nút" : "Mos đã tắt") }
         let o = Self.scanMouseApps()
-        if o != otherMouseApps { otherMouseApps = o }
+        if o != otherMouseApps { otherMouseApps = o; Log.info("APP", o.isEmpty ? "không còn app chuột khác" : "app chuột khác đang chạy: " + o.joined(separator: ", ")) }
+        if Log.debugExpired { Log.setDebug(false) }
         syncEngines()
     }
 
@@ -77,20 +80,28 @@ final class AppModel: ObservableObject {
     func restartEngines(reason: String) {
         ScrollEngine.shared.stop(); ButtonEngine.shared.stop(); KeyButtons.shared.stop()
         syncEngines()
-        NSLog("DuckMouse: dựng lại bộ bắt cuộn/nút – \(reason)")
+        Log.info("BỘ BẮT", "dựng lại bộ bắt cuộn / nút / phím – \(reason)")
     }
 
     /// Mos đang chạy thì không bật cuộn/nút (tránh cuộn mượt 2 lần, nút chạy 2 lần)
     func syncEngines() {
         if !ScrollEngine.shared.healthy || !ButtonEngine.shared.healthy || !KeyButtons.shared.healthy {
             ScrollEngine.shared.stop(); ButtonEngine.shared.stop(); KeyButtons.shared.stop()
-            NSLog("DuckMouse: bộ bắt bị tắt → bật lại")
+            Log.info("BỘ BẮT", "macOS đã tắt bộ bắt → bật lại")
         }
         let canRun = trusted && !mosRunning
         if canRun && settings.scrollEnabled { ScrollEngine.shared.start() } else { ScrollEngine.shared.stop() }
         if canRun && settings.buttonsEnabled { ButtonEngine.shared.start(); KeyButtons.shared.start() }
         else { KeyButtons.shared.stop(); ButtonEngine.shared.stop() }
+        // ghi khi tình trạng đổi: chạy / tắt / KHÔNG tạo được (macOS từ chối)
+        func st(_ want: Bool, _ run: Bool) -> String { run ? "chạy" : want ? "KHÔNG tạo được" : "tắt" }
+        let state = "nút \(st(canRun && settings.buttonsEnabled, ButtonEngine.shared.running)) · phím từ chuột \(st(canRun && settings.buttonsEnabled, KeyButtons.shared.running)) · cuộn \(st(canRun && settings.scrollEnabled, ScrollEngine.shared.running))"
+        if state != lastEngineState {
+            lastEngineState = state
+            Log.info("BỘ BẮT", state + (canRun ? "" : trusted ? " (Mos đang chạy)" : " (thiếu quyền Trợ năng)"))
+        }
     }
+    private var lastEngineState = ""
 
     func requestTrust() {
         let opts = [kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true] as CFDictionary

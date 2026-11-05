@@ -111,7 +111,7 @@ final class TestRun: ObservableObject {
             return "2 nút hông: chuột gửi bình thường, macOS cũng thấy. Nếu DuckMouse vẫn không nhận → lỗi ở DuckMouse, gửi kết quả này cho Duck."
         }
         if side.contains(where: { $0.verdict == .vendor }) {
-            return "Nút hông: chuột gửi PHÍM / tín hiệu riêng của hãng (không phải nút chuột) – không phải do app chặn. Cài DuckMouse bản mới nhất (1.1.2 trở lên) để app tự đổi thành nút hông; vẫn không nhận thì gửi Duck ảnh này + file kết quả."
+            return "Nút hông: chuột gửi PHÍM / tín hiệu riêng của hãng (không phải nút chuột) – không phải do app chặn. Nếu bạn đã gán nút hông trong phần mềm hãng (âm lượng, phím tắt…) thì đặt lại «Quay lại / Chuyển tiếp» rồi test lại. Chuột tự gửi ⌘[ / ⌘] (Ugreen chế độ Mac) thì DuckMouse 1.1.1+ tự đổi được."
         }
         if side.contains(where: { $0.verdict == .blocked }) {
             return "Nút hông: chuột có gửi nhưng macOS không thấy → đang có app chặn nút (xem dòng app bên dưới). Tắt hẳn app đó rồi test lại."
@@ -176,7 +176,7 @@ struct MainView: View {
                 }
                 .frame(height: 220)
             } label: { Text("Chi tiết kỹ thuật (cho Duck)").font(.system(size: 12, weight: .semibold)).foregroundStyle(C.ink3) }
-            Text("macOS \(ProcessInfo.processInfo.operatingSystemVersionString) · Dò nút 1.2 · © 2026 by Vduck")
+            Text("macOS \(ProcessInfo.processInfo.operatingSystemVersionString) · Dò nút 1.3 · © 2026 by Vduck")
                 .font(.system(size: 11)).foregroundStyle(C.ink3)
         }
         .padding(20)

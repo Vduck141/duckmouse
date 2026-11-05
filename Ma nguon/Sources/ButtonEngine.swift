@@ -49,6 +49,7 @@ final class ButtonEngine {
 
     private func handle(_ type: CGEventType, _ event: CGEvent) -> Unmanaged<CGEvent>? {
         if type == .tapDisabledByTimeout || type == .tapDisabledByUserInput {
+            Log.info("BỘ BẮT", "macOS tạm tắt bộ bắt nút (\(type == .tapDisabledByTimeout ? "chạy chậm" : "người dùng")) → bật lại")
             if let tap { CGEvent.tapEnable(tap: tap, enable: true) }
             return Unmanaged.passUnretained(event)
         }
@@ -64,12 +65,21 @@ final class ButtonEngine {
         }
         let click = s.slot(button, .click)
         let gesture = s.hasGesture(button)
+        let who = virtualHeld == button ? "nút ảo \(button)" : "nút \(button)"
+        let isDown = type == .otherMouseDown
         if !lock && !gesture {                       // không có cử chỉ → xử lý ngay
-            if click.action == .macDinh { return Unmanaged.passUnretained(event) }
-            if type == .otherMouseDown { DispatchQueue.main.async { Self.perform(click) } }
+            if click.action == .macDinh {
+                if isDown { Log.detail("NÚT", "\(who) nhấn · click = Giữ mặc định → trả cho app") }
+                return Unmanaged.passUnretained(event)
+            }
+            if isDown {
+                Log.detail("NÚT", "\(who) nhấn · click = \(click.action.title) → chạy")
+                DispatchQueue.main.async { Self.perform(click) }
+            }
             return nil
         }
-        if type == .otherMouseDown {
+        if isDown {
+            Log.detail("NÚT", "\(who) nhấn · " + (lock ? "ô thử nút (chỉ ghi nhận)" : "có cử chỉ → giữ chờ kéo (≥ \(s.wait(button))s, \(Int(s.dragDistance)) px)"))
             holdButton = button; holdDown = event.copy(); fired = false; dragX = 0; dragY = 0; downTime = Date()
             return nil
         }
@@ -79,8 +89,11 @@ final class ButtonEngine {
         if fired { return nil }                       // đã chạy cử chỉ → nuốt cú nhả
         if lock { DispatchQueue.main.async { Self.onTest?(button, .click) }; return nil }
         if click.action == .macDinh {                 // ấn nhanh → trả lại nút gốc (Chrome hiểu Quay lại / Đi tiếp)
-            replay(virtualKeyDown.flatMap { kd in virtualKeyUp.map { [kd, $0] } } ?? [down, event.copy()].compactMap { $0 })
+            let key = virtualKeyDown.flatMap { kd in virtualKeyUp.map { [kd, $0] } }
+            Log.detail("NÚT", "\(who) nhả, không kéo · click = Giữ mặc định → trả lại \(key == nil ? "nút \(button)" : "phím gốc") cho app")
+            replay(key ?? [down, event.copy()].compactMap { $0 })
         } else {
+            Log.detail("NÚT", "\(who) nhả, không kéo · click = \(click.action.title) → chạy")
             DispatchQueue.main.async { Self.perform(click) }
         }
         return nil
@@ -166,6 +179,7 @@ final class ButtonEngine {
         let slot = s.slot(b, dir)
         guard slot.action != .macDinh else { return }
         fired = true
+        Log.detail("KÉO", "nút \(b) \(dir.title) (\(Int(dragX)), \(Int(dragY))) → chạy \(slot.action.title)")
         DispatchQueue.main.async { Self.perform(slot) }
     }
 }

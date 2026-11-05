@@ -58,6 +58,7 @@ final class MouseHID: ObservableObject {
 
     private init() {
         mach_timebase_info(&timebase)
+        UserDefaults.standard.removeObject(forKey: "volumeSideDongles")      // 1.1.2 (đổi phím âm lượng) – đã bỏ
         IOHIDManagerSetDeviceMatching(mgr, [kIOHIDDeviceUsagePageKey: kHIDPage_GenericDesktop,
                                             kIOHIDDeviceUsageKey: kHIDUsage_GD_Mouse] as CFDictionary)
         let ctx = Unmanaged.passUnretained(self).toOpaque()
@@ -99,7 +100,7 @@ final class MouseHID: ObservableObject {
     /// Mở lại khi anh vừa cấp quyền (AppModel gọi định kỳ)
     func retryIfNeeded() {
         let g = IOHIDCheckAccess(kIOHIDRequestTypeListenEvent) == kIOHIDAccessTypeGranted
-        if g != listenGranted { listenGranted = g }
+        if g != listenGranted { listenGranted = g; Log.info("QUYỀN", "Theo dõi đầu vào: \(g ? "CÓ" : "KHÔNG")") }
         if openError != nil && g { open() }
     }
 
@@ -108,6 +109,7 @@ final class MouseHID: ObservableObject {
         guard !isOpen else { refreshDevices(); return }
         let r = IOHIDManagerOpen(mgr, IOOptionBits(kIOHIDOptionsTypeNone))
         isOpen = r == kIOReturnSuccess
+        Log.info("HID", isOpen ? "mở bộ đọc chuột được" : String(format: "KHÔNG mở được bộ đọc chuột (mã 0x%X) – thiếu quyền Theo dõi đầu vào?", r))
         openError = r == kIOReturnSuccess ? nil : "Cần quyền \"Theo dõi đầu vào\" để đo tần số, test nút, bánh xe."
         refreshDevices()
     }
@@ -146,6 +148,9 @@ final class MouseHID: ObservableObject {
         }
         list.sort { $0.product < $1.product }
         DispatchQueue.main.async {
+            if list.map({ "\($0.id)" }) != self.devices.map({ "\($0.id)" }) {
+                Log.info("CHUỘT", list.isEmpty ? "không thấy chuột nào" : list.map { "\($0.product) \($0.codeText) \($0.transport) (khai \($0.declaredButtons) nút)" }.joined(separator: " | "))
+            }
             self.updateExtra(list)
             self.devices = list
             self.onDevicesChanged?()
@@ -180,6 +185,7 @@ final class MouseHID: ObservableObject {
             let dx = usage == kHIDUsage_GD_X ? v : 0, dy = usage == kHIDUsage_GD_Y ? v : 0
             for l in moveListeners.values { l(id, dx, dy, tms) }
         } else if page == kHIDPage_Button {
+            Log.detail("HID", "phần chuột \(Self.code(dev)) · nút chuột \(usage) \(v != 0 ? "nhấn" : "nhả")")
             for l in buttonListeners.values { l(id, Int(usage), v != 0, tms) }
         } else if page == kHIDPage_GenericDesktop && usage == kHIDUsage_GD_Wheel {
             guard v != 0 else { return }
@@ -196,60 +202,122 @@ final class MouseHID: ObservableObject {
     private func updateExtra(_ list: [MouseDevice]) {
         guard isOpen else { return }
         let ids = Set(list.filter { $0.vendorID != 0 }.map { $0.vendorID << 16 | $0.productID })
-        guard ids != extraIDs else { return }
-        extraIDs = ids
-        let match = ids.map { [kIOHIDVendorIDKey: $0 >> 16, kIOHIDProductIDKey: $0 & 0xFFFF] as [String: Any] }
-        IOHIDManagerSetDeviceMatchingMultiple(extra, match as CFArray)
-        if !extraOpen && !ids.isEmpty { extraOpen = IOHIDManagerOpen(extra, IOOptionBits(kIOHIDOptionsTypeNone)) == kIOReturnSuccess }
+        if ids != extraIDs {
+            extraIDs = ids
+            let match = ids.map { [kIOHIDVendorIDKey: $0 >> 16, kIOHIDProductIDKey: $0 & 0xFFFF] as [String: Any] }
+            IOHIDManagerSetDeviceMatchingMultiple(extra, match as CFArray)
+            if !extraOpen && !ids.isEmpty {
+                let r = IOHIDManagerOpen(extra, IOOptionBits(kIOHIDOptionsTypeNone))
+                extraOpen = r == kIOReturnSuccess
+                if !extraOpen { Log.info("HID", String(format: "KHÔNG mở được các phần khác của chuột (mã 0x%X)", r)) }
+            }
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            guard let self else { return }
+            let parts = self.partsDescription()
+            if parts != self.lastParts { self.lastParts = parts; if !parts.isEmpty { Log.info("PHẦN", parts.joined(separator: " | ")) } }
+            self.registerRaw()
+        }
     }
 
-    /// Phím đa phương tiện Back / Forward (AC Back 0x224, AC Forward 0x225) → nút hông 4 / 5 (mọi phần của chuột)
-    static let consumerButtons: [UInt32: Int] = [0x224: 4, 0x225: 5]
-    /// Giảm / Tăng âm lượng (0xEA / 0xE9) → nút hông 4 / 5, CHỈ khi đến từ phần riêng của hãng (trang ≥ 0xFF00):
-    /// 05/11 VXE R1 gửi 2 nút hông thành phím âm lượng qua phần 0xFF05, macOS không coi là nút chuột.
-    /// Chuột có nút âm lượng thật để ở phần đa phương tiện bình thường → không đụng
-    static let vendorVolumeButtons: [UInt32: Int] = [0xEA: 4, 0xE9: 5]
-    private var virtualDown: Int?
-    /// Đầu thu gửi nút hông thành phím âm lượng (mã hãng:mã chuột) → KeyButtons chặn luôn việc macOS đổi âm lượng (nếu có)
-    private(set) var volumeSideCodes: Set<Int> = Set(UserDefaults.standard.array(forKey: "volumeSideDongles") as? [Int] ?? [])
+    // MARK: - nhật ký: các phần của chuột + gói thô (chế độ dò lỗi)
 
-    static func mappedConsumer(_ u: UInt32, vendorPart: Bool) -> Int? { consumerButtons[u] ?? (vendorPart ? vendorVolumeButtons[u] : nil) }
+    private var lastParts: [String] = []
+    private var rawBufs: [UInt64: UnsafeMutablePointer<UInt8>] = [:]
+    private var rawLast: [UInt64: [UInt8]] = [:]
+
+    private static func num(_ d: IOHIDDevice, _ k: String) -> Int { IOHIDDeviceGetProperty(d, k as CFString) as? Int ?? 0 }
+    static func code(_ d: IOHIDDevice) -> String { String(format: "%04X:%04X", num(d, kIOHIDVendorIDKey), num(d, kIOHIDProductIDKey)) }
+    static func kind(_ d: IOHIDDevice) -> String {
+        let pg = num(d, kIOHIDPrimaryUsagePageKey), u = num(d, kIOHIDPrimaryUsageKey)
+        return pg == 1 && u == 2 ? "chuột" : pg == 1 && u == 6 ? "bàn phím" : pg == 12 ? "đa phương tiện"
+             : pg >= 0xFF00 ? String(format: "riêng hãng 0x%X", pg) : "khác \(pg)/\(u)"
+    }
+
+    /// Mỗi phần (giao diện) của các chuột đang nối: tên · mã · kết nối · loại
+    func partsDescription() -> [String] {
+        let set = (IOHIDManagerCopyDevices(extra) as? Set<IOHIDDevice>) ?? []
+        return set.map { d in
+            "\(IOHIDDeviceGetProperty(d, kIOHIDProductKey as CFString) as? String ?? "?") · \(Self.code(d)) · \(IOHIDDeviceGetProperty(d, kIOHIDTransportKey as CFString) as? String ?? "?") · phần \(Self.kind(d))"
+        }.sorted()
+    }
+
+    /// Nghe gói thô của phần đa phương tiện / riêng hãng (thấy cả tín hiệu không khai tên). Phần bàn phím KHÔNG nghe thô (có thể là bàn phím thật đi chung đầu thu)
+    func registerRaw() {
+        for d in (IOHIDManagerCopyDevices(extra) as? Set<IOHIDDevice>) ?? [] {
+            let pg = Self.num(d, kIOHIDPrimaryUsagePageKey)
+            guard pg == 12 || pg >= 0xFF00 else { continue }
+            let id = Self.regID(d)
+            guard rawBufs[id] == nil else { continue }
+            let size = max(64, Self.num(d, kIOHIDMaxInputReportSizeKey))
+            let buf = UnsafeMutablePointer<UInt8>.allocate(capacity: size)
+            rawBufs[id] = buf
+            IOHIDDeviceRegisterInputReportCallback(d, buf, size, { ctx, _, sender, _, rep, data, len in
+                guard let ctx, let sender, Log.debugOn else { return }
+                let me = Unmanaged<MouseHID>.fromOpaque(ctx).takeUnretainedValue()
+                let dev = Unmanaged<IOHIDDevice>.fromOpaque(sender).takeUnretainedValue()
+                me.raw(dev, rep, Array(UnsafeBufferPointer(start: data, count: len)))
+            }, Unmanaged.passUnretained(self).toOpaque())
+        }
+    }
+
+    private func raw(_ d: IOHIDDevice, _ rep: UInt32, _ b: [UInt8]) {
+        let id = Self.regID(d)
+        if rawLast[id] == b { return }
+        rawLast[id] = b
+        Log.detail("THÔ", "phần \(Self.kind(d)) \(Self.code(d)) · gói #\(rep): " + b.prefix(16).map { String(format: "%02X", $0) }.joined(separator: " "))
+    }
+
+    // MARK: - nút hông gửi phím Back / Forward
+
+    /// Phím đa phương tiện Back / Forward (AC Back 0x224, AC Forward 0x225) → nút hông 4 / 5.
+    /// (1.1.2 có đổi cả Giảm / Tăng âm lượng – bỏ ở 1.1.3: đó là do người dùng tự gán trong phần mềm hãng, không phải chuột gửi sẵn)
+    static let consumerButtons: [UInt32: Int] = [0x224: 4, 0x225: 5]
+    private var virtualDown: Int?
 
     /// Đọc 1 giá trị HID phím đa phương tiện → (mã phím, nhấn?). Mã 0 + nhả = «nhả nút đang giữ».
-    /// Phần tử kiểu mảng (gói `05 EA 00`): giá trị = mã phím đang bấm, 0 = hết bấm
-    static func consumerSignal(usage: UInt32, value: Int, isArray: Bool, usageMin: Int, logicalMin: Int, vendorPart: Bool) -> (UInt32, Bool)? {
+    /// Phần tử kiểu mảng (gói `05 24 02`): giá trị = mã phím đang bấm, 0 = hết bấm
+    static func consumerSignal(usage: UInt32, value: Int, isArray: Bool, usageMin: Int, logicalMin: Int) -> (UInt32, Bool)? {
         if isArray {
             if value == 0 || value < logicalMin { return (0, false) }
             let u = UInt32(truncatingIfNeeded: usageMin + (value - logicalMin))
-            return mappedConsumer(u, vendorPart: vendorPart) != nil ? (u, true) : nil
+            return consumerButtons[u] != nil ? (u, true) : nil
         }
         if usage == 0 { return value != 0 ? (0, false) : nil }            // «không có phím» = vừa nhả hết
-        return mappedConsumer(usage, vendorPart: vendorPart) != nil ? (usage, value != 0) : nil
+        return consumerButtons[usage] != nil ? (usage, value != 0) : nil
     }
+
+    static let consumerNames: [UInt32: String] = [0xE9: "Tăng âm lượng", 0xEA: "Giảm âm lượng", 0xE2: "Tắt tiếng", 0xCD: "Phát / dừng",
+                                                  0xB5: "Bài sau", 0xB6: "Bài trước", 0x224: "Back", 0x225: "Forward", 0x223: "Trang chủ"]
 
     private func handleExtra(_ dev: IOHIDDevice, _ value: IOHIDValue) {
         let el = IOHIDValueGetElement(value)
         let page = IOHIDElementGetUsagePage(el), usage = IOHIDElementGetUsage(el)
         let v = IOHIDValueGetIntegerValue(value)
         let id = Self.regID(dev)
-        let vendorPart = (IOHIDDeviceGetProperty(dev, kIOHIDPrimaryUsagePageKey as CFString) as? Int ?? 0) >= 0xFF00
+        let isArray = IOHIDElementIsArray(el)
+        if page == kHIDPage_Consumer, usage != 0x238, v != 0 || !isArray {
+            Log.detail("HID", "phần \(Self.kind(dev)) \(Self.code(dev)) · phím đa phương tiện " + (isArray ? "mảng = 0x\(String(v, radix: 16))" : String(format: "0x%X", usage) + " = \(v)")
+                       + ((Self.consumerNames[isArray ? UInt32(truncatingIfNeeded: v) : usage]).map { " (\($0))" } ?? ""))
+        }
         if page == kHIDPage_Consumer,
-           let (u, down) = Self.consumerSignal(usage: usage, value: v, isArray: IOHIDElementIsArray(el),
+           let (u, down) = Self.consumerSignal(usage: usage, value: v, isArray: isArray,
                                                usageMin: IOHIDElementGetProperty(el, kIOHIDElementUsageMinKey as CFString) as? Int ?? 0,
-                                               logicalMin: IOHIDElementGetLogicalMin(el), vendorPart: vendorPart) {
-            let code = (IOHIDDeviceGetProperty(dev, kIOHIDVendorIDKey as CFString) as? Int ?? 0) << 16
-                     | (IOHIDDeviceGetProperty(dev, kIOHIDProductIDKey as CFString) as? Int ?? 0)
-            consumer(id, u, down: down, tms: ms(IOHIDValueGetTimeStamp(value)), vendorPart: vendorPart, code: code)
+                                               logicalMin: IOHIDElementGetLogicalMin(el)) {
+            consumer(id, u, down: down, tms: ms(IOHIDValueGetTimeStamp(value)))
         } else if page == kHIDPage_KeyboardOrKeypad {
             guard usage >= 4 && usage <= 0xE7 else { return }
             if usage >= 0xE0 {                                  // ⌃ ⇧ ⌥ ⌘ (trái/phải)
                 if v != 0 { mods[id, default: []].insert(usage % 4) } else { mods[id]?.remove(usage % 4) }
                 return
             }
-            guard v != 0, !signalListeners.isEmpty else { return }
             let m = mods[id] ?? []
             let name = [0: "⌃", 1: "⇧", 2: "⌥", 3: "⌘"].filter { m.contains($0.key) }.sorted { $0.key < $1.key }.map(\.value).joined()
                 + Self.keyName(usage)
+            // gõ chữ / số không kèm ⌘⌥⌃ (có thể là bàn phím thật đi chung đầu thu) → không ghi phím
+            let typing = usage <= 0x38 && usage != 0x28 && usage != 0x29 && usage != 0x2B && m.isDisjoint(with: [0, 2, 3])
+            Log.detail("HID", "phần \(Self.kind(dev)) \(Self.code(dev)) · " + (typing ? "phím gõ chữ (không ghi)" : "phím \(name) \(v != 0 ? "nhấn" : "nhả")"))
+            guard v != 0, !signalListeners.isEmpty else { return }
             if KeyButtons.button(hidUsage: usage, mods: m) != nil {
                 // ⌘[ ⌘] ⌥← ⌥→: KeyButtons đổi thành nút 4/5 và tự báo; chỉ báo ở đây khi bộ đổi chưa chạy
                 let vid = IOHIDDeviceGetProperty(dev, kIOHIDVendorIDKey as CFString) as? Int ?? 0
@@ -260,27 +328,20 @@ final class MouseHID: ObservableObject {
             }
             for l in signalListeners.values { l(nil, "phím bàn phím " + name) }
         } else if page == kHIDPage_Consumer, usage != 0x238, usage != 0, usage != 0xFFFFFFFF, v != 0, !signalListeners.isEmpty {
-            for l in signalListeners.values { l(nil, String(format: "phím đa phương tiện 0x%03X", usage)) }
+            for l in signalListeners.values { l(nil, String(format: "phím đa phương tiện 0x%03X", usage) + (Self.consumerNames[usage].map { " (\($0))" } ?? "")) }
         }
     }
 
     /// Nhấn / nhả nút ảo từ phím đa phương tiện (mã 0 + nhả = nhả nút đang giữ). Gọi trùng (phần tử mảng + phần tử từng phím) tự bỏ
-    func consumer(_ id: UInt64, _ usage: UInt32, down: Bool, tms: Double, vendorPart: Bool = false, code: Int = 0) {
+    func consumer(_ id: UInt64, _ usage: UInt32, down: Bool, tms: Double) {
         let b: Int
         if usage == 0 && !down { guard let h = virtualDown else { return }; b = h }
-        else { guard let m = Self.mappedConsumer(usage, vendorPart: vendorPart) else { return }; b = m }
+        else { guard let m = Self.consumerButtons[usage] else { return }; b = m }
         if down == (virtualDown == b) { return }            // báo lặp cùng trạng thái / nhả nút không giữ
         if down, virtualDown != nil { consumer(id, 0, down: false, tms: tms) }   // đổi nút mà chưa nhả nút cũ
         virtualDown = down ? b : nil
-        if down, Self.vendorVolumeButtons[usage] != nil, code != 0, !volumeSideCodes.contains(code) {
-            volumeSideCodes.insert(code)
-            UserDefaults.standard.set(Array(volumeSideCodes), forKey: "volumeSideDongles")
-        }
-        if down {
-            let text = [0x224: "phím Back", 0x225: "phím Forward",
-                        0xEA: "phím Giảm âm lượng (phần riêng của hãng)", 0xE9: "phím Tăng âm lượng (phần riêng của hãng)"][usage] ?? "phím đa phương tiện"
-            for l in signalListeners.values { l(b, text) }
-        }
+        Log.detail("ĐỔI", "phím \(usage == 0 ? "(nhả)" : Self.consumerNames[usage] ?? "?") → nút ảo \(b) \(down ? "nhấn" : "nhả")")
+        if down { for l in signalListeners.values { l(b, usage == 0x224 ? "phím Back" : "phím Forward") } }
         for l in buttonListeners.values { l(id, b, down, tms) }       // ô test đếm như nút chuột
         ButtonEngine.shared.virtualButton(b, down: down)              // Gán chức năng + trả nút 4/5 cho app khác
     }
@@ -295,10 +356,6 @@ final class MouseHID: ObservableObject {
                 let u: UInt32 = n.object as? String == "back" ? 0x224 : 0x225
                 self.consumer(0, u, down: true, tms: t)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.08) { self.consumer(0, u, down: false, tms: t + 80) }
-            case "vol-", "vol+":                                  // chuột VXE R1: nút hông = Giảm / Tăng âm lượng ở phần riêng hãng
-                let u: UInt32 = n.object as? String == "vol-" ? 0xEA : 0xE9
-                self.consumer(0, u, down: true, tms: t, vendorPart: true, code: 0x3554F58E)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.08) { self.consumer(0, 0, down: false, tms: t + 80) }
             case "cmd[", "cmd]", "alt<":                          // chuột Ugreen chế độ Mac / chuột kiểu Windows
                 let (code, f): (Int64, CGEventFlags) = n.object as? String == "cmd[" ? (33, .maskCommand)
                     : n.object as? String == "cmd]" ? (30, .maskCommand) : (123, .maskAlternate)

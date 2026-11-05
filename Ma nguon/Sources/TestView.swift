@@ -115,7 +115,7 @@ final class TestSession: ObservableObject {
             if let b {
                 self.lastSignal = "\(Settings.shared.buttonName(b)): chuột gửi \(text) → app đã đổi thành nút chuột, gán chức năng được"
             } else {
-                self.lastSignal = "Chuột gửi \(text) – app chưa tự đổi được kiểu này. Chụp màn hình gửi Duck."
+                self.lastSignal = "Chuột gửi \(text) – app chưa đổi được kiểu này. Nếu bạn đã gán nút này trong phần mềm hãng (âm lượng, phím tắt…) thì đặt lại «Quay lại / Chuyển tiếp»; không thì Cài đặt → Nhật ký & dò lỗi → Xuất nhật ký, gửi Duck."
             }
         }
         ButtonEngine.onTest = { [weak self] b, dir in
