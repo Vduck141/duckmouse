@@ -59,6 +59,11 @@ enum ButtonAction: String, CaseIterable, Identifiable, Codable {
     /// Tên ngắn cho ô gán
     var short: String { title.components(separatedBy: " ⌘").first!.components(separatedBy: " ⌃").first!.replacingOccurrences(of: "…", with: "") }
     var needsParam: Bool { [.moThuMuc, .moApp, .moWeb, .phimTat].contains(self) }
+    /// Phím tắt tác dụng lên app đang mở phía trước (bấm «Thử» trong DuckMouse thì phải gửi sang app khác mới thấy)
+    var targetsApp: Bool {
+        [.copy, .dan, .cat, .chonHet, .hoanTac, .lamLai, .anApp, .thuNho, .phongTo,
+         .quayLai, .diTiep, .tabMoi, .dongTab, .moLaiTab, .taiLai, .tabTruoc, .tabSau, .phimTat].contains(self)
+    }
 
     static let groups: [(String, [ButtonAction])] = [
         ("Bộ nhớ tạm", [.copy, .dan, .cat, .chonHet, .hoanTac, .lamLai]),

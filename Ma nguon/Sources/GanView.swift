@@ -54,6 +54,10 @@ struct GanView: View {
             .opacity(settings.buttonsEnabled ? 1 : 0.5)
         }
         .sheet(item: $editing) { d in SlotSheet(button: b, dir: d) }
+        .onAppear {       // chỉ cho bản thử chạy ngầm: `-thuSlot 4-click` → mở thẳng ô chọn chức năng
+            if let k = UserDefaults.standard.string(forKey: "thuSlot"), case let p = k.split(separator: "-"), p.count == 2,
+               let bt = Int(p[0]), let d = Dir(rawValue: String(p[1])) { nav.ganButton = bt; editing = d }
+        }
     }
 
     private func cell(_ d: Dir) -> some View {
@@ -221,8 +225,15 @@ struct SlotSheet: View {
                 ShortcutRecorder(param: $s.param)
             default: EmptyView()
             }
+            if s.action.targetsApp {
+                Text(tryTarget.map { "«Thử» sẽ chuyển sang \($0) rồi bấm phím tắt ở đó (phím tắt chỉ có tác dụng với app đang mở phía trước)." }
+                     ?? "Phím tắt chỉ có tác dụng với app đang mở phía trước – mở app cần dùng rồi bấm nút chuột để thử.")
+                    .font(.system(size: 12)).foregroundStyle(T.ink3).fixedSize(horizontal: false, vertical: true)
+            }
             HStack {
-                Button("Thử") { Actions.perform(s) }.buttonStyle(DMButton(kind: .ghost)).disabled(s.action == .macDinh || s.action == .khongGi)
+                Button("Thử") { tryIt() }.buttonStyle(DMButton(kind: .ghost))
+                    .disabled(s.action == .macDinh || s.action == .khongGi || (s.action.targetsApp && tryTarget == nil))
+                if let n = tried { Text(n).font(.system(size: 12, weight: .semibold)).foregroundStyle(T.mint).lineLimit(1) }
                 Spacer()
                 Button("Huỷ") { dismiss() }.buttonStyle(DMButton(kind: .ghost))
                 Button("Lưu") { settings.setSlot(button, dir, s); dismiss() }.buttonStyle(DMButton(kind: .ink)).keyboardShortcut(.defaultAction)
@@ -230,6 +241,22 @@ struct SlotSheet: View {
         }
         .padding(22).frame(width: 440)
         .onAppear { s = settings.slot(button, dir) }
+    }
+
+    @State private var tried: String?
+    private var tryApp: NSRunningApplication? { AppModel.shared.lastOtherApp.flatMap { $0.isTerminated ? nil : $0 } }
+    private var tryTarget: String? { tryApp?.localizedName }
+
+    /// Phím tắt (Copy, Tab mới, Thu nhỏ…) bấm trong DuckMouse thì rơi vào chính DuckMouse, không thấy gì →
+    /// chuyển sang app dùng ngay trước đó rồi mới gửi phím (05/11: người dùng tưởng phím tắt không gán được)
+    private func tryIt() {
+        guard s.action.targetsApp else { Actions.perform(s); return }
+        guard let app = tryApp else { return }
+        let slot = s
+        if #available(macOS 14.0, *) { NSApp.yieldActivation(to: app) }
+        app.activate()
+        tried = "Đã gửi tới \(app.localizedName ?? "app")"
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { Actions.perform(slot) }
     }
 
     private func choose(dir: Bool) -> String? {
@@ -258,6 +285,7 @@ struct ShortcutRecorder: View {
     }
     private func start() {
         recording = true
+        HotKeyPause.set(true)        // tạm tắt phím nóng toàn hệ thống (MFinder ⌘⇧1, ⌘⇧3…) để ghi được đúng tổ hợp
         monitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { e in
             var f: CGEventFlags = []
             if e.modifierFlags.contains(.command) { f.insert(.maskCommand) }
@@ -273,5 +301,19 @@ struct ShortcutRecorder: View {
     private func stop() {
         recording = false
         if let m = monitor { NSEvent.removeMonitor(m); monitor = nil }
+        HotKeyPause.set(false)
     }
+}
+
+/// Tắt/bật phím nóng toàn hệ thống trong lúc ghi phím tắt (cách ShortcutRecorder/MASShortcut dùng).
+/// Chỉ có tác dụng khi DuckMouse còn chạy – app tắt thì macOS tự trả lại.
+enum HotKeyPause {
+    @_silgen_name("CGSMainConnectionID") private static func mainConn() -> Int32
+    @_silgen_name("CGSSetGlobalHotKeyOperatingMode") private static func setMode(_ c: Int32, _ m: Int32) -> Int32
+    @_silgen_name("CGSGetGlobalHotKeyOperatingMode") private static func getMode(_ c: Int32, _ m: UnsafeMutablePointer<Int32>) -> Int32
+    static func set(_ paused: Bool) {
+        _ = setMode(mainConn(), paused ? 1 : 0)          // 1 = tắt, 0 = bật
+        NotificationCenter.default.post(name: .init("HotKeyPauseChanged"), object: paused)
+    }
+    static var paused: Bool { var m: Int32 = 0; _ = getMode(mainConn(), &m); return m == 1 }
 }

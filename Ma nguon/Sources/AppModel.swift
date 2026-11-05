@@ -12,6 +12,10 @@ final class AppModel: ObservableObject {
     @Published var trusted = AXIsProcessTrusted()
     @Published var mosRunning = false
     @Published var toast: String?
+    /// App chuột khác đang chạy (phần mềm hãng, app gán nút) – có thể giành nút hông trước DuckMouse
+    @Published var otherMouseApps: [String] = []
+    /// App anh dùng ngay trước khi mở DuckMouse – nút «Thử» gửi phím tắt tới app này
+    private(set) var lastOtherApp: NSRunningApplication?
 
     let hid = MouseHID.shared
     let settings = Settings.shared
@@ -21,6 +25,7 @@ final class AppModel: ObservableObject {
 
     func start() {
         hid.start()
+        if CommandLine.arguments.contains("--gia-lap") { hid.enableSimulation() }
         if !settings.firstLaunchDone {
             settings.firstLaunchDone = true
             if MosImport.available { _ = MosImport.run() }
@@ -33,7 +38,28 @@ final class AppModel: ObservableObject {
         NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.didWakeNotification, object: nil, queue: .main) { [weak self] _ in
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) { self?.restartEngines(reason: "máy ngủ dậy") }
         }
+        if let f = NSWorkspace.shared.frontmostApplication, f.processIdentifier != getpid() { lastOtherApp = f }
+        NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.didActivateApplicationNotification, object: nil, queue: .main) { [weak self] n in
+            if let a = n.userInfo?[NSWorkspace.applicationUserInfoKey] as? NSRunningApplication, a.processIdentifier != getpid() { self?.lastOtherApp = a }
+        }
         check()
+    }
+
+    /// Tên app chuột khác đang chạy (danh sách giống app Dò nút; Mos có cảnh báo riêng)
+    static func scanMouseApps() -> [String] {
+        let keys = ["atk", "vxe", "vgn", "karabiner", "bettertouchtool", "steermouse", "linearmouse", "logi options", "logioptions",
+                    "razer synapse", "steelseries", "usb overdrive", "sensiblesidebuttons", "mac mouse fix", "macmousefix", "bettermouse"]
+        let found = NSWorkspace.shared.runningApplications.compactMap { a -> String? in
+            let n = (a.localizedName ?? "").lowercased(), b = (a.bundleIdentifier ?? "").lowercased()
+            if a.processIdentifier == getpid() || b.hasPrefix("vn.vduck.") || b == mosID.lowercased() || b.hasPrefix("com.apple.") { return nil }
+            // «atk» / «vxe» / «vgn» ngắn → chỉ khớp đầu tên hoặc cả chữ, tránh nhầm app có chữ đó ở giữa
+            let hit = keys.contains { k in
+                k.count <= 3 ? (n.hasPrefix(k) || n.split(separator: " ").contains(Substring(k)) || b.split(separator: ".").contains(Substring(k)))
+                             : (n.contains(k) || b.contains(k.replacingOccurrences(of: " ", with: "")))
+            }
+            return hit ? (a.localizedName ?? b) : nil
+        }
+        return Array(Set(found)).sorted()
     }
 
     func check() {
@@ -42,25 +68,28 @@ final class AppModel: ObservableObject {
         if t != trusted { trusted = t }
         let m = !NSRunningApplication.runningApplications(withBundleIdentifier: Self.mosID).isEmpty
         if m != mosRunning { mosRunning = m }
+        let o = Self.scanMouseApps()
+        if o != otherMouseApps { otherMouseApps = o }
         syncEngines()
     }
 
     /// Dựng lại bộ bắt khi macOS tắt nó (sau khi ngủ dậy, app bị treo lâu…)
     func restartEngines(reason: String) {
-        ScrollEngine.shared.stop(); ButtonEngine.shared.stop()
+        ScrollEngine.shared.stop(); ButtonEngine.shared.stop(); KeyButtons.shared.stop()
         syncEngines()
         NSLog("DuckMouse: dựng lại bộ bắt cuộn/nút – \(reason)")
     }
 
     /// Mos đang chạy thì không bật cuộn/nút (tránh cuộn mượt 2 lần, nút chạy 2 lần)
     func syncEngines() {
-        if !ScrollEngine.shared.healthy || !ButtonEngine.shared.healthy {
-            ScrollEngine.shared.stop(); ButtonEngine.shared.stop()
+        if !ScrollEngine.shared.healthy || !ButtonEngine.shared.healthy || !KeyButtons.shared.healthy {
+            ScrollEngine.shared.stop(); ButtonEngine.shared.stop(); KeyButtons.shared.stop()
             NSLog("DuckMouse: bộ bắt bị tắt → bật lại")
         }
         let canRun = trusted && !mosRunning
         if canRun && settings.scrollEnabled { ScrollEngine.shared.start() } else { ScrollEngine.shared.stop() }
-        if canRun && settings.buttonsEnabled { ButtonEngine.shared.start() } else { ButtonEngine.shared.stop() }
+        if canRun && settings.buttonsEnabled { ButtonEngine.shared.start(); KeyButtons.shared.start() }
+        else { KeyButtons.shared.stop(); ButtonEngine.shared.stop() }
     }
 
     func requestTrust() {

@@ -125,7 +125,11 @@ struct MainView: View {
         }
         .overlay { if nav.showWelcome { WelcomeView().transition(.opacity) } }
         .background(WindowSetup())
-        .onAppear { if !settings.welcomeShown { nav.showWelcome = true } }
+        .onAppear {
+            if !settings.welcomeShown { nav.showWelcome = true }
+            // chỉ cho bản thử chạy ngầm: mở kèm `-thuTab "Gán chức năng"` → vào thẳng tab (cửa sổ khác Space không bấm được)
+            if let t = UserDefaults.standard.string(forKey: "thuTab"), let tab = Tab(rawValue: t) { nav.tab = tab }
+        }
     }
 
     private var sidebar: some View {
@@ -198,27 +202,35 @@ struct Banners: View {
     var body: some View {
         VStack(spacing: 6) {
             if !model.trusted {
-                Banner(icon: "lock.shield", color: T.warn, text: "Cần quyền Trợ năng để cuộn mượt và gán nút chuột.", button: "Cấp quyền") { model.requestTrust() }
+                Banner(icon: "lock.shield", color: T.warn,
+                       text: "Cần quyền Trợ năng để cuộn mượt và gán nút chuột. Vừa cập nhật bản mới mà công tắc vẫn bật? Vào Trợ năng xoá dòng DuckMouse cũ (nút –) rồi cấp lại.",
+                       button: "Cấp quyền") { model.requestTrust() }
             }
             if model.mosRunning {
                 Banner(icon: "exclamationmark.triangle", color: T.warn,
                        text: "Mos đang chạy. Cuộn mượt và nút chuột của DuckMouse tạm nghỉ để không chạy 2 lần.", button: "Tắt Mos") { model.quitMos() }
             }
+            if !model.otherMouseApps.isEmpty {
+                let names = model.otherMouseApps.joined(separator: ", ")
+                Banner(icon: "exclamationmark.triangle", color: T.warn,
+                       text: "\(names) đang chạy – app này có thể giành nút hông trước DuckMouse. Nút hông không nhận thì tắt \(names) hoặc bỏ gán nút trong app đó.",
+                       button: nil) {}
+            }
         }
         .padding(.horizontal, 28)
-        .padding(.top, (model.trusted && !model.mosRunning) ? 0 : 14)
+        .padding(.top, (model.trusted && !model.mosRunning && model.otherMouseApps.isEmpty) ? 0 : 14)
     }
 }
 
 struct Banner: View {
-    let icon: String, color: Color, text: String, button: String
+    let icon: String, color: Color, text: String, button: String?
     let action: () -> Void
     var body: some View {
         HStack {
             Image(systemName: icon).foregroundStyle(color)
             Text(text).font(.system(size: 13, weight: .semibold)).fixedSize(horizontal: false, vertical: true)
             Spacer()
-            Button(button, action: action).buttonStyle(DMButton(kind: .ink))
+            if let button { Button(button, action: action).buttonStyle(DMButton(kind: .ink)) }
         }
         .padding(12)
         .background(color.opacity(0.12), in: RoundedRectangle(cornerRadius: 16, style: .continuous))

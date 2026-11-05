@@ -31,6 +31,7 @@ final class TestSession: ObservableObject {
     @Published var flash: String?
     @Published var lastGesture: String?
     @Published var wrongDir = 0
+    @Published var lastSignal: String?          // chuột gửi kiểu phím: "Hông sau ← phím Back (app đã đổi thành nút chuột)"
     private var lastDown: [Int: Double] = [:]
     private var lastWheel: (dir: Int, t: Date)?
     private let key = UUID()
@@ -109,6 +110,14 @@ final class TestSession: ObservableObject {
             for _ in 0..<abs(v) { self.hit(v > 0 ? "wu" : "wd") }
         }
         h.hwheelListeners[key] = { [weak self] _, v in self?.hit(v < 0 ? "wl" : "wr") }
+        h.signalListeners[key] = { [weak self] b, text in
+            guard let self else { return }
+            if let b {
+                self.lastSignal = "\(Settings.shared.buttonName(b)): chuột gửi \(text) → app đã đổi thành nút chuột, gán chức năng được"
+            } else {
+                self.lastSignal = "Chuột gửi \(text) – app chưa tự đổi được kiểu này. Chụp màn hình gửi Duck."
+            }
+        }
         ButtonEngine.onTest = { [weak self] b, dir in
             guard let self else { return }
             let name = Settings.shared.buttonName(b)
@@ -119,7 +128,7 @@ final class TestSession: ObservableObject {
     }
     func detach() {
         let h = MouseHID.shared
-        h.buttonListeners[key] = nil; h.wheelListeners[key] = nil; h.hwheelListeners[key] = nil
+        h.buttonListeners[key] = nil; h.wheelListeners[key] = nil; h.hwheelListeners[key] = nil; h.signalListeners[key] = nil
         ButtonEngine.onTest = nil; ButtonEngine.testLock = false
     }
 
@@ -134,7 +143,7 @@ final class TestSession: ObservableObject {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { if self.flash == id { self.flash = nil } }
     }
 
-    func resetKeys() { counts = [:]; chatter = [:]; wrongDir = 0; lastGesture = nil }
+    func resetKeys() { counts = [:]; chatter = [:]; wrongDir = 0; lastGesture = nil; lastSignal = nil }
 
     // MARK: kết quả
     var expectedButtons: [TestKey] { keys.filter { $0.id.hasPrefix("b") && $0.expected } }
@@ -230,6 +239,10 @@ struct ButtonStep: View {
                     Chip(text: inside ? "🔒 Đang khoá chức năng nút" : "Chưa khoá – đưa con trỏ vào ô", kind: inside ? .brand : .plain)
                 }
                 if let g = t.lastGesture { Text(g).font(.system(size: 13, weight: .bold)).foregroundStyle(T.ink).transition(.opacity) }
+                if let sg = t.lastSignal {
+                    Label(sg, systemImage: "keyboard").font(.system(size: 12.5, weight: .semibold)).foregroundStyle(T.warn)
+                        .fixedSize(horizontal: false, vertical: true).transition(.opacity)
+                }
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 230), spacing: 8)], spacing: 8) {
                     ForEach(t.keys) { k in keyCell(k) }
                 }

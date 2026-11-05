@@ -41,6 +41,7 @@ final class ButtonEngine {
         if let tap { CGEvent.tapEnable(tap: tap, enable: false); CFMachPortInvalidate(tap) }
         if let source { CFRunLoopRemoveSource(CFRunLoopGetMain(), source, .commonModes) }
         tap = nil; source = nil; running = false; holdDown = nil
+        setMoveTap(false); virtualHeld = nil; virtualKeyDown = nil; virtualKeyUp = nil
     }
 
     /// Bộ bắt còn sống không (macOS có thể tắt sau khi máy ngủ dậy / app bị treo)
@@ -65,7 +66,7 @@ final class ButtonEngine {
         let gesture = s.hasGesture(button)
         if !lock && !gesture {                       // không có cử chỉ → xử lý ngay
             if click.action == .macDinh { return Unmanaged.passUnretained(event) }
-            if type == .otherMouseDown { DispatchQueue.main.async { Actions.perform(click) } }
+            if type == .otherMouseDown { DispatchQueue.main.async { Self.perform(click) } }
             return nil
         }
         if type == .otherMouseDown {
@@ -78,14 +79,76 @@ final class ButtonEngine {
         if fired { return nil }                       // đã chạy cử chỉ → nuốt cú nhả
         if lock { DispatchQueue.main.async { Self.onTest?(button, .click) }; return nil }
         if click.action == .macDinh {                 // ấn nhanh → trả lại nút gốc (Chrome hiểu Quay lại / Đi tiếp)
-            for e in [down, event.copy()].compactMap({ $0 }) {
-                e.setIntegerValueField(.eventSourceUserData, value: ScrollEngine.marker)
-                e.post(tap: .cgSessionEventTap)
-            }
+            replay(virtualKeyDown.flatMap { kd in virtualKeyUp.map { [kd, $0] } } ?? [down, event.copy()].compactMap { $0 })
         } else {
-            DispatchQueue.main.async { Actions.perform(click) }
+            DispatchQueue.main.async { Self.perform(click) }
         }
         return nil
+    }
+
+    /// Chạy chức năng (bản thử thay bằng performHook để ghi lại, không bấm thật)
+    static var performHook: ((Slot) -> Void)?
+    static var postHook: ((CGEvent) -> Void)?
+    /// Bản thử logic (không bật bộ bắt thật): coi như bộ bắt đang chạy
+    static var simulateRunning = false
+    private static func perform(_ s: Slot) { if let h = performHook { h(s) } else { Actions.perform(s) } }
+
+    /// Gửi lại sự kiện gốc cho app (đánh dấu để bộ bắt của DuckMouse bỏ qua)
+    private func replay(_ events: [CGEvent]) {
+        for e in events {
+            e.setIntegerValueField(.eventSourceUserData, value: ScrollEngine.marker)
+            if let h = Self.postHook { h(e) } else { e.post(tap: .cgSessionEventTap) }
+        }
+    }
+
+    // MARK: nút ảo – chuột gửi nút hông kiểu phím (⌘[ / ⌥← / phím Back…) → KeyButtons / MouseHID đổi thành nút 4/5
+
+    /// Phím gốc của nút ảo đang giữ: «Giữ mặc định» thì gửi lại đúng phím chuột gửi (⌘[ …) thay vì nút chuột 4/5
+    private var virtualKeyDown: CGEvent?, virtualKeyUp: CGEvent?
+    private(set) var virtualHeld: Int?
+
+    /// Ấn / nhả nút ảo: chạy qua đúng đường của nút chuột thật (ô test, Gán chức năng, giữ + kéo).
+    /// orig = phím gốc chuột gửi (nil = phím đa phương tiện → trả lại bằng nút chuột 4/5)
+    func virtualButton(_ b: Int, down: Bool, orig: CGEvent? = nil) {
+        let pos = CGEvent(source: nil)?.location ?? .zero
+        guard let e = CGEvent(mouseEventSource: nil, mouseType: down ? .otherMouseDown : .otherMouseUp,
+                              mouseCursorPosition: pos, mouseButton: CGMouseButton(rawValue: UInt32(b - 1)) ?? .center) else { return }
+        e.setIntegerValueField(.mouseEventButtonNumber, value: Int64(b - 1))
+        e.flags = []                                  // chuột gửi ⌘ kèm phím → không để thành ⌘ + click
+        if down {
+            virtualHeld = b; virtualKeyDown = orig?.copy(); virtualKeyUp = nil
+            setMoveTap(true)
+        } else {
+            virtualKeyUp = orig?.copy()
+            setMoveTap(false)
+        }
+        let pass = (running || Self.simulateRunning) ? handle(down ? .otherMouseDown : .otherMouseUp, e) != nil : true
+        if pass { replay([orig?.copy() ?? e].compactMap { $0 }) }   // không gán gì → trả lại phím gốc / nút 4/5 cho app
+        if !down { virtualHeld = nil; virtualKeyDown = nil; virtualKeyUp = nil }
+    }
+
+    /// Bộ nghe di chuột (chỉ nghe, bật lúc đang giữ nút ảo): nút ảo không có sự kiện kéo, macOS chỉ báo «di chuột»
+    private var moveTap: CFMachPort?
+    private func setMoveTap(_ on: Bool) {
+        if on && moveTap == nil {
+            let mask = CGEventMask(1 << CGEventType.mouseMoved.rawValue)
+            let me = Unmanaged.passUnretained(self).toOpaque()
+            guard let t = CGEvent.tapCreate(tap: .cgSessionEventTap, place: .tailAppendEventTap, options: .listenOnly,
+                                            eventsOfInterest: mask, callback: { _, type, event, ref in
+                let eng = Unmanaged<ButtonEngine>.fromOpaque(ref!).takeUnretainedValue()
+                if type == .mouseMoved { eng.virtualMoved(event) }
+                return Unmanaged.passUnretained(event)
+            }, userInfo: me) else { return }
+            CFRunLoopAddSource(CFRunLoopGetMain(), CFMachPortCreateRunLoopSource(kCFAllocatorDefault, t, 0), .commonModes)
+            moveTap = t
+        }
+        if let moveTap { CGEvent.tapEnable(tap: moveTap, enable: on) }
+    }
+
+    /// Di chuột lúc giữ nút ảo → đếm quãng kéo như nút thật (cùng đơn vị điểm ảnh)
+    func virtualMoved(_ event: CGEvent) {
+        guard running || Self.simulateRunning, virtualHeld != nil, holdDown != nil else { return }
+        trackDrag(event, lock: Self.testLock)
     }
 
     private func trackDrag(_ event: CGEvent, lock: Bool) {
@@ -103,6 +166,6 @@ final class ButtonEngine {
         let slot = s.slot(b, dir)
         guard slot.action != .macDinh else { return }
         fired = true
-        DispatchQueue.main.async { Actions.perform(slot) }
+        DispatchQueue.main.async { Self.perform(slot) }
     }
 }

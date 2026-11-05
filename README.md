@@ -9,6 +9,7 @@ App chuột tiếng Việt cho macOS (chip Apple): **cuộn mượt** như track
 - **Test chuột 3 bước (khoảng 1 phút)** – rê 10 giây đo độ mượt, độ đều, số lần khựng · ô thử nút: đưa con trỏ vào ô là mọi nút chỉ được *ghi nhận*, không chạy chức năng · kết quả bằng lời (xanh / vàng / đỏ), so với chuẩn từng kiểu kết nối và với lần test trước, chép kết quả để gửi bảo hành.
 - **Cuộn mượt** – trôi chậm dần sau mỗi nấc lăn; ⌥ cuộn nhanh, ⇧ cuộn ngang, ⌘ tạm tắt. Trackpad và Magic Mouse giữ nguyên.
 - **Gán chức năng** – mỗi nút (bánh xe, hông sau, hông trước, nút thêm) có 5 ô: click + giữ rồi kéo ← → ↑ ↓. Chọn trong 34 chức năng: Copy / Dán / Cắt / Hoàn tác, sang màn trái / phải (như vuốt 3 ngón), Mission Control, chụp vùng màn hình, tab trình duyệt, âm lượng, mở thư mục / app / trang web, phím tắt tự chọn… Hiện chữ nhỏ giữa màn hình mỗi khi chức năng chạy.
+- **Chuột gửi nút hông kiểu phím** – nhiều chuột (Ugreen chế độ Mac gửi ⌘[ / ⌘], chuột kiểu Windows gửi ⌥← / ⌥→, chuột gửi phím Back / Forward) không gửi nút chuột 4/5 nên app gán nút thường không thấy. DuckMouse tự nhận phím do *chính con chuột* gửi và đổi thành nút hông → gán chức năng, giữ + kéo như chuột thường. Phím từ bàn phím thật để nguyên.
 - **Mời cà phê** – app miễn phí; thấy hữu ích thì quét mã VietQR trong app để ủng hộ.
 - Tự bật lại khi macOS tắt bộ bắt sự kiện (sau khi máy ngủ dậy). Tự nghỉ khi Mos đang chạy để không cuộn 2 lần.
 
@@ -28,7 +29,7 @@ Yêu cầu: macOS 14 trở lên, chip Apple (M1/M2/M3…).
 App chạy trên thanh menu (biểu tượng con chuột); khi cửa sổ đang mở thì có thêm biểu tượng trên Dock.
 
 ## Quyền riêng tư
-App **không kết nối mạng**, không thu thập hay gửi dữ liệu. App chỉ đọc nút / bánh xe / di chuyển của chuột (không đọc bàn phím) và phát lại phím tắt bạn đã gán. Cài đặt lưu trong máy (`~/Library/Preferences/vn.vduck.DuckMouse.plist`, `~/Library/Application Support/DuckMouse/`).
+App **không kết nối mạng**, không thu thập hay gửi dữ liệu. App chỉ đọc nút / bánh xe / di chuyển của chuột và phát lại phím tắt bạn đã gán. Với bàn phím, app chỉ xem 4 tổ hợp ⌘[ ⌘] ⌥← ⌥→ có phải do con chuột gửi không (để đổi thành nút hông); phím gõ không ghi lại, không lưu, phím từ bàn phím thật để nguyên. Cài đặt lưu trong máy (`~/Library/Preferences/vn.vduck.DuckMouse.plist`, `~/Library/Application Support/DuckMouse/`).
 
 ## Tự build
 ```bash

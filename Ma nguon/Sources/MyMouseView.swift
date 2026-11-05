@@ -60,7 +60,7 @@ struct MyMouseView: View {
                     HStack(spacing: 10) {
                         Tile(label: "Kết nối", value: d.connection)
                         Tile(label: "Nút gửi được", value: s.map { "\($0.layout.filter(\.sends).count) nút" } ?? (d.declaredButtons > 0 ? "\(d.declaredButtons) nút" : "—"),
-                             foot: s == nil ? "theo chuột tự khai" : "theo danh sách")
+                             foot: s == nil ? "theo chuột tự khai" : "theo thông số hãng")
                         Tile(label: "Tần số đo", value: hid.liveHz[d.id].map { "\(Int($0.rounded())) Hz" } ?? "— Hz", foot: "rê chuột để đo")
                     }
                     .padding(.top, 6)
@@ -137,7 +137,7 @@ struct MyMouseView: View {
                 }
             }
             DMCard(title: "Các nút", sub: "· \(s.layout.count) nút vật lý") {
-                FlowRows(items: s.layout.map { b in (b.name, b.sends ? "gửi được" : signalText(b.signal), b.sends) })
+                FlowRows(items: s.layout.map { b in (b.name, b.sends ? "" : signalText(b.signal), b.sends) })
                 HStack(spacing: 8) {
                     if !s.source.isEmpty, let u = URL(string: s.source) { Link("Nguồn thông số", destination: u).font(.system(size: 12.5, weight: .semibold)) }
                     Spacer()
@@ -183,7 +183,7 @@ func signalText(_ s: String) -> String {
 
 /// Hàng chip nút (tự xuống dòng)
 struct FlowRows: View {
-    let items: [(String, String, Bool)]
+    let items: [(String, String, Bool)]   // tên, chữ phụ (trống = không hiện), gửi sang máy?
     var body: some View {
         LazyVGrid(columns: [GridItem(.adaptive(minimum: 180), spacing: 8)], alignment: .leading, spacing: 8) {
             ForEach(items.indices, id: \.self) { i in
@@ -191,7 +191,7 @@ struct FlowRows: View {
                     Circle().fill(items[i].2 ? T.mint : T.line2).frame(width: 9, height: 9)
                     VStack(alignment: .leading, spacing: 1) {
                         Text(items[i].0).font(.system(size: 13, weight: .bold))
-                        Text(items[i].1).font(.system(size: 11.5)).foregroundStyle(items[i].2 ? T.mint : T.ink3)
+                        if !items[i].1.isEmpty { Text(items[i].1).font(.system(size: 11.5)).foregroundStyle(items[i].2 ? T.mint : T.ink3) }
                     }
                     Spacer(minLength: 0)
                 }
