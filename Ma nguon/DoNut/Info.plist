@@ -2,17 +2,29 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleDevelopmentRegion</key><string>vi</string>
-	<key>CFBundleDisplayName</key><string>DuckMouse Dò nút</string>
-	<key>CFBundleExecutable</key><string>DoNut</string>
-	<key>CFBundleIconFile</key><string>AppIcon</string>
-	<key>CFBundleIdentifier</key><string>vn.vduck.DuckMouse.DoNut</string>
-	<key>CFBundleName</key><string>DuckMouse Dò nút</string>
-	<key>CFBundlePackageType</key><string>APPL</string>
-	<key>CFBundleShortVersionString</key><string>1.0</string>
-	<key>CFBundleVersion</key><string>1</string>
-	<key>LSMinimumSystemVersion</key><string>14.0</string>
-	<key>NSHighResolutionCapable</key><true/>
-	<key>NSHumanReadableCopyright</key><string>© 2026 by Vduck</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>vi</string>
+	<key>CFBundleDisplayName</key>
+	<string>DuckMouse Dò nút</string>
+	<key>CFBundleExecutable</key>
+	<string>DoNut</string>
+	<key>CFBundleIconFile</key>
+	<string>AppIcon</string>
+	<key>CFBundleIdentifier</key>
+	<string>vn.vduck.DuckMouse.DoNut</string>
+	<key>CFBundleName</key>
+	<string>DuckMouse Dò nút</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.2</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>14.0</string>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+	<key>NSHumanReadableCopyright</key>
+	<string>© 2026 by Vduck</string>
 </dict>
 </plist>

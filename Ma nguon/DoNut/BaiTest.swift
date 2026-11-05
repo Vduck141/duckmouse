@@ -12,13 +12,15 @@ struct Step: Identifiable {
     var skipped = false
 }
 
-enum Verdict { case ok, blocked, hidden, none }
+enum Verdict { case ok, blocked, vendor, hidden, none }
 
 extension Step {
     var verdict: Verdict {
         switch (!hid.isEmpty, !mac.isEmpty) {
         case (true, true): return .ok
-        case (true, false): return .blocked
+        case (true, false):
+            // đầu thu không gửi «nút chuột» mà gửi phím / tín hiệu riêng hãng → macOS không coi là nút, không phải app chặn (05/11 VXE R1)
+            return hid.contains { $0.contains("nút chuột") || $0.contains("lăn") } ? .blocked : .vendor
         case (false, true): return .hidden
         default: return .none
         }
@@ -26,13 +28,14 @@ extension Step {
     var verdictText: String {
         switch verdict {
         case .ok: return "Bình thường"
-        case .blocked: return "Đầu thu có gửi nhưng macOS không thấy → có app đang chặn / đổi nút"
+        case .blocked: return "Đầu thu có gửi nhưng macOS không thấy → có app đang giữ / đổi nút (DuckMouse đang gán chức năng cho nút này cũng vậy – bình thường)"
+        case .vendor: return "Chuột gửi PHÍM / tín hiệu riêng của hãng thay cho nút chuột → macOS không coi là nút (không phải do app chặn)"
         case .hidden: return "macOS thấy nhưng không đọc được ở đầu thu → nút đi đường lạ (cần file kết quả)"
         case .none: return "Không nhận – nút hỏng, hoặc chuột không gửi nút này"
         }
     }
-    var mark: String { [Verdict.ok: "✓", .blocked: "⚠︎", .hidden: "⚠︎", .none: "✗"][verdict]! }
-    var color: Color { [Verdict.ok: C.mint, .blocked: C.warn, .hidden: C.warn, .none: C.danger][verdict]! }
+    var mark: String { [Verdict.ok: "✓", .blocked: "⚠︎", .vendor: "⚠︎", .hidden: "⚠︎", .none: "✗"][verdict]! }
+    var color: Color { [Verdict.ok: C.mint, .blocked: C.warn, .vendor: C.warn, .hidden: C.warn, .none: C.danger][verdict]! }
 }
 
 final class TestRun: ObservableObject {
@@ -107,6 +110,9 @@ final class TestRun: ObservableObject {
         if side.allSatisfy({ $0.verdict == .ok }) {
             return "2 nút hông: chuột gửi bình thường, macOS cũng thấy. Nếu DuckMouse vẫn không nhận → lỗi ở DuckMouse, gửi kết quả này cho Duck."
         }
+        if side.contains(where: { $0.verdict == .vendor }) {
+            return "Nút hông: chuột gửi PHÍM / tín hiệu riêng của hãng (không phải nút chuột) – không phải do app chặn. Cài DuckMouse bản mới nhất (1.1.2 trở lên) để app tự đổi thành nút hông; vẫn không nhận thì gửi Duck ảnh này + file kết quả."
+        }
         if side.contains(where: { $0.verdict == .blocked }) {
             return "Nút hông: chuột có gửi nhưng macOS không thấy → đang có app chặn nút (xem dòng app bên dưới). Tắt hẳn app đó rồi test lại."
         }
@@ -170,7 +176,7 @@ struct MainView: View {
                 }
                 .frame(height: 220)
             } label: { Text("Chi tiết kỹ thuật (cho Duck)").font(.system(size: 12, weight: .semibold)).foregroundStyle(C.ink3) }
-            Text("macOS \(ProcessInfo.processInfo.operatingSystemVersionString) · Dò nút 1.1 · © 2026 by Vduck")
+            Text("macOS \(ProcessInfo.processInfo.operatingSystemVersionString) · Dò nút 1.2 · © 2026 by Vduck")
                 .font(.system(size: 11)).foregroundStyle(C.ink3)
         }
         .padding(20)

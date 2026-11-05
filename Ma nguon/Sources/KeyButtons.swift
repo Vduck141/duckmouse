@@ -57,6 +57,7 @@ final class KeyButtons {
     func start() {
         guard !running else { return }
         let mask = CGEventMask(1 << CGEventType.keyDown.rawValue) | CGEventMask(1 << CGEventType.keyUp.rawValue)
+                 | CGEventMask(1 << Self.systemDefined)
         let me = Unmanaged.passUnretained(self).toOpaque()
         guard let t = CGEvent.tapCreate(tap: .cghidEventTap, place: .headInsertEventTap, options: .defaultTap,
                                         eventsOfInterest: mask, callback: { _, type, event, ref in
@@ -92,6 +93,7 @@ final class KeyButtons {
         }
         let pass = Unmanaged.passUnretained(event)
         guard event.getIntegerValueField(.eventSourceUserData) != ScrollEngine.marker else { return pass }   // phím DuckMouse tự gửi
+        if type.rawValue == Self.systemDefined { return volumeFromMouse(event) ? nil : pass }
         let code = event.getIntegerValueField(.keyboardEventKeycode)
         let candidate = Self.button(keyCode: code, flags: event.flags)
         // nhanh: phím thường không phải từ chuột đang giữ → chỉ cần xem có phải chuột gõ chữ không (đầu thu có bàn phím)
@@ -114,6 +116,18 @@ final class KeyButtons {
             return nil
         }
         return pass
+    }
+
+    /// Sự kiện phím hệ thống (âm lượng, phát nhạc…) – NX_SYSDEFINED
+    static let systemDefined: UInt32 = 14
+
+    /// Phím âm lượng do CHÍNH con chuột gửi mà chuột đó dùng phím âm lượng làm nút hông (MouseHID đã đổi thành nút 4/5)
+    /// → nuốt, để macOS không vừa đổi âm lượng vừa chạy chức năng. Phím âm lượng của bàn phím thật để nguyên.
+    private func volumeFromMouse(_ event: CGEvent) -> Bool {
+        guard let ns = NSEvent(cgEvent: event), ns.subtype.rawValue == 8 else { return false }
+        let key = (ns.data1 & 0xFFFF0000) >> 16                  // NX_KEYTYPE_SOUND_UP 0 · SOUND_DOWN 1
+        guard key == 0 || key == 1, let c = mouseCode(event) else { return false }
+        return MouseHID.shared.volumeSideCodes.contains(c)
     }
 
     /// Mã hãng:mã chuột của thiết bị gửi, nếu thiết bị đó là 1 con chuột đang nối (không phải bàn phím thật)
