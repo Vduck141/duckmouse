@@ -41,6 +41,8 @@ final class Settings: ObservableObject {
 
     // Gán chức năng: khoá "3-click", "4-trai"… (3 = giữa, 4 = hông sau, 5 = hông trước, 6+ = nút anh thêm)
     @Published var buttonsEnabled: Bool { didSet { d.set(buttonsEnabled, forKey: "buttonsEnabled") } }
+    /// Đổi phím từ chuột (⌘[ ⌘] ⌥← ⌥→) thành nút hông: bật = tự động (chuột có phần bàn phím thì chạy), tắt = nghỉ hẳn (1.1.5)
+    @Published var keyButtons: Bool { didSet { d.set(keyButtons, forKey: "keyButtons") } }
     @Published var slots: [String: Slot] { didSet { saveJSON(slots, "slots") } }
     @Published var waits: [String: Double] { didSet { saveJSON(waits, "waits") } }     // giữ bao lâu rồi mới tính kéo, theo nút
     @Published var dragDistance: Double { didSet { d.set(dragDistance, forKey: "dragDistance") } }
@@ -55,7 +57,7 @@ final class Settings: ObservableObject {
 
     private init() {
         d.register(defaults: ["scrollEnabled": true, "smooth": true, "reverse": false, "step": Self.defaultStep,
-                              "speed": Self.defaultSpeed, "duration": Self.defaultDuration, "buttonsEnabled": true,
+                              "speed": Self.defaultSpeed, "duration": Self.defaultDuration, "buttonsEnabled": true, "keyButtons": true,
                               "dragDistance": 80.0, "hud": true, "welcomeShown": false])
         scrollEnabled = d.bool(forKey: "scrollEnabled")
         smooth = d.bool(forKey: "smooth")
@@ -64,6 +66,7 @@ final class Settings: ObservableObject {
         speed = d.double(forKey: "speed")
         duration = d.double(forKey: "duration")
         buttonsEnabled = d.bool(forKey: "buttonsEnabled")
+        keyButtons = d.bool(forKey: "keyButtons")
         dragDistance = d.double(forKey: "dragDistance")
         hud = d.bool(forKey: "hud")
         welcomeShown = d.bool(forKey: "welcomeShown")

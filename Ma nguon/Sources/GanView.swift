@@ -6,6 +6,7 @@ import UniformTypeIdentifiers
 struct GanView: View {
     @EnvironmentObject var settings: Settings
     @EnvironmentObject var nav: Nav
+    @ObservedObject private var hid = MouseHID.shared
     @State private var focus: Dir?
     @State private var editing: Dir?
 
@@ -48,6 +49,7 @@ struct GanView: View {
                          : b == 4 || b == 5 ? "Click «Giữ mặc định» → Chrome / Safari tự hiểu Quay lại / Chuyển tiếp. Finder cần chọn «Quay lại ⌘[» / «Đi tiếp ⌘]»."
                          : "Nút bạn thêm: phần gán giữ lại kể cả khi bỏ nút, thêm lại là có ngay.")
                         .font(.system(size: 12)).foregroundStyle(T.ink3).frame(maxWidth: .infinity, alignment: .leading)
+                    keyCard
                 }
             }
             .disabled(!settings.buttonsEnabled)
@@ -57,6 +59,26 @@ struct GanView: View {
         .onAppear {       // chỉ cho bản thử chạy ngầm: `-thuSlot 4-click` → mở thẳng ô chọn chức năng
             if let k = UserDefaults.standard.string(forKey: "thuSlot"), case let p = k.split(separator: "-"), p.count == 2,
                let bt = Int(p[0]), let d = Dir(rawValue: String(p[1])) { nav.ganButton = bt; editing = d }
+        }
+    }
+
+    /// Công tắc bộ đổi phím → nút hông (1.1.5): chuột gửi nút 4/5 thật thì tắt được, app không nghe phím gõ nữa
+    private var keyCard: some View {
+        DMCard(padding: 14) {
+            HStack {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Nút hông gửi kiểu phím").font(.system(size: 13.5, weight: .semibold))
+                    Text(!settings.keyButtons ? "Đã tắt – app không nghe phím gõ"
+                         : hid.mouseHasKeys ? "Tự động: đầu thu có phần bàn phím → đang bật"
+                         : "Tự động: chuột không có phần bàn phím → đang nghỉ")
+                        .font(.system(size: 12)).foregroundStyle(T.ink3)
+                }
+                Spacer()
+                Toggle("", isOn: $settings.keyButtons).toggleStyle(DMSwitch()).fixedSize()
+                    .accessibilityLabel("Nút hông gửi kiểu phím")
+            }
+            Text("Không chắc? Cài đặt → bật Chế độ dò lỗi → bấm nút hông. Nhật ký ghi «nút chuột 4 / 5» thì tắt được; ghi «phím ⌘[ / ⌥←» thì để bật.")
+                .font(.system(size: 11.5)).foregroundStyle(T.ink3).fixedSize(horizontal: false, vertical: true)
         }
     }
 

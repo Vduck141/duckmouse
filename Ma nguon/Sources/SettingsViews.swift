@@ -70,6 +70,9 @@ enum AppInfo {
     static let releaseDate = "17/11/2026"
     static let github = URL(string: "https://github.com/Vduck141/duckmouse")!
     static let whatsNew = """
+    1.1.5 (17/11/2026)
+    • Tab Gán chức năng có công tắc «Nút hông gửi kiểu phím»: bật = tự động như cũ; tắt = app không nghe phím gõ nữa (chuột gửi nút 4/5 thật thì tắt được).
+
     1.1.4 (17/11/2026)
     • Nhẹ hơn khi chạy nền: đóng cửa sổ thì không xử lý gói di chuyển chuột, không đo tần số – chỉ còn cuộn mượt + gán nút.
     • Thôi kiểm tra 2 giây/lần: Mos / app chuột khác mở – tắt được báo ngay; đủ quyền thì 30 giây kiểm 1 lần.

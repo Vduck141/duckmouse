@@ -109,7 +109,7 @@ final class AppModel: ObservableObject {
         if canRun && settings.scrollEnabled { ScrollEngine.shared.start() } else { ScrollEngine.shared.stop() }
         if canRun && settings.buttonsEnabled { ButtonEngine.shared.start() } else { ButtonEngine.shared.stop() }
         // bộ đổi phím → nút hông nghe MỌI phím gõ → chỉ chạy khi chuột có phần bàn phím (1.1.4)
-        let wantKeys = canRun && settings.buttonsEnabled && hid.mouseHasKeys
+        let wantKeys = canRun && settings.buttonsEnabled && settings.keyButtons && hid.mouseHasKeys
         if wantKeys { KeyButtons.shared.start() } else { KeyButtons.shared.stop() }
         // ghi khi tình trạng đổi: chạy / tắt / KHÔNG tạo được (macOS từ chối)
         func st(_ want: Bool, _ run: Bool) -> String { run ? "chạy" : want ? "KHÔNG tạo được" : "tắt" }
