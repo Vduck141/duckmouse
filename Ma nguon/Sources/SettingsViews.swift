@@ -51,6 +51,8 @@ struct GeneralView: View {
                                isOn: Binding(get: { model.launchAtLogin }, set: { model.launchAtLogin = $0 }))
                     Divider().overlay(T.line)
                     SettingRow(title: "Hiện chữ khi chức năng chạy", sub: "Ô nhỏ giữa màn hình, tự tắt sau 0,6 giây", isOn: $settings.hud)
+                    Divider().overlay(T.line)
+                    SettingRow(title: "La bàn khi giữ nút", sub: "Giữ nút 0,5 giây → hiện 4 hướng + chức năng cạnh con trỏ (kéo nhanh thì không hiện)", isOn: $settings.compass)
                 }
             }
             DMCard(title: "Nhật ký & dò lỗi") {
@@ -70,6 +72,9 @@ enum AppInfo {
     static let releaseDate = "17/11/2026"
     static let github = URL(string: "https://github.com/Vduck141/duckmouse")!
     static let whatsNew = """
+    1.1.6 (17/11/2026)
+    • La bàn: giữ nút có cử chỉ 0,5 giây → ô chữ thập cạnh con trỏ ghi chức năng 4 hướng + click; kéo hướng nào sáng hướng đó. Tắt trong Cài đặt.
+
     1.1.5 (17/11/2026)
     • Tab Gán chức năng có công tắc «Nút hông gửi kiểu phím»: bật = tự động như cũ; tắt = app không nghe phím gõ nữa (chuột gửi nút 4/5 thật thì tắt được).
 

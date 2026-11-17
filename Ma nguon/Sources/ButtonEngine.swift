@@ -19,6 +19,7 @@ final class ButtonEngine {
     private var fired = false
     private var dragX = 0.0, dragY = 0.0
     private var downTime = Date.distantPast
+    private var compassWork: DispatchWorkItem?
 
     func start() {
         guard !running else { return }
@@ -41,6 +42,7 @@ final class ButtonEngine {
         if let tap { CGEvent.tapEnable(tap: tap, enable: false); CFMachPortInvalidate(tap) }
         if let source { CFRunLoopRemoveSource(CFRunLoopGetMain(), source, .commonModes) }
         tap = nil; source = nil; running = false; holdDown = nil
+        compassWork?.cancel(); compassWork = nil; Compass.hide()
         setMoveTap(false); virtualHeld = nil; virtualKeyDown = nil; virtualKeyUp = nil
     }
 
@@ -81,11 +83,14 @@ final class ButtonEngine {
         if isDown {
             Log.detail("NÚT", "\(who) nhấn · " + (lock ? "ô thử nút (chỉ ghi nhận)" : "có cử chỉ → giữ chờ kéo (≥ \(s.wait(button))s, \(Int(s.dragDistance)) px)"))
             holdButton = button; holdDown = event.copy(); fired = false; dragX = 0; dragY = 0; downTime = Date()
+            scheduleCompass(button, lock: lock, at: event.location)
             return nil
         }
         // nhả nút
         guard button == holdButton, let down = holdDown else { return lock ? nil : Unmanaged.passUnretained(event) }
         holdDown = nil
+        compassWork?.cancel(); compassWork = nil
+        if !fired { Compass.hide() }
         if fired { return nil }                       // đã chạy cử chỉ → nuốt cú nhả
         if lock { DispatchQueue.main.async { Self.onTest?(button, .click) }; return nil }
         if click.action == .macDinh {                 // ấn nhanh → trả lại nút gốc (Chrome hiểu Quay lại / Đi tiếp)
@@ -164,6 +169,18 @@ final class ButtonEngine {
         trackDrag(event, lock: Self.testLock)
     }
 
+    /// Giữ đủ 0,5 giây (và không ngắn hơn thời gian chờ kéo của nút) mà chưa nhả / chưa chạy → hiện la bàn
+    private func scheduleCompass(_ b: Int, lock: Bool, at p: CGPoint) {
+        compassWork?.cancel(); compassWork = nil
+        guard !lock, Settings.shared.compass else { return }
+        let w = DispatchWorkItem { [weak self] in
+            guard let self, self.holdDown != nil, self.holdButton == b, !self.fired else { return }
+            Compass.show(b, at: CGEvent(source: nil)?.location ?? p)
+        }
+        compassWork = w
+        DispatchQueue.main.asyncAfter(deadline: .now() + max(Compass.delay, Settings.shared.wait(b)), execute: w)
+    }
+
     private func trackDrag(_ event: CGEvent, lock: Bool) {
         let s = Settings.shared
         guard !fired, Date().timeIntervalSince(downTime) >= s.wait(holdButton) else { return }   // chưa giữ đủ → chưa đếm
@@ -173,12 +190,20 @@ final class ButtonEngine {
         let dir: Dir
         if abs(dragX) >= dist && abs(dragX) > abs(dragY) { dir = dragX < 0 ? .trai : .phai }
         else if abs(dragY) >= dist && abs(dragY) > abs(dragX) { dir = dragY < 0 ? .len : .xuong }
-        else { return }
+        else {                                        // chưa đủ quãng → la bàn sáng hướng đang nghiêng tới
+            if Compass.visible {
+                let lean: Dir? = max(abs(dragX), abs(dragY)) < dist * 0.25 ? nil
+                    : abs(dragX) > abs(dragY) ? (dragX < 0 ? .trai : .phai) : (dragY < 0 ? .len : .xuong)
+                Compass.lean(lean)
+            }
+            return
+        }
         let b = holdButton
         if lock { fired = true; DispatchQueue.main.async { Self.onTest?(b, dir) }; return }
         let slot = s.slot(b, dir)
         guard slot.action != .macDinh else { return }
         fired = true
+        compassWork?.cancel(); compassWork = nil; Compass.hide(fired: dir)
         Log.detail("KÉO", "nút \(b) \(dir.title) (\(Int(dragX)), \(Int(dragY))) → chạy \(slot.action.title)")
         DispatchQueue.main.async { Self.perform(slot) }
     }

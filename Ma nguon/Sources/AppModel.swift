@@ -27,6 +27,9 @@ final class AppModel: ObservableObject {
         Log.session()
         hid.start()
         if CommandLine.arguments.contains("--gia-lap") { hid.enableSimulation() }
+        if let i = CommandLine.arguments.firstIndex(of: "--thu-la-ban"), i + 1 < CommandLine.arguments.count {
+            let dir = CommandLine.arguments[i + 1]; MainActor.assumeIsolated { Compass.snapshot(to: dir) }   // chỉ dùng khi X thử: vẽ la bàn ra file PNG, không hiện lên màn
+        }
         if !settings.firstLaunchDone {
             settings.firstLaunchDone = true
             if MosImport.available { _ = MosImport.run() }
