@@ -34,7 +34,13 @@ final class AppModel: ObservableObject {
         settings.objectWillChange.sink { [weak self] in
             DispatchQueue.main.async { self?.syncEngines() }
         }.store(in: &bag)
-        poll = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { [weak self] _ in self?.check() }
+        // 1.1.4: không quét 2 giây/lần nữa – app mở/tắt (Mos, app chuột khác) báo ngay qua thông báo của macOS;
+        // đồng hồ chỉ nhanh (2 giây) khi còn thiếu quyền, đủ quyền thì 30 giây/lần để kiểm bộ bắt còn sống + hết hạn dò lỗi
+        for name in [NSWorkspace.didLaunchApplicationNotification, NSWorkspace.didTerminateApplicationNotification] {
+            NSWorkspace.shared.notificationCenter.addObserver(forName: name, object: nil, queue: .main) { [weak self] _ in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { self?.check() }      // chờ macOS cập nhật danh sách app
+            }
+        }
         // Máy ngủ dậy → dựng lại bộ bắt cuộn + nút (03/11 anh báo chuột không cuộn được sau khi máy ngủ dậy)
         NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.didWakeNotification, object: nil, queue: .main) { [weak self] _ in
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) { self?.restartEngines(reason: "máy ngủ dậy") }
@@ -74,6 +80,16 @@ final class AppModel: ObservableObject {
         if o != otherMouseApps { otherMouseApps = o; Log.info("APP", o.isEmpty ? "không còn app chuột khác" : "app chuột khác đang chạy: " + o.joined(separator: ", ")) }
         if Log.debugExpired { Log.setDebug(false) }
         syncEngines()
+        schedulePoll()
+    }
+
+    /// Đặt lần kiểm tiếp theo: thiếu quyền → 2 giây (để thấy ngay khi anh vừa cấp), đủ quyền → 30 giây
+    private func schedulePoll() {
+        let wait: TimeInterval = (trusted && hid.listenGranted) ? 30 : 2
+        if let p = poll, p.isValid, p.timeInterval == wait { return }
+        poll?.invalidate()
+        poll = Timer.scheduledTimer(withTimeInterval: wait, repeats: true) { [weak self] _ in self?.check() }
+        poll?.tolerance = wait / 5
     }
 
     /// Dựng lại bộ bắt khi macOS tắt nó (sau khi ngủ dậy, app bị treo lâu…)
@@ -91,11 +107,13 @@ final class AppModel: ObservableObject {
         }
         let canRun = trusted && !mosRunning
         if canRun && settings.scrollEnabled { ScrollEngine.shared.start() } else { ScrollEngine.shared.stop() }
-        if canRun && settings.buttonsEnabled { ButtonEngine.shared.start(); KeyButtons.shared.start() }
-        else { KeyButtons.shared.stop(); ButtonEngine.shared.stop() }
+        if canRun && settings.buttonsEnabled { ButtonEngine.shared.start() } else { ButtonEngine.shared.stop() }
+        // bộ đổi phím → nút hông nghe MỌI phím gõ → chỉ chạy khi chuột có phần bàn phím (1.1.4)
+        let wantKeys = canRun && settings.buttonsEnabled && hid.mouseHasKeys
+        if wantKeys { KeyButtons.shared.start() } else { KeyButtons.shared.stop() }
         // ghi khi tình trạng đổi: chạy / tắt / KHÔNG tạo được (macOS từ chối)
         func st(_ want: Bool, _ run: Bool) -> String { run ? "chạy" : want ? "KHÔNG tạo được" : "tắt" }
-        let state = "nút \(st(canRun && settings.buttonsEnabled, ButtonEngine.shared.running)) · phím từ chuột \(st(canRun && settings.buttonsEnabled, KeyButtons.shared.running)) · cuộn \(st(canRun && settings.scrollEnabled, ScrollEngine.shared.running))"
+        let state = "nút \(st(canRun && settings.buttonsEnabled, ButtonEngine.shared.running)) · phím từ chuột \(st(wantKeys, KeyButtons.shared.running)) · cuộn \(st(canRun && settings.scrollEnabled, ScrollEngine.shared.running))"
         if state != lastEngineState {
             lastEngineState = state
             Log.info("BỘ BẮT", state + (canRun ? "" : trusted ? " (Mos đang chạy)" : " (thiếu quyền Trợ năng)"))

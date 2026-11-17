@@ -67,9 +67,14 @@ struct GeneralView: View {
 /// Giới thiệu – giống Messenger Vdk: biểu tượng, tên, phiên bản · ngày, © by Vduck, các link
 enum AppInfo {
     static let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?"
-    static let releaseDate = "05/11/2026"
+    static let releaseDate = "17/11/2026"
     static let github = URL(string: "https://github.com/Vduck141/duckmouse")!
     static let whatsNew = """
+    1.1.4 (17/11/2026)
+    • Nhẹ hơn khi chạy nền: đóng cửa sổ thì không xử lý gói di chuyển chuột, không đo tần số – chỉ còn cuộn mượt + gán nút.
+    • Thôi kiểm tra 2 giây/lần: Mos / app chuột khác mở – tắt được báo ngay; đủ quyền thì 30 giây kiểm 1 lần.
+    • Bộ đổi phím → nút hông chỉ chạy khi chuột có phần bàn phím.
+
     1.1.3 (05/11/2026)
     • Nhật ký & dò lỗi (Cài đặt): bật Chế độ dò lỗi → bấm nút bị lỗi → Xuất nhật ký ra Tải về → gửi Duck. Không ghi chữ bạn gõ.
     • Chuột gửi nút hông kiểu phím (Ugreen chế độ Mac ⌘[ / ⌘], kiểu Windows ⌥← / ⌥→, phím Back / Forward) → tự đổi thành nút hông để gán được.

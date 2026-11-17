@@ -33,6 +33,10 @@ final class MouseHID: ObservableObject {
     @Published private(set) var liveHz: [UInt64: Double] = [:]     // trung vị các khoảng báo gần đây
     @Published private(set) var lastActive: UInt64?
     @Published private(set) var openError: String?
+    /// Chuột đang nối có phần bàn phím không (nút hông gửi phím ⌘[ ⌥←…) – không có thì KeyButtons nghỉ (1.1.4). Mặc định true = an toàn
+    @Published private(set) var mouseHasKeys = true
+    /// Đang nhận gói di chuyển (X/Y/bánh xe) – chỉ bật khi cửa sổ DuckMouse mở (1.1.4: đóng cửa sổ thì không xử lý ~1000 gói/giây)
+    private(set) var motionOn = false
 
     // Người nghe (tab Test). Gọi trên main thread.
     var moveListeners: [UUID: (UInt64, Int, Int, Double) -> Void] = [:]     // id, dx, dy, thời điểm (ms)
@@ -90,7 +94,7 @@ final class MouseHID: ObservableObject {
             started = true
             IOHIDManagerScheduleWithRunLoop(mgr, CFRunLoopGetMain(), CFRunLoopMode.defaultMode.rawValue)
             IOHIDManagerScheduleWithRunLoop(extra, CFRunLoopGetMain(), CFRunLoopMode.defaultMode.rawValue)
-            hzTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] _ in self?.publishHz() }
+            applyMotion()
             // Đọc nút / di chuyển của chuột cần quyền "Theo dõi đầu vào" → macOS tự hỏi 1 lần
             if !listenGranted && !CommandLine.arguments.contains("--khong-hoi-quyen") { _ = IOHIDRequestAccess(kIOHIDRequestTypeListenEvent) }   // cờ chỉ dùng khi Duck thử ngầm
         }
@@ -112,6 +116,26 @@ final class MouseHID: ObservableObject {
         Log.info("HID", isOpen ? "mở bộ đọc chuột được" : String(format: "KHÔNG mở được bộ đọc chuột (mã 0x%X) – thiếu quyền Theo dõi đầu vào?", r))
         openError = r == kIOReturnSuccess ? nil : "Cần quyền \"Theo dõi đầu vào\" để đo tần số, test nút, bánh xe."
         refreshDevices()
+    }
+
+    /// Cửa sổ mở → nhận đủ gói (đo Hz, tab Test); đóng → chỉ nhận nút chuột, tắt đồng hồ Hz
+    func setMotion(_ on: Bool) {
+        guard on != motionOn else { return }
+        motionOn = on
+        if started { applyMotion() }
+        Log.info("HID", on ? "cửa sổ mở → nhận gói di chuyển" : "cửa sổ đóng → chỉ nhận nút chuột")
+    }
+
+    private func applyMotion() {
+        if motionOn {
+            IOHIDManagerSetInputValueMatching(mgr, nil)
+            if hzTimer == nil { hzTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] _ in self?.publishHz() } }
+        } else {
+            IOHIDManagerSetInputValueMatching(mgr, [kIOHIDElementUsagePageKey: kHIDPage_Button] as CFDictionary)
+            hzTimer?.invalidate(); hzTimer = nil
+            recent.removeAll(); lastTS.removeAll()
+            if !liveHz.isEmpty { liveHz = [:] }
+        }
     }
 
     func device(_ id: UInt64?) -> MouseDevice? { devices.first { $0.id == id } }
@@ -186,6 +210,7 @@ final class MouseHID: ObservableObject {
             for l in moveListeners.values { l(id, dx, dy, tms) }
         } else if page == kHIDPage_Button {
             Log.detail("HID", "phần chuột \(Self.code(dev)) · nút chuột \(usage) \(v != 0 ? "nhấn" : "nhả")")
+            if v != 0 && lastActive != id { lastActive = id }      // cửa sổ đóng (không nhận di chuyển) vẫn biết chuột nào đang dùng
             for l in buttonListeners.values { l(id, Int(usage), v != 0, tms) }
         } else if page == kHIDPage_GenericDesktop && usage == kHIDUsage_GD_Wheel {
             guard v != 0 else { return }
@@ -217,7 +242,24 @@ final class MouseHID: ObservableObject {
             let parts = self.partsDescription()
             if parts != self.lastParts { self.lastParts = parts; if !parts.isEmpty { Log.info("PHẦN", parts.joined(separator: " | ")) } }
             self.registerRaw()
+            self.updateHasKeys(list)
         }
+    }
+
+    /// Có phần bàn phím (đầu thu chung bàn phím, chuột gửi phím) → KeyButtons cần chạy. Chưa mở được bộ đọc → giữ true
+    private func updateHasKeys(_ list: [MouseDevice]) {
+        guard extraOpen || list.isEmpty else { return }
+        let set = list.isEmpty ? [] : (IOHIDManagerCopyDevices(extra) as? Set<IOHIDDevice>) ?? []
+        let has = set.contains { d in
+            let pg = Self.num(d, kIOHIDPrimaryUsagePageKey), u = Self.num(d, kIOHIDPrimaryUsageKey)
+            if pg == 1 && (u == 6 || u == 7) { return true }
+            let els = (IOHIDDeviceCopyMatchingElements(d, [kIOHIDElementUsagePageKey: kHIDPage_KeyboardOrKeypad] as CFDictionary, 0) as? [IOHIDElement]) ?? []
+            return !els.isEmpty
+        }
+        guard has != mouseHasKeys else { return }
+        mouseHasKeys = has
+        Log.info("PHẦN", has ? "chuột có phần bàn phím → bật bộ đổi phím thành nút hông" : "chuột không có phần bàn phím → tắt bộ đổi phím (đỡ nghe mọi phím gõ)")
+        AppModel.shared.syncEngines()
     }
 
     // MARK: - nhật ký: các phần của chuột + gói thô (chế độ dò lỗi)

@@ -377,6 +377,7 @@ struct PermRow: View {
 struct WindowSetup: NSViewRepresentable {
     final class V: NSView {
         private var closeObs: Any?
+        private var visObs: Any?
         override func viewDidMoveToWindow() {
             super.viewDidMoveToWindow()
             guard let w = window else { return }
@@ -384,11 +385,21 @@ struct WindowSetup: NSViewRepresentable {
             w.collectionBehavior.remove(.fullScreenAuxiliary)
             w.collectionBehavior.insert([.fullScreenPrimary, .managed])
             if NSApp.activationPolicy() != .regular { NSApp.setActivationPolicy(.regular) }
+            // cửa sổ đang hiện → đo Hz, tab Test cần gói di chuyển; ẩn / thu xuống Dock / đóng → chỉ nhận nút (1.1.4).
+            // Theo dõi «đang hiện» vì SwiftUI mở lại cửa sổ cũ (không gọi lại hàm này)
+            MouseHID.shared.setMotion(true)
+            if let visObs { NotificationCenter.default.removeObserver(visObs) }
+            visObs = NotificationCenter.default.addObserver(forName: NSWindow.didChangeOcclusionStateNotification, object: w, queue: .main) { [weak w] _ in
+                guard let w else { return }
+                MouseHID.shared.setMotion(w.isVisible && w.occlusionState.contains(.visible))
+            }
+            if let closeObs { NotificationCenter.default.removeObserver(closeObs) }
             closeObs = NotificationCenter.default.addObserver(forName: NSWindow.willCloseNotification, object: w, queue: .main) { _ in
+                MouseHID.shared.setMotion(false)
                 DispatchQueue.main.async { NSApp.setActivationPolicy(.accessory) }
             }
         }
-        deinit { if let closeObs { NotificationCenter.default.removeObserver(closeObs) } }
+        deinit { [closeObs, visObs].compactMap { $0 }.forEach { NotificationCenter.default.removeObserver($0) } }
     }
     func makeNSView(context: Context) -> NSView { V() }
     func updateNSView(_ v: NSView, context: Context) {}
