@@ -72,6 +72,9 @@ enum AppInfo {
     static let releaseDate = "17/11/2026"
     static let github = URL(string: "https://github.com/Vduck141/duckmouse")!
     static let whatsNew = """
+    1.1.7 (17/11/2026)
+    • La bàn đổi sang hình tròn kính mờ (Liquid Glass): 4 múi bo tròn quanh nút giữa = click, chữ đậm có viền bóng nên rõ trên mọi nền; hiện/đổi múi có hiệu ứng mờ dần.
+
     1.1.6 (17/11/2026)
     • La bàn: giữ nút có cử chỉ 0,5 giây → ô chữ thập cạnh con trỏ ghi chức năng 4 hướng + click; kéo hướng nào sáng hướng đó. Tắt trong Cài đặt.
 
