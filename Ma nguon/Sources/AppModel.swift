@@ -98,15 +98,15 @@ final class AppModel: ObservableObject {
 
     /// Dựng lại bộ bắt khi macOS tắt nó (sau khi ngủ dậy, app bị treo lâu…)
     func restartEngines(reason: String) {
-        ScrollEngine.shared.stop(); ButtonEngine.shared.stop(); KeyButtons.shared.stop()
+        ScrollEngine.shared.stop(); ButtonEngine.shared.stop(); KeyButtons.shared.stop(); DoubleClick.shared.stop()
         syncEngines()
-        Log.info("BỘ BẮT", "dựng lại bộ bắt cuộn / nút / phím – \(reason)")
+        Log.info("BỘ BẮT", "dựng lại bộ bắt cuộn / nút / phím / bấm đúp – \(reason)")
     }
 
     /// Mos đang chạy thì không bật cuộn/nút (tránh cuộn mượt 2 lần, nút chạy 2 lần)
     func syncEngines() {
-        if !ScrollEngine.shared.healthy || !ButtonEngine.shared.healthy || !KeyButtons.shared.healthy {
-            ScrollEngine.shared.stop(); ButtonEngine.shared.stop(); KeyButtons.shared.stop()
+        if !ScrollEngine.shared.healthy || !ButtonEngine.shared.healthy || !KeyButtons.shared.healthy || !DoubleClick.shared.healthy {
+            ScrollEngine.shared.stop(); ButtonEngine.shared.stop(); KeyButtons.shared.stop(); DoubleClick.shared.stop()
             Log.info("BỘ BẮT", "macOS đã tắt bộ bắt → bật lại")
         }
         let canRun = trusted && !mosRunning
@@ -115,9 +115,11 @@ final class AppModel: ObservableObject {
         // bộ đổi phím → nút hông nghe MỌI phím gõ → chỉ chạy khi chuột có phần bàn phím (1.1.4)
         let wantKeys = canRun && settings.buttonsEnabled && settings.keyButtons && hid.mouseHasKeys
         if wantKeys { KeyButtons.shared.start() } else { KeyButtons.shared.stop() }
+        let wantDouble = trusted && settings.steadyDoubleClick       // Mos không đụng bấm trái → chạy cả khi Mos mở
+        if wantDouble { DoubleClick.shared.start(); DoubleClick.shared.refreshInterval() } else { DoubleClick.shared.stop() }
         // ghi khi tình trạng đổi: chạy / tắt / KHÔNG tạo được (macOS từ chối)
         func st(_ want: Bool, _ run: Bool) -> String { run ? "chạy" : want ? "KHÔNG tạo được" : "tắt" }
-        let state = "nút \(st(canRun && settings.buttonsEnabled, ButtonEngine.shared.running)) · phím từ chuột \(st(wantKeys, KeyButtons.shared.running)) · cuộn \(st(canRun && settings.scrollEnabled, ScrollEngine.shared.running))"
+        let state = "nút \(st(canRun && settings.buttonsEnabled, ButtonEngine.shared.running)) · phím từ chuột \(st(wantKeys, KeyButtons.shared.running)) · cuộn \(st(canRun && settings.scrollEnabled, ScrollEngine.shared.running)) · bấm đúp chắc tay \(st(wantDouble, DoubleClick.shared.running))"
         if state != lastEngineState {
             lastEngineState = state
             Log.info("BỘ BẮT", state + (canRun ? "" : trusted ? " (Mos đang chạy)" : " (thiếu quyền Trợ năng)"))

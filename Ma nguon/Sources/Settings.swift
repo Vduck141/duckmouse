@@ -50,6 +50,8 @@ final class Settings: ObservableObject {
     @Published var hud: Bool { didSet { d.set(hud, forKey: "hud") } }
     /// La bàn khi giữ nút 0,5 giây (1.1.6)
     @Published var compass: Bool { didSet { d.set(compass, forKey: "compass") } }
+    /// Bấm đúp chắc tay: 2 cú bấm trái lệch ≤ 20 pt vẫn tính bấm đúp (1.1.8)
+    @Published var steadyDoubleClick: Bool { didSet { d.set(steadyDoubleClick, forKey: "steadyDoubleClick") } }
     @Published var welcomeShown: Bool { didSet { d.set(welcomeShown, forKey: "welcomeShown") } }
 
     @Published var testHistory: [TestResult] { didSet { saveJSON(testHistory, "testHistory") } }
@@ -60,7 +62,7 @@ final class Settings: ObservableObject {
     private init() {
         d.register(defaults: ["scrollEnabled": true, "smooth": true, "reverse": false, "step": Self.defaultStep,
                               "speed": Self.defaultSpeed, "duration": Self.defaultDuration, "buttonsEnabled": true, "keyButtons": true,
-                              "dragDistance": 80.0, "hud": true, "compass": true, "welcomeShown": false])
+                              "dragDistance": 80.0, "hud": true, "compass": true, "steadyDoubleClick": true, "welcomeShown": false])
         scrollEnabled = d.bool(forKey: "scrollEnabled")
         smooth = d.bool(forKey: "smooth")
         reverse = d.bool(forKey: "reverse")
@@ -72,6 +74,7 @@ final class Settings: ObservableObject {
         dragDistance = d.double(forKey: "dragDistance")
         hud = d.bool(forKey: "hud")
         compass = d.bool(forKey: "compass")
+        steadyDoubleClick = d.bool(forKey: "steadyDoubleClick")
         welcomeShown = d.bool(forKey: "welcomeShown")
         waits = Self.loadJSON(d, "waits") ?? ["3": 0.2, "4": 0.1, "5": 0.1]
         extraButtons = Self.loadJSON(d, "extraButtons") ?? [:]

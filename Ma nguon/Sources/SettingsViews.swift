@@ -53,6 +53,8 @@ struct GeneralView: View {
                     SettingRow(title: "Hiện chữ khi chức năng chạy", sub: "Ô nhỏ giữa màn hình, tự tắt sau 0,6 giây", isOn: $settings.hud)
                     Divider().overlay(T.line)
                     SettingRow(title: "La bàn khi giữ nút", sub: "Giữ nút 0,5 giây → hiện 4 hướng + chức năng cạnh con trỏ (kéo nhanh thì không hiện)", isOn: $settings.compass)
+                    Divider().overlay(T.line)
+                    SettingRow(title: "Bấm đúp chắc tay", sub: "Tay nhích con trỏ (≤ 20 pt) giữa 2 cú bấm vẫn tính là bấm đúp – chỉ chuột, không đụng trackpad", isOn: $settings.steadyDoubleClick)
                 }
             }
             DMCard(title: "Nhật ký & dò lỗi") {
@@ -69,9 +71,12 @@ struct GeneralView: View {
 /// Giới thiệu – giống Messenger Vdk: biểu tượng, tên, phiên bản · ngày, © by Vduck, các link
 enum AppInfo {
     static let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?"
-    static let releaseDate = "17/11/2026"
+    static let releaseDate = "18/11/2026"
     static let github = URL(string: "https://github.com/Vduck141/duckmouse")!
     static let whatsNew = """
+    1.1.8 (18/11/2026)
+    • Bấm đúp chắc tay: 2 cú bấm trái nhanh mà con trỏ lỡ nhích (≤ 20 pt) vẫn tính là bấm đúp / bấm ba – hết cảnh bấm đúp chọn file mà máy không nhận. Chỉ áp cho chuột, trackpad để nguyên. Tắt trong Cài đặt.
+
     1.1.7 (17/11/2026)
     • La bàn đổi sang hình tròn kính mờ (Liquid Glass): 4 múi bo tròn quanh nút giữa = click, chữ đậm có viền bóng nên rõ trên mọi nền; hiện/đổi múi có hiệu ứng mờ dần.
 

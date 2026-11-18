@@ -109,7 +109,7 @@ enum Log {
         t.append("macOS \(ProcessInfo.processInfo.operatingSystemVersionString) · máy \(model())")
         t.append("Quyền: Trợ năng \(yn(m.trusted)) · Theo dõi đầu vào \(yn(h.listenGranted))")
         t.append("Bộ bắt: nút \(run(ButtonEngine.shared.running)) · phím từ chuột \(run(KeyButtons.shared.running)) · cuộn \(run(ScrollEngine.shared.running))")
-        t.append("Cài đặt: Gán chức năng \(s.buttonsEnabled ? "bật" : "TẮT") · Cuộn mượt \(s.scrollEnabled ? "bật" : "TẮT") · chữ báo \(s.hud ? "bật" : "tắt") · đổi phím → nút hông \(s.keyButtons ? "tự động" : "TẮT") · la bàn \(s.compass ? "bật" : "tắt")")
+        t.append("Cài đặt: Gán chức năng \(s.buttonsEnabled ? "bật" : "TẮT") · Cuộn mượt \(s.scrollEnabled ? "bật" : "TẮT") · chữ báo \(s.hud ? "bật" : "tắt") · đổi phím → nút hông \(s.keyButtons ? "tự động" : "TẮT") · la bàn \(s.compass ? "bật" : "tắt") · bấm đúp chắc tay \(s.steadyDoubleClick ? "bật" : "tắt")")
         t.append("Mos: \(m.mosRunning ? "ĐANG CHẠY (DuckMouse nghỉ cuộn/nút)" : "không") · App chuột khác: \(m.otherMouseApps.isEmpty ? "không" : m.otherMouseApps.joined(separator: ", "))")
         t.append("Chế độ dò lỗi: " + (debugUntil.map { "bật tới \(timeFmt.string(from: $0).prefix(5))" } ?? "tắt (nhật ký chỉ có việc lớn)"))
         t.append("Chuột đang nối:")
