@@ -5,6 +5,7 @@ import CoreGraphics
 final class ButtonEngine {
     static let shared = ButtonEngine()
     private(set) var running = false
+    let guardian = TapGuard("nút")       // 1.1.9 tự trông bộ bắt
     private var tap: CFMachPort?
     private var source: CFRunLoopSource?
 
@@ -34,6 +35,7 @@ final class ButtonEngine {
         source = CFMachPortCreateRunLoopSource(kCFAllocatorDefault, t, 0)
         CFRunLoopAddSource(CFRunLoopGetMain(), source, .commonModes)
         CGEvent.tapEnable(tap: t, enable: true)
+        guardian.reset()
         running = true
     }
 
@@ -51,10 +53,12 @@ final class ButtonEngine {
 
     private func handle(_ type: CGEventType, _ event: CGEvent) -> Unmanaged<CGEvent>? {
         if type == .tapDisabledByTimeout || type == .tapDisabledByUserInput {
-            Log.info("BỘ BẮT", "macOS tạm tắt bộ bắt nút (\(type == .tapDisabledByTimeout ? "chạy chậm" : "người dùng")) → bật lại")
-            if let tap { CGEvent.tapEnable(tap: tap, enable: true) }
+            guardian.disabled(type == .tapDisabledByTimeout ? .timeout : .user) { [weak self] in
+                if let t = self?.tap, CFMachPortIsValid(t) { CGEvent.tapEnable(tap: t, enable: true) }
+            }
             return Unmanaged.passUnretained(event)
         }
+        guardian.seen()
         guard event.getIntegerValueField(.eventSourceUserData) != ScrollEngine.marker else { return Unmanaged.passUnretained(event) }
         // CGEvent đánh số từ 0 (2 = giữa); IOHID / giao diện đánh số từ 1 (3 = giữa)
         let button = Int(event.getIntegerValueField(.mouseEventButtonNumber)) + 1

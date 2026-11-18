@@ -74,6 +74,9 @@ enum AppInfo {
     static let releaseDate = "18/11/2026"
     static let github = URL(string: "https://github.com/Vduck141/duckmouse")!
     static let whatsNew = """
+    1.1.9 (18/11/2026)
+    • Tự trông bộ bắt: macOS tắt bộ bắt cuộn / nút thì bật lại ngay, tắt dồn dập thì chờ dần rồi bật (không làm giật máy); bộ bắt «chết lặng» – chuột vẫn bấm, lăn mà app không nhận – thì tự gắn lại, không cần thoát app.
+
     1.1.8 (18/11/2026)
     • Bấm đúp chắc tay: 2 cú bấm trái nhanh mà con trỏ lỡ nhích (≤ 20 pt) vẫn tính là bấm đúp / bấm ba – hết cảnh bấm đúp chọn file mà máy không nhận. Chỉ áp cho chuột, trackpad để nguyên. Tắt trong Cài đặt.
 

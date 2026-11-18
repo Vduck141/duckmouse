@@ -131,7 +131,9 @@ final class MouseHID: ObservableObject {
             IOHIDManagerSetInputValueMatching(mgr, nil)
             if hzTimer == nil { hzTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] _ in self?.publishHz() } }
         } else {
-            IOHIDManagerSetInputValueMatching(mgr, [kIOHIDElementUsagePageKey: kHIDPage_Button] as CFDictionary)
+            // cửa sổ đóng: chỉ nhận nút + nấc bánh xe (1.1.9: để tự trông bộ bắt cuộn), bỏ gói di chuyển
+            IOHIDManagerSetInputValueMatchingMultiple(mgr, [[kIOHIDElementUsagePageKey: kHIDPage_Button],
+                [kIOHIDElementUsagePageKey: kHIDPage_GenericDesktop, kIOHIDElementUsageKey: kHIDUsage_GD_Wheel]] as CFArray)
             hzTimer?.invalidate(); hzTimer = nil
             recent.removeAll(); lastTS.removeAll()
             if !liveHz.isEmpty { liveHz = [:] }

@@ -62,6 +62,7 @@ final class DoubleClick {
     static let shared = DoubleClick()
 
     private(set) var running = false
+    let guardian = TapGuard("bấm đúp")   // 1.1.9 tự trông bộ bắt
     private var tap: CFMachPort?
     private var source: CFRunLoopSource?
     private var thread: Thread?
@@ -97,6 +98,7 @@ final class DoubleClick {
         th.start()
         sem.wait()
         thread = th
+        guardian.reset()
         running = true
     }
 
@@ -116,10 +118,13 @@ final class DoubleClick {
     func handle(_ type: CGEventType, _ event: CGEvent) -> Unmanaged<CGEvent>? {
         let pass = Unmanaged.passUnretained(event)
         if type == .tapDisabledByTimeout || type == .tapDisabledByUserInput {
-            if let tap { CGEvent.tapEnable(tap: tap, enable: true) }
+            guardian.disabled(type == .tapDisabledByTimeout ? .timeout : .user) { [weak self] in
+                if let t = self?.tap, CFMachPortIsValid(t) { CGEvent.tapEnable(tap: t, enable: true) }
+            }
             logic.reset()
             return pass
         }
+        guardian.seen()
         // chỉ chuột thật: trackpad (subtype 3) / tablet và cú bấm do app phát (pid ≠ 0) để nguyên
         guard event.getIntegerValueField(.mouseEventSubtype) == 0,
               event.getIntegerValueField(.eventSourceUnixProcessID) == 0 else { return pass }

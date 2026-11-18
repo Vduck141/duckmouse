@@ -11,6 +11,7 @@ final class ScrollEngine {
     static let marker: Int64 = 0x4455_434B_4D4F_5553   // "DUCKMOUS" – đánh dấu sự kiện do app tự phát
 
     private(set) var running = false
+    let guardian = TapGuard("cuộn")      // 1.1.9 tự trông bộ bắt
     private var tap: CFMachPort?
     private var source: CFRunLoopSource?
     private var link: CVDisplayLink?          // nhịp theo màn hình (60Hz / 120Hz…) – giống Mos
@@ -44,6 +45,7 @@ final class ScrollEngine {
         CFRunLoopAddSource(CFRunLoopGetMain(), source, .commonModes)
         CGEvent.tapEnable(tap: t, enable: true)
         makeLink()
+        guardian.reset()
         running = true
     }
 
@@ -77,9 +79,12 @@ final class ScrollEngine {
 
     private func handle(_ type: CGEventType, _ event: CGEvent) -> Unmanaged<CGEvent>? {
         if type == .tapDisabledByTimeout || type == .tapDisabledByUserInput {
-            if let tap { CGEvent.tapEnable(tap: tap, enable: true) }
+            guardian.disabled(type == .tapDisabledByTimeout ? .timeout : .user) { [weak self] in
+                if let t = self?.tap, CFMachPortIsValid(t) { CGEvent.tapEnable(tap: t, enable: true) }
+            }
             return Unmanaged.passUnretained(event)
         }
+        guardian.seen()
         let pass = Unmanaged.passUnretained(event)
         guard type == .scrollWheel,
               event.getIntegerValueField(.eventSourceUserData) != Self.marker else { return pass }

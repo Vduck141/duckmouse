@@ -12,6 +12,7 @@ import IOKit
 final class KeyButtons {
     static let shared = KeyButtons()
     private(set) var running = false
+    let guardian = TapGuard("phím")      // 1.1.9: macOS tắt dồn dập → chờ dần rồi bật lại
     private var tap: CFMachPort?
     private var source: CFRunLoopSource?
 
@@ -88,8 +89,9 @@ final class KeyButtons {
 
     func handle(_ type: CGEventType, _ event: CGEvent) -> Unmanaged<CGEvent>? {
         if type == .tapDisabledByTimeout || type == .tapDisabledByUserInput {
-            Log.info("BỘ BẮT", "macOS tạm tắt bộ bắt phím (\(type == .tapDisabledByTimeout ? "chạy chậm" : "người dùng")) → bật lại")
-            if let tap { CGEvent.tapEnable(tap: tap, enable: true) }
+            guardian.disabled(type == .tapDisabledByTimeout ? .timeout : .user) { [weak self] in
+                if let t = self?.tap, CFMachPortIsValid(t) { CGEvent.tapEnable(tap: t, enable: true) }
+            }
             return Unmanaged.passUnretained(event)
         }
         let pass = Unmanaged.passUnretained(event)

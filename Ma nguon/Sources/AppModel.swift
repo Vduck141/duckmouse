@@ -35,6 +35,17 @@ final class AppModel: ObservableObject {
             settings.firstLaunchDone = true
             if MosImport.available { _ = MosImport.run() }
         }
+        // 1.1.9 tự trông bộ bắt: HID thấy chuột thật bấm / lăn mà bộ bắt không nhận → gỡ móc cũ, gắn móc mới
+        ScrollEngine.shared.guardian.onDead = { [weak self] in ScrollEngine.shared.stop(); self?.syncEngines() }
+        ButtonEngine.shared.guardian.onDead = { [weak self] in ButtonEngine.shared.stop(); self?.syncEngines() }
+        DoubleClick.shared.guardian.onDead = { [weak self] in DoubleClick.shared.stop(); self?.syncEngines() }
+        let guardID = UUID()
+        hid.buttonListeners[guardID] = { _, b, down, _ in
+            guard down else { return }
+            if b == 1, DoubleClick.shared.running { DoubleClick.shared.guardian.hidSaw() }
+            if b >= 3, ButtonEngine.shared.running { ButtonEngine.shared.guardian.hidSaw() }
+        }
+        hid.wheelListeners[guardID] = { _, _ in if ScrollEngine.shared.running { ScrollEngine.shared.guardian.hidSaw() } }
         settings.objectWillChange.sink { [weak self] in
             DispatchQueue.main.async { self?.syncEngines() }
         }.store(in: &bag)
