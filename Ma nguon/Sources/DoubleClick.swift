@@ -2,6 +2,8 @@
 // (macOS chỉ tính bấm đúp khi 2 cú gần như trùng chỗ). Cách sửa: 2 cú bấm trái cách nhau ≤ ngưỡng bấm đúp của máy
 // và lệch ≤ 20 pt → đặt cú sau vào đúng chỗ cú đầu + tăng clickState → app nhận là bấm đúp / bấm ba.
 // Chỉ đụng chuột thật (subtype 0, do phần cứng gửi); trackpad và sự kiện app tự phát để nguyên.
+// 1.1.9: chỉ nối khi 2 cú cách nhau ≤ 0,5 s (Duck đo trên trang test: bấm đúp thật cách nhau 124–232 ms). Ngưỡng máy 1,1 s
+// quá rộng → cú bấm đơn sau đó vẫn bị kéo về chỗ cũ, cảm giác «click không ăn».
 import AppKit
 import CoreGraphics
 
@@ -9,7 +11,9 @@ import CoreGraphics
 struct DoubleClickLogic {
     var maxDistance: Double = 20        // lệch tối đa giữa 2 cú (pt)
     var dragSlop: Double = 4            // giữ nút mà dời quá 4 pt = kéo, không nối chuỗi
-    var interval: Double = 0.5          // ngưỡng bấm đúp của máy (giây) – lấy từ NSEvent.doubleClickInterval
+    var interval: Double = 0.5          // ngưỡng nối (giây) = min(ngưỡng máy, maxInterval)
+    static let maxInterval = 0.5        // 1.1.9: không nối 2 cú cách nhau quá 0,5 s
+    static func cap(_ sys: Double) -> Double { min(sys, maxInterval) }
 
     private(set) var anchor: CGPoint?   // chỗ cú đầu của chuỗi
     private var lastDownTime = 0.0
@@ -73,7 +77,7 @@ final class DoubleClick {
     func start() {
         guard !running else { return }
         logic.reset()
-        logic.interval = NSEvent.doubleClickInterval
+        logic.interval = DoubleClickLogic.cap(NSEvent.doubleClickInterval)
         let mask = CGEventMask(1 << CGEventType.leftMouseDown.rawValue) | CGEventMask(1 << CGEventType.leftMouseUp.rawValue)
                  | CGEventMask(1 << CGEventType.leftMouseDragged.rawValue)
         let me = Unmanaged.passUnretained(self).toOpaque()
@@ -112,7 +116,7 @@ final class DoubleClick {
     var healthy: Bool { guard let tap else { return !running }; return CFMachPortIsValid(tap) && CGEvent.tapIsEnabled(tap: tap) }
 
     /// Cập nhật ngưỡng khi anh đổi «Tốc độ bấm hai lần» trong Cài đặt máy
-    func refreshInterval() { let i = NSEvent.doubleClickInterval; loop.map { CFRunLoopPerformBlock($0, CFRunLoopMode.commonModes.rawValue) { self.logic.interval = i }; CFRunLoopWakeUp($0) } }
+    func refreshInterval() { let i = DoubleClickLogic.cap(NSEvent.doubleClickInterval); loop.map { CFRunLoopPerformBlock($0, CFRunLoopMode.commonModes.rawValue) { self.logic.interval = i }; CFRunLoopWakeUp($0) } }
 
     /// Xử lý 1 sự kiện (X thử thẳng hàm này bằng CGEvent giả)
     func handle(_ type: CGEventType, _ event: CGEvent) -> Unmanaged<CGEvent>? {
