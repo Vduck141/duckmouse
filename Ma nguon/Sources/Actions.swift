@@ -104,6 +104,18 @@ struct Shortcut {
         code = c; flags = CGEventFlags(rawValue: f)
     }
     var param: String { "\(code)|\(flags.rawValue)" }
+    /// 1.1.10: phím mũi tên / F1–F12 / Home End PgUp PgDn ⌦ trên bàn phím thật luôn kèm cờ fn (mũi tên kèm cả cờ bàn số).
+    /// Phím tắt hệ thống và phím tắt toàn máy của app khác so cả cờ này – thiếu là không ăn (Duck báo ⌃⌥← / ⌃⌥→ 19/11).
+    /// Thêm lúc gửi → phím đã ghi từ bản cũ cũng chạy, không phải ghi lại.
+    static let fnKeys: Set<CGKeyCode> = [122, 120, 99, 118, 96, 97, 98, 100, 101, 109, 103, 111, 105, 107, 113, 106, 64, 79, 80, 90,
+                                         114, 115, 116, 117, 119, 121]
+    static let arrowKeys: Set<CGKeyCode> = [123, 124, 125, 126]
+    var sendFlags: CGEventFlags {
+        var f = flags
+        if Self.arrowKeys.contains(code) { f.formUnion([.maskSecondaryFn, .maskNumericPad]) }
+        else if Self.fnKeys.contains(code) { f.insert(.maskSecondaryFn) }
+        return f
+    }
     var text: String {
         var t = ""
         if flags.contains(.maskControl) { t += "⌃" }
@@ -164,7 +176,7 @@ enum Actions {
             if !u.isEmpty && !u.contains("://") { u = "https://" + u }
             if let url = URL(string: u), !u.isEmpty { NSWorkspace.shared.open(url) } else { Log.info("CHẠY", "địa chỉ web không hợp lệ: \(s.param)"); NSSound.beep() }
         case .phimTat:
-            if let k = Shortcut(s.param) { key(k.code, k.flags) } else { Log.info("CHẠY", "phím tắt tự chọn chưa ghi"); NSSound.beep() }
+            if let k = Shortcut(s.param) { key(k.code, k.sendFlags) } else { Log.info("CHẠY", "phím tắt tự chọn chưa ghi"); NSSound.beep() }
         }
         if Settings.shared.hud { HUD.show(s.action == .phimTat ? (Shortcut(s.param)?.text ?? "Phím tắt") : s.action.title) }
     }

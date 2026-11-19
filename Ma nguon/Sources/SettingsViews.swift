@@ -71,9 +71,12 @@ struct GeneralView: View {
 /// Giới thiệu – giống Messenger Vdk: biểu tượng, tên, phiên bản · ngày, © by Vduck, các link
 enum AppInfo {
     static let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?"
-    static let releaseDate = "18/11/2026"
+    static let releaseDate = "19/11/2026"
     static let github = URL(string: "https://github.com/Vduck141/duckmouse")!
     static let whatsNew = """
+    1.1.10 (19/11/2026)
+    • Sửa phím tắt tự chọn có phím mũi tên / F1–F12 / Home, End (vd ⌃⌥← ⌃⌥→) không ăn: nay gửi kèm cờ fn như bàn phím thật. Phím đã ghi từ bản cũ tự chạy, không phải ghi lại.
+
     1.1.9 (18/11/2026)
     • Tự trông bộ bắt: macOS tắt bộ bắt cuộn / nút thì bật lại ngay, tắt dồn dập thì chờ dần rồi bật (không làm giật máy); bộ bắt «chết lặng» – chuột vẫn bấm, lăn mà app không nhận – thì tự gắn lại, không cần thoát app.
     • Bấm đúp chắc tay chỉ nối 2 cú cách nhau ≤ 0,5 giây (trước theo ngưỡng máy, có máy tới 1,1 giây) – cú bấm đơn ngay sau bấm đúp không còn bị kéo về chỗ cũ.
